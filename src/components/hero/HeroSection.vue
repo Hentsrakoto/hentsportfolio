@@ -108,7 +108,7 @@
 
           <!-- The Person Image -->
           <img
-            src="@/assets/hents.png"
+            src="@/assets/Hents.png"
             alt="Photo de Henintsoa"
             class="relative z-10 w-full h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
           />
