@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useDarkMode } from '@/composables/useDarkMode'
+import logo from '@/assets/logohents.png'
 
 // 🎨 Icônes Lucide
-import { Menu, X, Moon, Sun, Code2 } from 'lucide-vue-next'
+import { Menu, X, Moon, Sun } from 'lucide-vue-next'
 
 const { isDark, toggleDark } = useDarkMode()
 const isOpen = ref(false)
@@ -28,17 +29,13 @@ const links = [
         href="#accueil"
         class="flex items-center space-x-2 text-2xl font-bold text-primary dark:text-primary-light"
       >
-        <Code2 class="w-6 h-6" />
-        <span>Hents</span>
+        <img :src="logo" class="w-20 h-25" alt="Logo Hents" />
       </a>
 
       <!-- Liens (Desktop) -->
       <ul class="hidden md:flex space-x-8">
         <li v-for="link in links" :key="link.name">
-          <a
-            :href="link.href"
-            class="hover:text-primary transition-colors duration-200"
-          >
+          <a :href="link.href" class="hover:text-primary transition-colors duration-200">
             {{ link.name }}
           </a>
         </li>
@@ -71,11 +68,7 @@ const links = [
         class="md:hidden flex flex-col items-center bg-background-light dark:bg-background-dark space-y-4 py-6 border-t border-gray-300 dark:border-gray-700"
       >
         <li v-for="link in links" :key="link.name">
-          <a
-            :href="link.href"
-            @click="isOpen = false"
-            class="block text-lg hover:text-primary"
-          >
+          <a :href="link.href" @click="isOpen = false" class="block text-lg hover:text-primary">
             {{ link.name }}
           </a>
         </li>
