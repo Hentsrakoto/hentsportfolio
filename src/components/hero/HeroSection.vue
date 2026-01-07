@@ -1,132 +1,181 @@
 <template>
   <section
     id="accueil"
-    class="relative flex flex-col md:flex-row items-center justify-between min-h-screen px-6 sm:px-12 lg:px-24 py-12 bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 transition-colors duration-700 overflow-hidden"
+    class="relative flex items-center justify-center min-h-screen px-6 sm:px-12 lg:px-24 py-12 bg-slate-50 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-700 overflow-hidden"
   >
-    <!-- Background Decor: Large Faded Text (Optional based on style, sticking to shapes for now) -->
-    <div
-      class="absolute top-1/4 left-10 text-9xl font-black text-gray-200 dark:text-gray-800 opacity-10 select-none pointer-events-none hidden lg:block rotate-90 origin-left"
-    >
-      PORTFOLIO
+    <!-- Background Pattern - Subtle Grid (dark mode only) -->
+    <div class="absolute inset-0 opacity-0 dark:opacity-5 transition-opacity duration-700">
+      <div
+        class="absolute inset-0"
+        style="
+          background-image:
+            linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+          background-size: 50px 50px;
+        "
+      ></div>
     </div>
 
-    <!-- Vague décorative -->
-    <Wave
-      :angle="180"
-      :height="300"
-      :bgOpacity="0.15"
-      wrapperClass="pointer-events-none absolute bottom-0 left-0 w-full z-0 opacity-40 dark:opacity-20"
-    />
+    <!-- Light Mode Decorative Elements -->
+    <div
+      class="absolute top-20 -left-20 w-96 h-96 bg-primary/10 dark:bg-primary/5 rounded-full blur-[120px] pointer-events-none transition-all duration-700"
+    ></div>
+    <div
+      class="absolute bottom-20 -right-20 w-96 h-96 bg-secondary/10 dark:bg-secondary/5 rounded-full blur-[120px] pointer-events-none transition-all duration-700"
+    ></div>
 
     <!-- Main Content Container -->
     <div
-      class="relative w-full max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 z-10"
+      class="relative w-full max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-16 z-10"
     >
       <!-- Left Column: Text -->
-      <div class="flex-1 text-center md:text-left space-y-6 md:space-y-8 animate-fadeIn">
-        <div>
+      <div class="flex-1 text-center lg:text-left space-y-6 animate-fadeIn">
+        <div class="space-y-4">
+          <!-- Badge -->
           <span
-            class="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary font-semibold text-sm tracking-wider mb-4 border border-primary/20"
+            class="inline-block py-2 px-4 rounded-full bg-secondary/10 text-secondary dark:text-secondary-light font-semibold text-sm tracking-wider border border-secondary/30 backdrop-blur-sm"
           >
-            Bienvenue sur mon portfolio
+            Introducing
           </span>
-          <h1
-            class="text-4xl sm:text-5xl lg:text-7xl font-extrabold leading-tight text-gray-900 dark:text-white"
-          >
+
+          <!-- Main Heading -->
+          <h1 class="space-y-3">
             <span
-              class="block text-xl sm:text-2xl font-medium text-gray-500 dark:text-gray-400 mb-2"
-              >Je suis</span
+              class="block text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white leading-tight"
             >
+              Hello
+            </span>
             <span
-              class="bg-gradient-to-r from-emerald-500 to-blue-600 bg-clip-text text-transparent typing-container"
+              class="block text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white leading-tight"
             >
-              {{ displayedText }}
-              <span class="cursor"></span>
+              Je suis
+              <span
+                class="bg-gradient-to-r from-secondary via-primary to-secondary bg-clip-text text-transparent typing-container inline-block"
+              >
+                {{ displayedText }}
+                <span class="cursor"></span>
+              </span>
             </span>
           </h1>
-          <span
-            class="block mt-2 text-2xl sm:text-3xl font-semibold text-gray-700 dark:text-gray-300"
+
+          <!-- Subtitle -->
+          <p
+            class="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed pt-4"
           >
-            & Créateur d’expériences web
-          </span>
+            Je conçois des interfaces modernes et dynamiques alliant design, performance et
+            interactivité pour donner vie à vos idées.
+          </p>
         </div>
 
-        <p
-          class="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-lg mx-auto md:mx-0 leading-relaxed"
-        >
-          Je conçois des interfaces modernes et dynamiques alliant design, performance et
-          interactivité pour donner vie à vos idées.
-        </p>
-
-        <div
-          class="flex flex-col sm:flex-row items-center md:justify-start justify-center gap-5 pt-4"
-        >
-          <button
-            class="px-8 py-3.5 rounded-full bg-gradient-to-r from-emerald-500 to-blue-600 text-white font-bold shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-1 transition-all duration-300"
+        <!-- CTA Button -->
+        <div class="pt-6">
+          <button @click="gotocontact()"
+            class="px-8 py-4 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-bold shadow-2xl shadow-yellow-500/30 hover:shadow-yellow-500/50 hover:scale-105 hover:-translate-y-1 transition-all duration-300"
           >
-            Voir mes projets
+            En savoir plus
           </button>
-
-          <button
-            class="group px-8 py-3.5 rounded-full border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium hover:border-emerald-500 dark:hover:border-emerald-500 hover:text-emerald-500 dark:hover:text-emerald-400 transition-all duration-300"
-          >
-            Me contacter
-          </button>
-
-          <!-- Social Icons Placeholder (can be expanded) -->
-          <div class="flex items-center gap-4 sm:ml-4 text-gray-400">
-            <!-- Add icons here if needed, keeping it clean for now -->
-          </div>
         </div>
       </div>
 
-      <!-- Right Column: Image with Frame Style -->
-      <div class="flex-1 flex justify-center md:justify-end relative animate-slideIn">
-        <div
-          class="relative w-72 sm:w-80 md:w-96 lg:w-[28rem] aspect-[4/5] flex items-end justify-center"
-        >
-          <!-- Geometric Decor Elements -->
+      <!-- Right Column: Image with Decorative Circle -->
+      <div class="flex-1 flex justify-center items-center relative animate-slideIn">
+        <div class="relative w-[320px] sm:w-[400px] lg:w-[450px] xl:w-[500px] aspect-square">
+          <!-- Large Decorative Circle Background -->
           <div
-            class="absolute top-10 -right-8 w-16 h-16 border-4 border-secondary rounded-full opacity-60 animate-bounce-slow hidden sm:block"
-          ></div>
-          <div
-            class="absolute -bottom-6 -left-6 w-24 h-24 bg-primary/20 rounded-full blur-2xl"
-          ></div>
-          <div
-            class="absolute top-1/2 -left-12 w-0 h-0 border-l-[15px] border-l-transparent border-t-[25px] border-t-emerald-500 border-r-[15px] border-r-transparent transform -rotate-45 opacity-80 animate-float"
+            class="absolute inset-0 rounded-full bg-gradient-to-br from-secondary/90 via-secondary/70 to-primary/60 dark:from-secondary/80 dark:via-secondary/60 dark:to-primary/50 animate-pulse-slow"
+            style="filter: blur(2px); transform: scale(0.85)"
           ></div>
 
-          <!-- The Frame Border (Behind) -->
+          <!-- Main Circle Container -->
           <div
-            class="absolute inset-0 border-2 border-gray-300 dark:border-gray-600 rounded-3xl transform rotate-6 translate-x-4 translate-y-4 z-0 transition-transform group-hover:rotate-3"
-          ></div>
-
-          <!-- Solid Background Block (Behind Image) -->
-          <div
-            class="absolute inset-4 bg-gray-200 dark:bg-gray-800/50 rounded-2xl -z-10 backdrop-blur-sm"
-          ></div>
-
-          <!-- The Person Image -->
-          <img
-            src="@/assets/Hents.png"
-            alt="Photo de Henintsoa"
-            class="relative z-10 w-full h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
-          />
-
-          <!-- Floating Badge Example (like '500+ Clients' in ref) -->
-          <div
-            class="absolute top-1/3 -left-4 bg-white dark:bg-gray-800 p-3 rounded-xl shadow-xl flex items-center gap-3 animate-float border border-gray-100 dark:border-gray-700 z-20"
+            class="absolute inset-0 rounded-full bg-gradient-to-br from-secondary via-secondary/90 to-primary dark:from-secondary/90 dark:via-secondary/80 dark:to-primary/70 flex items-end justify-center overflow-hidden shadow-2xl shadow-secondary/30 dark:shadow-secondary/20"
           >
-            <div
-              class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold"
-            >
-              ⚡
-            </div>
-            <div>
-              <span class="block text-xs text-gray-500 dark:text-gray-400">Expérience</span>
-              <span class="block text-sm font-bold text-gray-900 dark:text-white">Web Design</span>
-            </div>
+            <!-- The Person Image -->
+            <img
+              src="@/assets/Hents.png"
+              alt="Photo de Henintsoa"
+              class="relative h-full w-full object-cover object-center hover:scale-105 transition-transform duration-700"
+            />
           </div>
+
+          <!-- Floating Tech Badges with Real Icons -->
+          <!-- Vue.js Badge - Top Left -->
+          <div
+            class="tech-badge absolute -top-4 -left-4 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white dark:bg-gray-800/90 backdrop-blur-md flex items-center justify-center shadow-xl border border-gray-200 dark:border-gray-700/50 animate-float"
+            style="animation-delay: 0s"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
+              alt="Vue.js"
+              class="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+            />
+          </div>
+
+          <!-- React Badge - Top Right -->
+          <div
+            class="tech-badge absolute -top-6 -right-6 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white dark:bg-gray-800/90 backdrop-blur-md flex items-center justify-center shadow-xl border border-gray-200 dark:border-gray-700/50 animate-float-delayed"
+            style="animation-delay: 0.5s"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+              alt="React"
+              class="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+            />
+          </div>
+
+          <!-- Node.js Badge - Left -->
+          <div
+            class="tech-badge absolute top-1/3 -left-8 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white dark:bg-gray-800/90 backdrop-blur-md flex items-center justify-center shadow-xl border border-gray-200 dark:border-gray-700/50 animate-float"
+            style="animation-delay: 1s"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+              alt="Node.js"
+              class="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+            />
+          </div>
+
+          <!-- TypeScript Badge - Right -->
+          <div
+            class="tech-badge absolute top-1/2 -right-8 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white dark:bg-gray-800/90 backdrop-blur-md flex items-center justify-center shadow-xl border border-gray-200 dark:border-gray-700/50 animate-float-delayed"
+            style="animation-delay: 1.5s"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+              alt="TypeScript"
+              class="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+            />
+          </div>
+
+          <!-- Tailwind Badge - Bottom Left -->
+          <div
+            class="tech-badge absolute -bottom-4 left-8 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white dark:bg-gray-800/90 backdrop-blur-md flex items-center justify-center shadow-xl border border-gray-200 dark:border-gray-700/50 animate-float"
+            style="animation-delay: 2s"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+              alt="Tailwind CSS"
+              class="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+            />
+          </div>
+
+          <!-- CSS Badge - Bottom Right -->
+          <div
+            class="tech-badge absolute -bottom-6 right-4 w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white dark:bg-gray-800/90 backdrop-blur-md flex items-center justify-center shadow-xl border border-gray-200 dark:border-gray-700/50 animate-float-delayed"
+            style="animation-delay: 2.5s"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+              alt="CSS3"
+              class="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+            />
+          </div>
+
+          <!-- Subtle Glow Effect -->
+          <div
+            class="absolute inset-0 rounded-full bg-gradient-to-br from-secondary/20 to-primary/20 dark:from-secondary/10 dark:to-primary/10 blur-3xl animate-pulse-slow"
+            style="transform: scale(1.2)"
+          ></div>
         </div>
       </div>
     </div>
@@ -135,10 +184,13 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import Wave from '@/components/hero/Wave.vue'
 
 // Liste des textes à afficher
 const texts = ['Henintsoa', 'Développeur Frontend', 'Intégrateur Web', 'Passionné de Design']
+
+function gotocontact() {
+    window.location.href = '#contact'
+}
 
 const displayedText = ref('')
 let currentIndex = 0
@@ -170,6 +222,8 @@ function typeEffect() {
   }
 
   setTimeout(typeEffect, typeSpeed)
+
+
 }
 
 onMounted(() => {
@@ -206,31 +260,48 @@ onMounted(() => {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
   }
 }
 
-@keyframes bounce-slow {
+@keyframes float-delayed {
   0%,
   100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-15px);
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
   }
 }
 
 .animate-fadeIn {
   animation: fadeIn 1s ease-out;
 }
+
 .animate-slideIn {
   animation: slideIn 1s ease-out;
 }
+
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
-.animate-bounce-slow {
-  animation: bounce-slow 6s ease-in-out infinite;
+
+.animate-float-delayed {
+  animation: float-delayed 5s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
 }
 
 .typing-container {
@@ -251,5 +322,16 @@ onMounted(() => {
   50% {
     opacity: 0;
   }
+}
+
+/* Tech Badge Hover Effects */
+.tech-badge {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tech-badge:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 </style>
