@@ -4,12 +4,11 @@
     class="min-h-screen flex flex-col justify-center py-32 bg-background dark:bg-background-dark transition-colors duration-700"
   >
     <div class="max-w-7xl mx-auto px-6">
-      <h2
-        class="flex items-center gap-3 text-3xl md:text-4xl font-bold mb-12 text-text dark:text-text-dark"
-      >
-        <Laptop class="w-7 h-7 text-primary" />
-        Mes projets
-      </h2>
+      <SectionTitle
+        badge="Portfolio"
+        title="Mes projets"
+        subtitle="Une sélection de projets sur lesquels j'ai travaillé, alliant technique et créativité."
+      />
 
       <!-- Timeline wrapper -->
       <div class="relative">
@@ -240,7 +239,7 @@
 </template>
 
 <script setup lang="ts">
-import { Laptop } from 'lucide-vue-next'
+import SectionTitle from '@/components/ui/SectionTitle.vue'
 
 const projects = [
   {

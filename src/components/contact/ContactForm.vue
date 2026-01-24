@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import {
-  ref,
-  // Removed unused imports: CheckCircle, AlertCircle, X
-} from 'vue'
+import { ref } from 'vue'
 import {
   Mail,
   Phone,
@@ -10,12 +7,12 @@ import {
   Send,
   Linkedin,
   Github,
-  Facebook,
   CheckCircle,
   AlertCircle,
   X,
 } from 'lucide-vue-next'
-  
+import SectionTitle from '@/components/ui/SectionTitle.vue'
+
 const form = ref({
   name: '',
   email: '',
@@ -93,15 +90,11 @@ const contactInfo = [
     class="min-h-screen flex flex-col justify-center py-32 bg-gray-50 dark:bg-background-dark transition-colors duration-300"
   >
     <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-text dark:text-text-dark mb-4">
-          Me Contacter
-        </h2>
-        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Vous avez un projet en tête ou vous souhaitez simplement échanger ? N'hésitez pas à me
-          contacter via le formulaire ou mes coordonnées directes.
-        </p>
-      </div>
+      <SectionTitle
+        badge="Contact"
+        title="Me Contacter"
+        subtitle="Vous avez un projet en tête ou vous souhaitez simplement échanger ? N'hésitez pas à me contacter via le formulaire ou mes coordonnées directes."
+      />
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
         <!-- Informations de contact -->

@@ -4,12 +4,11 @@
     class="min-h-screen flex flex-col justify-center py-32 bg-background dark:bg-background-dark overflow-hidden"
   >
     <div class="max-w-7xl mx-auto px-6">
-      <h2
-        class="flex items-center gap-3 text-3xl md:text-4xl font-bold mb-16 text-text dark:text-text-dark"
-      >
-        <Briefcase class="w-7 h-7 text-primary" />
-        Mes expériences
-      </h2>
+      <SectionTitle
+        badge="Experience"
+        title="Mes expériences"
+        subtitle="Un aperçu de mon parcours professionnel et académique."
+      />
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div
@@ -114,7 +113,8 @@
 </template>
 
 <script lang="ts" setup>
-import { Briefcase, Laptop, GraduationCap, Code2, ListChecks, Globe } from 'lucide-vue-next'
+import { Laptop, GraduationCap, ListChecks, Globe } from 'lucide-vue-next'
+import SectionTitle from '@/components/ui/SectionTitle.vue'
 
 const experiences = [
   {
