@@ -48,7 +48,7 @@ import { Quote } from 'lucide-vue-next'
 
 const testimonials = [
   {
-    name: 'Jennie R.',
+    name: 'Lee Jenny R.',
     role: 'CEO, PlanetGame Madagascar',
     content:
       "Un travail exceptionnel ! Henintsoa a su capter l'essence de notre marque et l'a traduite en une interface web magnifique et fonctionnelle.",
