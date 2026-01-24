@@ -87,7 +87,11 @@ const systemesOutils = [
     name: 'Figma',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
   },
-  { name: 'Framer', icon: 'https://cdn.simpleicons.org/framer/framer' }
+  { name: 'Framer', icon: 'https://cdn.simpleicons.org/framer/framer' },
+  {
+    name: 'Affinity Designer',
+    icon: 'https://images.seeklogo.com/logo-png/64/1/affinity-logo-png_seeklogo-643292.png',
+  },
 ]
 </script>
 
