@@ -87,11 +87,7 @@ const systemesOutils = [
     name: 'Figma',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
   },
-  { name: 'Framer', icon: 'https://cdn.simpleicons.org/framer/framer' },
-  {
-    name: 'Inkscape',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/inkscape/inkscape-original.svg',
-  },
+  { name: 'Framer', icon: 'https://cdn.simpleicons.org/framer/framer' }
 ]
 </script>
 
