@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Github, Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-vue-next'
+import { Github, Linkedin } from 'lucide-vue-next'
 
 const currentYear = new Date().getFullYear()
 
@@ -22,133 +22,74 @@ const socialLinks = [
     icon: Linkedin,
   },
 ]
-
-const contactInfo = [
-  {
-    icon: Mail,
-    label: 'Email',
-    value: 'rakotonavalonahents@gmail.com',
-    href: 'mailto:rakotonavalonahents@gmail.com',
-    color: 'text-blue-400',
-  },
-  {
-    icon: Phone,
-    label: 'Téléphone',
-    value: '+261 32 75 771 63',
-    href: 'tel:+261327577163',
-    color: 'text-emerald-400',
-  },
-  {
-    icon: MapPin,
-    label: 'Localisation',
-    value: 'Antananarivo, Madagascar',
-    href: '#',
-    color: 'text-purple-400',
-  },
-]
 </script>
 
 <template>
-  <footer
-    class="bg-background-dark text-white py-16 border-t border-gray-800 relative overflow-hidden"
-  >
-    <!-- Background Elements -->
-    <div
-      class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary opacity-50"
-    ></div>
-    <div
-      class="absolute -top-24 -left-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none"
-    ></div>
-    <div
-      class="absolute -bottom-24 -right-24 w-64 h-64 bg-secondary/10 rounded-full blur-3xl pointer-events-none"
-    ></div>
-
-    <div class="container mx-auto px-6 relative z-10">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+  <footer class="bg-[#FDFBF7] dark:bg-[#121212] border-t-[4px] border-primary dark:border-gray-500 pt-12 pb-6 relative overflow-hidden text-primary dark:text-gray-300">
+    <div class="container mx-auto px-6">
+      
+      <!-- Top Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12 border-b-[2px] border-primary dark:border-gray-500 pb-12">
+        
         <!-- Brand Section -->
-        <div class="md:col-span-5 space-y-6">
-          <h2
-            class="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent inline-block"
-          >
-            Hents
-          </h2>
-          <p class="text-gray-400 leading-relaxed max-w-md">
-            Transformez vos idées en réalité numérique. Je conçois des expériences web immersives et
-            performantes, alliant design moderne et technologies de pointe.
-          </p>
-          <div class="flex space-x-4 pt-2">
+        <div class="md:col-span-5 flex flex-col justify-between">
+          <div>
+            <h2 class="font-journal text-6xl font-black text-primary dark:text-white mb-4">
+              Hents.
+            </h2>
+            <p class="font-serif text-lg leading-relaxed max-w-sm italic">
+              Transformez vos idées en réalité numérique. Je conçois des expériences web immersives et
+              performantes, alliant design classique et technologies de pointe.
+            </p>
+          </div>
+          <div class="flex gap-4 mt-6">
             <a
               v-for="social in socialLinks"
               :key="social.name"
               :href="social.href"
               target="_blank"
-              class="w-10 h-10 rounded-full bg-gray-800/50 border border-gray-700 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 group"
+              class="w-10 h-10 border border-primary dark:border-gray-500 flex items-center justify-center text-primary dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-[#121212] transition-colors"
               :aria-label="social.name"
             >
-              <component
-                :is="social.icon"
-                class="w-5 h-5 transform group-hover:scale-110 transition-transform"
-              />
+              <component :is="social.icon" class="w-5 h-5" />
             </a>
           </div>
         </div>
 
-        <!-- Links Sections -->
-        <div class="md:col-span-3">
-          <h3 class="text-lg font-semibold text-white mb-6 relative inline-block">
+        <!-- Links Section -->
+        <div class="md:col-span-3 lg:col-start-7 lg:col-span-2">
+          <h3 class="font-sans text-xs font-bold uppercase tracking-[0.2em] mb-4 text-gray-500 dark:text-gray-400">
             Services
-            <span class="absolute -bottom-2 left-0 w-1/2 h-0.5 bg-primary rounded-full"></span>
           </h3>
-          <ul class="space-y-3">
+          <ul class="space-y-2">
             <li v-for="service in services" :key="service.name">
-              <a
-                :href="service.href"
-                class="text-gray-400 hover:text-primary transition-colors flex items-center group"
-              >
-                <ArrowRight
-                  class="w-4 h-4 mr-2 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-primary"
-                />
+              <a :href="service.href" class="font-sans font-bold text-sm uppercase text-primary dark:text-gray-300 hover:underline underline-offset-4">
                 {{ service.name }}
               </a>
             </li>
           </ul>
         </div>
 
-        <div class="md:col-span-4">
-          <h3 class="text-lg font-semibold text-white mb-6 relative inline-block">
-            Contact
-            <span class="absolute -bottom-2 left-0 w-1/2 h-0.5 bg-secondary rounded-full"></span>
+        <!-- Colophon / Fine Print -->
+        <div class="md:col-span-4 lg:col-span-3">
+          <h3 class="font-sans text-xs font-bold uppercase tracking-[0.2em] mb-4 text-gray-500 dark:text-gray-400">
+            Avis Légal
           </h3>
-          <ul class="space-y-4 text-gray-400">
-            <li
-              v-for="(contact, index) in contactInfo"
-              :key="index"
-              class="flex items-start space-x-3 group"
-            >
-              <div
-                class="mt-1 p-2 rounded-lg bg-gray-800/50 group-hover:bg-gray-700 transition-colors"
-              >
-                <component :is="contact.icon" :class="['w-5 h-5', contact.color]" />
-              </div>
-              <div>
-                <span class="block text-sm text-gray-500 mb-1">{{ contact.label }}</span>
-                <a :href="contact.href" class="text-white hover:text-primary transition-colors">
-                  {{ contact.value }}
-                </a>
-              </div>
-            </li>
-          </ul>
+          <p class="font-serif text-sm leading-relaxed text-gray-700 dark:text-gray-400">
+            Ce journal numérique est édité indépendamment. Les informations contenues sur cette page sont fournies à titre indicatif et sont sujettes à modification sans préavis.
+          </p>
+          <p class="font-serif text-sm leading-relaxed text-gray-700 dark:text-gray-400 mt-4">
+            Imprimé numériquement sur le web, distribué via le réseau mondial.
+          </p>
         </div>
       </div>
 
       <!-- Bottom Bar -->
-      <div
-        class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center"
-      >
-        <p class="text-gray-500 text-sm mb-4 md:mb-0">
-          &copy; {{ currentYear }} Hents. Tous droits réservés.
-        </p>
+      <div class="flex flex-col md:flex-row justify-between items-center text-xs font-sans font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
+        <p>&copy; {{ currentYear }} Hentsrakoto. Tous droits réservés.</p>
+        <p class="mt-2 md:mt-0">The Mind Behind The Code.</p>
       </div>
+      
     </div>
   </footer>
 </template>
