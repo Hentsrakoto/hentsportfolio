@@ -3,20 +3,20 @@
     <!-- Header Journal Style -->
     <div class="border-b-[3px] border-primary dark:border-gray-500 pb-4 mb-8 text-center sm:text-left">
       <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
-        My Services
+        {{ $t('sectionTitle.servicesBadge') }}
       </span>
       <h2 class="font-journal text-5xl sm:text-6xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3">
-        Que puis-je faire ?
+        {{ $t('sectionTitle.servicesTitle') }}
       </h2>
       <p class="font-sans text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto sm:mx-0 italic">
-        Des solutions sur mesure pour répondre aux besoins de votre entreprise.
+        {{ $t('sectionTitle.servicesSubtitle') }}
       </p>
     </div>
 
     <!-- Editorial Layout for Services -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
       <article
-        v-for="(service, index) in services"
+        v-for="(service, index) in computedServices"
         :key="index"
         class="flex flex-col gap-3 group relative sm:border-b-0 border-b border-primary/20 dark:border-gray-700 pb-8 sm:pb-0"
       >
@@ -41,46 +41,44 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { Monitor, Smartphone, Globe, Layout, Code, Search } from 'lucide-vue-next'
 
-const services = [
+const { t } = useI18n()
+
+const computedServices = computed(() => [
   {
     icon: Monitor,
-    title: 'Développement Web',
-    description:
-      'Création de sites web modernes, rapides et responsive utilisant les dernières technologies comme Vue.js et Tailwind CSS.',
+    title: t('services.webTitle'),
+    description: t('services.webDesc'),
   },
   {
     icon: Smartphone,
-    title: 'Responsive Design',
-    description:
-      'Interfaces adaptatives qui fonctionnent parfaitement sur tous les appareils, du mobile au bureau.',
+    title: t('services.responsiveTitle'),
+    description: t('services.responsiveDesc'),
   },
   {
     icon: Layout,
-    title: 'UI/UX Design',
-    description:
-      "Conception d'interfaces utilisateur intuitives et esthétiques pour une expérience utilisateur optimale.",
+    title: t('services.uiTitle'),
+    description: t('services.uiDesc'),
   },
   {
     icon: Code,
-    title: 'Intégration Web',
-    description:
-      'Transformation de vos maquettes graphiques en code propre, sémantique et performant.',
+    title: t('services.integrationTitle'),
+    description: t('services.integrationDesc'),
   },
   {
     icon: Globe,
-    title: 'Applications SPA',
-    description:
-      "Développement d'applications web monopage (Single Page Applications) fluides et interactives.",
+    title: t('services.spaTitle'),
+    description: t('services.spaDesc'),
   },
   {
     icon: Search,
-    title: 'Optimisation SEO',
-    description:
-      'Amélioration de la structure et du contenu pour un meilleur référencement naturel sur les moteurs de recherche.',
-  },
-]
+    title: t('services.seoTitle'),
+    description: t('services.seoDesc'),
+  }
+])
 </script>
 
 <style scoped>
