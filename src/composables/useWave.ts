@@ -11,13 +11,13 @@ export function useWave(initial?: { primary?: string; secondary?: string }) {
   const { isDark } = useDarkMode()
 
   const defaultLight = {
-    primary: initial?.primary ?? '#10B981', // emerald-500
-    secondary: initial?.secondary ?? '#0EA5E9', // sky-500
+    primary: initial?.primary ?? '#E5E7EB', // gray-200
+    secondary: initial?.secondary ?? '#D1D5DB', // gray-300
   }
 
   const defaultDark = {
-    primary: initial?.primary ?? '#059669', // emerald-600
-    secondary: initial?.secondary ?? '#0369A1', // blue-700
+    primary: initial?.primary ?? '#1F2937', // gray-800
+    secondary: initial?.secondary ?? '#111827', // gray-900
   }
 
   const primary = ref<string>(isDark.value ? defaultDark.primary : defaultLight.primary)

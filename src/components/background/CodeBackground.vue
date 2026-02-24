@@ -3,7 +3,7 @@
     <div
       v-for="(item, index) in items"
       :key="index"
-      class="absolute whitespace-nowrap font-mono text-emerald-500 dark:text-emerald-400"
+      class="absolute whitespace-nowrap font-mono text-gray-300 dark:text-gray-800"
       :style="{
         left: item.left + '%',
         top: item.top + '%',

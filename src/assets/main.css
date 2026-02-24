@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-[#FDFBF7] text-[#111827] dark:bg-[#121212] dark:text-[#F3F4F6] font-sans leading-relaxed;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-primary dark:text-primary-dark;
+  }
 }

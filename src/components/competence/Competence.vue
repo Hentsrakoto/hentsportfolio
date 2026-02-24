@@ -1,193 +1,113 @@
 <script setup lang="ts">
-import { Code2, Palette } from 'lucide-vue-next'
-import SectionTitle from '@/components/ui/SectionTitle.vue'
-
 const languagesFrameworks = [
-  {
-    name: 'HTML',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
-  },
-  {
-    name: 'CSS',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-  },
-  {
-    name: 'JavaScript',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-  },
-  {
-    name: 'TypeScript',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-  },
+  { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+  { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+  { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
   { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
-  {
-    name: 'Python',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
-  },
-  {
-    name: 'Tailwindcss',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
-  },
-  {
-    name: 'Vue.js',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
-  },
-  {
-    name: 'React',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-  },
-  {
-    name: 'Node.js',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-  },
-  // Utilisation de @latest pour Express
-  {
-    name: 'Express',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg',
-  },
-  {
-    name: 'Electron',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/electron/electron-original.svg',
-  },
-
-  {
-    name: 'Laravel',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg',
-  },
+  { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+  { name: 'Tailwindcss', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
+  { name: 'Vue.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg' },
+  { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+  { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+  { name: 'Express', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg' },
+  { name: 'Electron', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/electron/electron-original.svg' },
+  { name: 'Laravel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg' },
   { name: 'Codeigniter', icon: 'https://cdn.simpleicons.org/codeigniter/codeigniter' },
-  {
-    name: 'Flask',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg',
-  },
+  { name: 'Flask', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg' },
 ]
 
 const systemesOutils = [
-  {
-    name: 'Linux',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
-  },
+  { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
   { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-  {
-    name: 'GitHub',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
-  },
-  {
-    name: 'MySQL',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
-  },
-  {
-    name: 'VS Code',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg',
-  },
-  {
-    name: 'Postman',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg',
-  },
-  {
-    name: 'Figma',
-    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
-  },
+  { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+  { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+  { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+  { name: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
+  { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
   { name: 'Framer', icon: 'https://cdn.simpleicons.org/framer/framer' },
-  {
-    name: 'Affinity Designer',
-    icon: 'https://images.seeklogo.com/logo-png/64/1/affinity-logo-png_seeklogo-643292.png',
-  },
+  { name: 'Affinity Designer', icon: 'https://images.seeklogo.com/logo-png/64/1/affinity-logo-png_seeklogo-643292.png' },
 ]
 </script>
 
 <template>
-  <section
-    id="competence"
-    class="min-h-screen py-20 bg-slate-50 dark:bg-[#0B0F1A] transition-colors duration-500 overflow-hidden relative"
-  >
-    <div
-      class="absolute top-0 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none"
-    ></div>
-    <div
-      class="absolute bottom-0 -right-20 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] pointer-events-none"
-    ></div>
+  <section id="competence" class="relative py-12 bg-transparent">
+    <!-- Header Journal Style -->
+    <div class="border-b-[3px] border-primary dark:border-gray-500 pb-4 mb-8">
+      <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
+        Expertise Technique
+      </span>
+      <h2 class="font-journal text-5xl sm:text-6xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none">
+        Stack & Outils.
+      </h2>
+    </div>
 
-    <div class="container mx-auto px-6 max-w-7xl relative z-10">
-      <SectionTitle badge="Expertise Technique">
-        <template #title>
-          Stack
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500"
-            >& Outils</span
-          >
-        </template>
-      </SectionTitle>
+    <div class="flex flex-col lg:flex-row gap-10">
+      <!-- Colonne Développement -->
+      <div class="flex-1 border-[2px] border-primary dark:border-gray-600 p-6 relative">
+        <!-- Coin déco -->
+        <div class="absolute top-0 right-0 w-8 h-8 border-l-2 border-b-2 border-primary dark:border-gray-600 bg-white dark:bg-[#121212]"></div>
+        
+        <header class="border-b-2 border-primary dark:border-gray-600 pb-4 mb-8">
+          <h3 class="font-journal text-3xl md:text-4xl font-bold text-primary dark:text-white uppercase tracking-tight">
+            Développement
+          </h3>
+          <p class="font-sans text-sm md:text-base italic text-gray-600 dark:text-gray-400 mt-2">
+            L'architecture logicielle : Back-end, Front-end & Desktop.
+          </p>
+        </header>
 
-      <div class="grid grid-cols-12 gap-6">
-        <div class="col-span-12 lg:col-span-7 group">
-          <div class="bento-card h-full">
-            <div class="flex items-center gap-4 mb-10">
-              <div
-                class="p-3 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 transition-transform group-hover:rotate-12"
-              >
-                <Code2 class="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h3 class="text-xl font-bold dark:text-white uppercase tracking-wide">
-                  Développement
-                </h3>
-                <p class="text-sm text-slate-500 dark:text-slate-400">
-                  Back-end, Front-end & Desktop
-                </p>
-              </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-10 gap-x-6">
+          <div v-for="skill in languagesFrameworks" :key="skill.name" class="flex flex-col items-center group cursor-crosshair">
+            <div class="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center p-3 border-[1.5px] border-black dark:border-white bg-white dark:bg-black grayscale group-hover:grayscale-0 transition-all duration-300 shadow-[4px_4px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_rgba(255,255,255,1)] group-hover:translate-y-1 group-hover:translate-x-1 group-hover:shadow-[0px_0px_0px_rgba(0,0,0,1)] dark:group-hover:shadow-[0px_0px_0px_rgba(255,255,255,1)]">
+              <img
+                :src="skill.icon"
+                :alt="skill.name"
+                class="w-full h-full object-contain"
+                :class="{ 'dark:invert': ['Express'].includes(skill.name) }"
+              />
             </div>
+            <span class="mt-4 font-sans text-xs font-bold uppercase tracking-widest text-[#111827] dark:text-gray-300 text-center">
+              {{ skill.name }}
+            </span>
+          </div>
+        </div>
+      </div>
 
-            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6">
-              <div
-                v-for="skill in languagesFrameworks"
-                :key="skill.name"
-                class="skill-item group/item"
-              >
-                <div class="icon-wrapper">
-                  <img
-                    :src="skill.icon"
-                    :alt="skill.name"
-                    class="w-10 h-10 object-contain group-hover/item:scale-110 transition-transform duration-300"
-                    :class="{ 'dark:invert dark:brightness-200': ['Express'].includes(skill.name) }"
-                  />
-                </div>
-                <span class="skill-name">{{ skill.name }}</span>
+      <!-- Colonne Outils & Design -->
+      <div class="w-full lg:w-[40%] flex flex-col gap-6">
+        <div class="border-[2px] border-dashed border-primary dark:border-gray-600 p-6 flex-1 relative bg-gray-50 dark:bg-[#1A1A1A]">
+          <header class="border-b-2 border-primary dark:border-gray-600 pb-4 mb-8 text-center">
+            <h3 class="font-journal text-2xl md:text-3xl font-bold text-primary dark:text-white uppercase tracking-tight">
+              Outils & Design
+            </h3>
+            <p class="font-sans text-sm italic text-gray-600 dark:text-gray-400 mt-2">
+              L'atelier créatif et DevOps.
+            </p>
+          </header>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-y-10 gap-x-6">
+            <div v-for="skill in systemesOutils" :key="skill.name" class="flex flex-col items-center group cursor-crosshair">
+              <div class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center p-3 rounded-full border border-gray-400 dark:border-gray-600 bg-white dark:bg-black grayscale drop-shadow-sm group-hover:grayscale-0 transition-all duration-300 transform group-hover:-rotate-6 hover:scale-110">
+                <img
+                  :src="skill.icon"
+                  :alt="skill.name"
+                  class="w-full h-full object-contain"
+                  :class="{ 'dark:invert': ['GitHub'].includes(skill.name) }"
+                />
               </div>
+              <span class="mt-4 font-sans text-[10px] md:text-xs font-bold uppercase tracking-[0.1em] text-[#111827] dark:text-gray-300 text-center">
+                {{ skill.name }}
+              </span>
             </div>
           </div>
         </div>
-
-        <div class="col-span-12 lg:col-span-5 group">
-          <div
-            class="bento-card h-full bg-gradient-to-br from-white to-slate-50 dark:from-slate-800/40 dark:to-slate-900/40 border-secondary/20"
-          >
-            <div class="flex items-center gap-4 mb-10">
-              <div
-                class="p-3 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 transition-transform group-hover:-rotate-12"
-              >
-                <Palette class="w-6 h-6 text-secondary" />
-              </div>
-              <div>
-                <h3 class="text-xl font-bold dark:text-white uppercase tracking-wide">
-                  Outils & Design
-                </h3>
-                <p class="text-sm text-slate-500 dark:text-slate-400">Workflow, DevOps & UI/UX</p>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-3 gap-6">
-              <div v-for="skill in systemesOutils" :key="skill.name" class="skill-item group/item">
-                <div class="icon-wrapper border-secondary/10 group-hover/item:border-secondary/40">
-                  <img
-                    :src="skill.icon"
-                    :alt="skill.name"
-                    class="w-10 h-10 object-contain group-hover/item:scale-110 transition-transform duration-300"
-                    :class="{ 'dark:invert dark:brightness-0': ['GitHub'].includes(skill.name) }"
-                  />
-                </div>
-                <span class="skill-name group-hover/item:text-secondary">{{ skill.name }}</span>
-              </div>
-            </div>
-          </div>
+        
+        <!-- Petite note de bas de page type journal -->
+        <div class="border-t-[3px] border-b-[3px] border-double border-primary dark:border-gray-600 py-3 px-4 text-center bg-transparent">
+          <p class="font-sans text-[10px] sm:text-xs uppercase tracking-widest font-bold text-gray-800 dark:text-gray-400">
+            * Liste non exhaustive des technologies.
+          </p>
         </div>
       </div>
     </div>
@@ -195,41 +115,4 @@ const systemesOutils = [
 </template>
 
 <style scoped>
-.bento-card {
-  @apply p-8 rounded-[2.5rem] bg-white/70 dark:bg-slate-900/40 backdrop-blur-xl
-         border border-white dark:border-slate-800/50 shadow-2xl shadow-slate-200/50
-         dark:shadow-none transition-all duration-500;
-}
-
-.skill-item {
-  @apply flex flex-col items-center justify-center transition-all duration-300 cursor-pointer;
-}
-
-.icon-wrapper {
-  @apply w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-[1.8rem]
-         bg-white dark:bg-slate-800/80 mb-3 border border-slate-100 dark:border-slate-700
-         shadow-sm group-hover/item:shadow-xl group-hover/item:-translate-y-2
-         transition-all duration-500 ease-out;
-}
-
-.skill-name {
-  @apply text-[10px] md:text-[11px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-wider
-         group-hover/item:text-primary transition-colors duration-300 text-center;
-}
-
-/* Animation d'apparition au chargement */
-#competence {
-  animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 </style>

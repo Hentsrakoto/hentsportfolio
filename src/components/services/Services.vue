@@ -1,36 +1,46 @@
 <template>
-  <section id="services" class="py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
-    <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-24">
-      <SectionTitle
-        badge="My Services"
-        title="Ce que je peux faire pour vous"
-        subtitle="Des solutions sur mesure pour répondre aux besoins de votre entreprise."
-      />
+  <section id="services" class="relative py-8 bg-transparent">
+    <!-- Header Journal Style -->
+    <div class="border-b-[3px] border-primary dark:border-gray-500 pb-4 mb-8 text-center sm:text-left">
+      <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
+        My Services
+      </span>
+      <h2 class="font-journal text-5xl sm:text-6xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3">
+        Que puis-je faire ?
+      </h2>
+      <p class="font-sans text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto sm:mx-0 italic">
+        Des solutions sur mesure pour répondre aux besoins de votre entreprise.
+      </p>
+    </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div
-          v-for="(service, index) in services"
-          :key="index"
-          class="group p-8 rounded-3xl bg-slate-50 dark:bg-gray-800/50 border border-slate-100 dark:border-gray-700 hover:border-secondary/50 dark:hover:border-secondary/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-secondary/5"
-        >
-          <div
-            class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-white transition-colors duration-300"
-          >
-            <component
-              :is="service.icon"
-              class="w-8 h-8 text-secondary group-hover:text-white transition-colors duration-300"
-            />
+    <!-- Editorial Layout for Services -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
+      <article
+        v-for="(service, index) in services"
+        :key="index"
+        class="flex flex-col gap-3 group relative sm:border-b-0 border-b border-primary/20 dark:border-gray-700 pb-8 sm:pb-0"
+      >
+        <div class="flex items-center gap-4 border-b-2 border-primary dark:border-gray-500 pb-2">
+          <div class="w-8 h-8 flex items-center justify-center shrink-0 text-primary dark:text-white group-hover:text-secondary dark:group-hover:text-gray-300 transition-colors">
+            <component :is="service.icon" class="w-6 h-6" stroke-width="2.5" />
           </div>
-          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">{{ service.title }}</h3>
-          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">{{ service.description }}</p>
+          <h3 class="font-journal text-2xl font-bold text-primary dark:text-white uppercase tracking-tight">
+            {{ service.title }}
+          </h3>
         </div>
-      </div>
+        
+        <p class="font-sans text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed font-medium">
+          {{ service.description }}
+        </p>
+
+        <!-- Small deco line just for newspaper feel -->
+        <span class="h-[1px] w-8 bg-primary dark:bg-gray-500 mt-2 block opacity-0 group-hover:opacity-100 transition-opacity"></span>
+      </article>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import SectionTitle from '@/components/ui/SectionTitle.vue'
 import { Monitor, Smartphone, Globe, Layout, Code, Search } from 'lucide-vue-next'
 
 const services = [
@@ -72,3 +82,6 @@ const services = [
   },
 ]
 </script>
+
+<style scoped>
+</style>

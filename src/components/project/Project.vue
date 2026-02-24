@@ -1,246 +1,104 @@
 <template>
-  <section
-    id="projet"
-    class="min-h-screen flex flex-col justify-center py-32 bg-background dark:bg-background-dark transition-colors duration-700"
-  >
-    <div class="max-w-7xl mx-auto px-6">
-      <SectionTitle
-        badge="Portfolio"
-        title="Mes projets"
-        subtitle="Une sélection de projets sur lesquels j'ai travaillé, alliant technique et créativité."
-      />
+  <section id="projet" class="relative py-12 bg-transparent">
+    <!-- Header Journal Style -->
+    <div class="border-b-[3px] border-primary dark:border-gray-500 pb-4 mb-8 text-center sm:text-left">
+      <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
+        Portfolio
+      </span>
+      <h2 class="font-journal text-5xl sm:text-6xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3">
+        Nos Projets
+      </h2>
+      <p class="font-sans text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto sm:mx-0 italic">
+        Une sélection de réalisations alliant rigueur technique et créativité.
+      </p>
+    </div>
 
-      <!-- Timeline wrapper -->
-      <div class="relative">
-        <!-- center vertical line (visible md+) -->
-        <div class="hidden md:block absolute left-1/2 -translate-x-1/2 h-full w-1">
-          <div
-            class="h-full w-full rounded-full"
-            style="background: linear-gradient(180deg, rgba(30, 144, 255, 0.15), transparent 30%)"
-          ></div>
-        </div>
+    <!-- Editorial Layout for Projects -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start border-t-[2px] border-b-[2px] border-primary dark:border-gray-500 py-6">
+      
+      <!-- Feature Project (Taking up more space, e.g., first item) -->
+      <article class="col-span-1 md:col-span-8 md:border-r-[2px] border-primary dark:border-gray-500 md:pr-8 flex flex-col gap-4">
+        <h3 class="font-journal text-5xl font-black text-primary dark:text-white leading-none">
+          {{ projects[0].title }}
+        </h3>
+        <p class="font-sans font-bold uppercase tracking-widest text-xs text-gray-500 dark:text-gray-400 border-b border-primary/20 dark:border-gray-700 pb-2">
+          {{ projects[0].short }}
+        </p>
+        
+        <figure v-if="projects[0].imageUrl" class="relative border-[2px] border-primary dark:border-gray-500 p-1 bg-white dark:bg-[#1A1A1A]">
+          <img
+            :src="projects[0].imageUrl"
+            :alt="projects[0].title"
+            class="w-full h-auto object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500 mix-blend-multiply dark:mix-blend-normal"
+          />
+          <figcaption class="text-right text-[10px] uppercase tracking-wider text-gray-400 mt-1 pb-1">Fig 1. Vue d'ensemble du système</figcaption>
+        </figure>
 
-        <div class="space-y-16">
-          <!-- Project item (repeatable) -->
-          <div
-            v-for="(proj, i) in projects"
-            :key="proj.id"
-            class="md:grid md:grid-cols-2 md:items-start"
+        <p class="font-serif text-lg leading-relaxed text-text dark:text-gray-200 mt-2 first-letter:text-6xl first-letter:font-journal first-letter:font-black first-letter:float-left first-letter:mr-3 first-letter:mt-1">
+          {{ projects[0].description }}
+        </p>
+
+        <ul class="font-sans text-sm text-gray-700 dark:text-gray-300 space-y-2 mt-4 columns-1 sm:columns-2 gap-6">
+          <li v-for="(line, idx) in projects[0].details" :key="idx" class="break-inside-avoid shadow-sm mb-2 p-2 border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
+            <span class="font-bold mr-1">❖</span> {{ line }}
+          </li>
+        </ul>
+
+        <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-dashed border-gray-300 dark:border-gray-700">
+          <span class="font-sans text-xs font-bold uppercase tracking-widest text-gray-500 pt-1 mr-2">Outils :</span>
+          <span
+            v-for="tech in projects[0].techs"
+            :key="tech.name"
+            class="font-sans text-xs font-bold uppercase px-2 py-1 border border-primary dark:border-gray-500 text-primary dark:text-gray-300"
           >
-            <!-- Left column (card on left when i is even) -->
-            <div
-              :class="[
-                'md:pr-8 md:col-start-1 md:col-end-2',
-                i % 2 === 0 ? 'md:flex md:justify-end md:text-left' : 'md:block md:text-left',
-              ]"
-              class="hidden"
-            >
-              <article
-                v-if="i % 2 === 0"
-                class="project-card relative overflow-hidden"
-                :style="{ animationDelay: `${i * 80}ms` }"
-                role="article"
-                :aria-label="`Projet ${proj.title}`"
-              >
-                <div class="card-accent" aria-hidden="true"></div>
-                <div
-                  v-if="proj.imageUrl"
-                  class="w-full h-48 overflow-hidden border-b border-gray-100 dark:border-gray-800/50"
-                >
-                  <img
-                    :src="proj.imageUrl"
-                    :alt="proj.title"
-                    class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                  />
-                </div>
-                <div class="card-inner">
-                  <div class="mb-2">
-                    <h3 class="text-2xl font-bold text-primary">{{ proj.title }}</h3>
-                    <span class="text-sm font-medium text-gray-500 dark:text-gray-400">{{
-                      proj.short
-                    }}</span>
-                  </div>
-                  <p class="mb-3 text-text-light dark:text-gray-300 leading-relaxed">
-                    {{ proj.description }}
-                  </p>
-
-                  <ul class="mb-5 text-sm space-y-2">
-                    <li
-                      v-for="(line, idx) in proj.details"
-                      :key="idx"
-                      class="flex items-start gap-2 text-gray-600 dark:text-gray-300"
-                    >
-                      <span class="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
-                      <span>{{ line }}</span>
-                    </li>
-                  </ul>
-
-                  <div class="flex flex-wrap gap-2 items-center">
-                    <span
-                      v-for="tech in proj.techs"
-                      :key="tech.name"
-                      class="tech-badge flex items-center"
-                      :title="tech.name"
-                    >
-                      <img
-                        v-if="tech.iconUrl"
-                        :src="tech.iconUrl"
-                        :alt="tech.name"
-                        class="w-4 h-4 object-contain"
-                      />
-                      <svg v-else class="w-4 h-4" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.2" />
-                      </svg>
-                      <span class="ml-2 text-xs font-medium">{{ tech.name }}</span>
-                    </span>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <!-- Center number bubble (always visible) -->
-            <div
-              class="hidden md:flex col-span-2 md:col-start-1 md:col-end-3 justify-center relative"
-            >
-              <div
-                class="z-10 flex items-center justify-center w-14 h-14 rounded-full shadow-xl -translate-y-6 transition-transform duration-300 hover:scale-110 border-4 border-white dark:border-[#0D1117] bg-gradient-to-br from-primary to-primary-dark text-white"
-                style="box-shadow: 0 0 20px rgba(30, 144, 255, 0.4)"
-                aria-hidden="false"
-              >
-                <span class="text-xl font-bold">{{ i + 1 }}</span>
-              </div>
-
-              <!-- small connector dot on the center line -->
-              <div
-                class="hidden md:block absolute left-1/2 -translate-x-1/2 top-20 h-0.5 w-6 bg-primary rounded-full opacity-40"
-              ></div>
-            </div>
-
-            <!-- Right column (card on right when i is odd) -->
-            <div
-              :class="[
-                'md:pl-8 md:col-start-2 md:col-end-3',
-                i % 2 === 1 ? 'md:flex md:justify-start md:text-left' : 'md:block md:text-right',
-              ]"
-              class="hidden"
-            >
-              <article
-                v-if="i % 2 === 1"
-                class="project-card relative overflow-hidden"
-                :style="{ animationDelay: `${i * 80}ms` }"
-                role="article"
-                :aria-label="`Projet ${proj.title}`"
-              >
-                <div class="card-accent" aria-hidden="true"></div>
-                <div
-                  v-if="proj.imageUrl"
-                  class="w-full h-48 overflow-hidden border-b border-gray-100 dark:border-gray-800/50"
-                >
-                  <img
-                    :src="proj.imageUrl"
-                    :alt="proj.title"
-                    class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                  />
-                </div>
-                <div class="card-inner">
-                  <div class="mb-2">
-                    <h3 class="text-2xl font-bold text-primary">{{ proj.title }}</h3>
-                    <span class="text-sm font-medium text-gray-500 dark:text-gray-400">{{
-                      proj.short
-                    }}</span>
-                  </div>
-                  <p class="mb-3 text-text-light dark:text-gray-300 leading-relaxed">
-                    {{ proj.description }}
-                  </p>
-
-                  <ul class="mb-5 text-sm space-y-2">
-                    <li
-                      v-for="(line, idx) in proj.details"
-                      :key="idx"
-                      class="flex items-start gap-2 text-gray-600 dark:text-gray-300"
-                    >
-                      <span class="mt-1 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
-                      <span>{{ line }}</span>
-                    </li>
-                  </ul>
-
-                  <div class="flex flex-wrap gap-2 items-center">
-                    <span
-                      v-for="tech in proj.techs"
-                      :key="tech.name"
-                      class="tech-badge flex items-center"
-                      :title="tech.name"
-                    >
-                      <img
-                        v-if="tech.iconUrl"
-                        :src="tech.iconUrl"
-                        :alt="tech.name"
-                        class="w-4 h-4 object-contain"
-                      />
-                      <svg v-else class="w-4 h-4" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.2" />
-                      </svg>
-                      <span class="ml-2 text-xs font-medium">{{ tech.name }}</span>
-                    </span>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <!-- Mobile stacked card (visible on small screens) -->
-            <div class="md:hidden">
-              <article class="project-card" :style="{ animationDelay: `${i * 80}ms` }">
-                <div
-                  v-if="proj.imageUrl"
-                  class="w-full h-48 overflow-hidden border-b border-gray-100 dark:border-gray-800/50"
-                >
-                  <img
-                    :src="proj.imageUrl"
-                    :alt="proj.title"
-                    class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                  />
-                </div>
-                <div class="card-inner">
-                  <h3 class="text-xl font-semibold text-primary mb-2">
-                    {{ proj.title }} <span class="text-sm text-gray-500">— {{ proj.short }}</span>
-                  </h3>
-                  <p class="mb-3 text-text-light dark:text-gray-300">{{ proj.description }}</p>
-
-                  <ul class="mb-4 text-sm space-y-1 list-inside">
-                    <li v-for="(line, idx) in proj.details" :key="idx">• {{ line }}</li>
-                  </ul>
-
-                  <div class="flex flex-wrap gap-2 items-center">
-                    <span
-                      v-for="tech in proj.techs"
-                      :key="tech.name"
-                      class="tech-badge flex items-center"
-                    >
-                      <img
-                        v-if="tech.iconUrl"
-                        :src="tech.iconUrl"
-                        :alt="tech.name"
-                        class="w-4 h-4 object-contain"
-                      />
-                      <svg v-else class="w-4 h-4" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.2" />
-                      </svg>
-                      <span class="ml-2 text-xs font-medium">{{ tech.name }}</span>
-                    </span>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
+            {{ tech.name }}
+          </span>
         </div>
-      </div>
+      </article>
+
+      <!-- Side Articles (Rest of the projects) -->
+      <aside class="col-span-1 md:col-span-4 flex flex-col gap-10">
+        <article
+          v-for="(proj, i) in projects.slice(1)"
+          :key="proj.id"
+          class="flex flex-col gap-3 pb-8 border-b border-primary/20 dark:border-gray-700 last:border-0 last:pb-0"
+        >
+          <figure v-if="proj.imageUrl" class="relative border border-primary dark:border-gray-600 p-0.5 mb-2">
+            <img
+              :src="proj.imageUrl"
+              :alt="proj.title"
+              class="w-full h-32 object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500 mix-blend-multiply dark:mix-blend-normal"
+            />
+          </figure>
+
+          <h3 class="font-journal text-3xl font-bold text-primary dark:text-white leading-tight">
+            {{ proj.title }}
+          </h3>
+          <p class="font-sans font-bold uppercase tracking-wider text-[10px] text-gray-500 dark:text-gray-400">
+            {{ proj.short }}
+          </p>
+
+          <p class="font-serif text-sm leading-relaxed text-gray-800 dark:text-gray-300">
+            {{ proj.description }}
+          </p>
+
+          <div class="flex flex-wrap gap-1 mt-2">
+            <span
+              v-for="tech in proj.techs"
+              :key="tech.name"
+              class="font-sans text-[10px] font-bold uppercase px-1.5 py-0.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400"
+            >
+              {{ tech.name }}
+            </span>
+          </div>
+        </article>
+      </aside>
+
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import SectionTitle from '@/components/ui/SectionTitle.vue'
-
 const projects = [
   {
     id: 'editor',
@@ -250,24 +108,14 @@ const projects = [
     description:
       "Éditeur cross‑platform pensé pour le pair programming, intégrant des assistants IA pour la complétion, l'explication et la génération de tests.",
     details: [
-      'Frontend Electron pour un rendu natif et performant sur desktop',
-      'Micro‑service Express pour l’indexation et l’analyse statique de code',
-      'Architecture de plugins pour étendre les fonctionnalités (IA, thèmes)',
+      'Frontend Electron pour un rendu natif et performant',
+      'Micro‑service Express pour l’indexation statique',
+      'Architecture de plugins pour étendre les fonctionnalités',
     ],
     techs: [
-      {
-        name: 'Electron',
-        iconUrl:
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/electron/electron-original.svg',
-      },
-      {
-        name: 'Express',
-        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
-      },
-      {
-        name: 'DeepSeek (IA)',
-        iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
-      },
+      { name: 'Electron' },
+      { name: 'Express' },
+      { name: 'DeepSeek (IA)' },
     ],
   },
   {
@@ -278,29 +126,15 @@ const projects = [
     description:
       'Marketplace tech complète avec gestion avancée du catalogue, panier temps réel et back-office administrateur.',
     details: [
-      'Gestion des stocks transactionnelle (verrouillage anti-doublons)',
-      'Intégration de Vanilla Pay pour les paiements sécurisés',
-      "IA prédictive pour l'optimisation des stocks et des ventes",
+      'Gestion des stocks transactionnelle',
+      'Intégration de paiement sécurisé',
+      "IA prédictive d'optimisation",
     ],
     techs: [
-      {
-        name: 'CodeIgniter 4',
-        iconUrl:
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg',
-      },
-      {
-        name: 'Vue 3',
-        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
-      },
-      {
-        name: 'Tailwind CSS',
-        iconUrl:
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
-      },
-      {
-        name: 'MySQL',
-        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
-      },
+      { name: 'CodeIgniter 4' },
+      { name: 'Vue 3' },
+      { name: 'Tailwind' },
+      { name: 'MySQL' },
     ],
   },
   {
@@ -311,19 +145,13 @@ const projects = [
     description:
       "Application mobile capable d'écouter l'environnement pour identifier une chanson et l'ajouter à une bibliothèque.",
     details: [
-      'Backend Python Flask pour le traitement du signal audio',
-      "Intégration de l'API Spotify pour les métadonnées riches",
-      'Système de cache Redis pour optimiser les appels API',
+      'Backend Python Flask',
+      "Intégration de l'API Spotify",
+      'Système de cache Redis',
     ],
     techs: [
-      {
-        name: 'Python',
-        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
-      },
-      {
-        name: 'Flask',
-        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg',
-      },
+      { name: 'Python' },
+      { name: 'Flask' },
       { name: 'Spotify API' },
     ],
   },
@@ -336,116 +164,17 @@ const projects = [
       'Outil de création de CV avec prévisualisation en temps réel et export PDF haute fidélité.',
     details: [
       '7 templates entièrement personnalisables',
-      'Génération PDF côté serveur pour un rendu pixel-perfect',
+      'Génération PDF côté serveur',
       'Sauvegarde automatique des brouillons',
     ],
     techs: [
-      {
-        name: 'Vue 3',
-        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg',
-      },
-      {
-        name: 'Tailwind CSS',
-        iconUrl:
-          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
-      },
-      {
-        name: 'jsPDF',
-        iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg',
-      },
+      { name: 'Vue 3' },
+      { name: 'Tailwind CSS' },
+      { name: 'jsPDF' },
     ],
   },
 ]
 </script>
 
 <style scoped>
-:root {
-  --primary: #1e90ff;
-  --primary-light: #3aa0ff;
-  --primary-dark: #0f5da8;
-  --bg: #ffffff;
-  --bg-dark: #0d1117;
-  --text: #000000;
-}
-
-.project-card {
-  background: var(--bg);
-  border: 1px solid rgba(58, 160, 255, 0.16);
-  border-radius: 14px;
-  padding: 0;
-  box-shadow: 0 10px 30px rgba(30, 144, 255, 0.06);
-  color: #222;
-  width: min(520px, 46vw);
-  opacity: 0;
-  transform: translateY(12px);
-  animation: slideFade 0.55s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
-}
-
-.dark .project-card {
-  background: var(--bg-dark);
-  border-color: rgba(30, 144, 255, 0.24);
-  color: #e6eef9;
-}
-
-.card-accent {
-  position: absolute;
-  inset: 0 -120px auto auto;
-  width: 140px;
-  height: 140px;
-  border-top-left-radius: 120px;
-  background: linear-gradient(135deg, rgba(30, 144, 255, 0.06), rgba(0, 200, 150, 0.04));
-  pointer-events: none;
-}
-
-.card-inner {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 20px;
-}
-
-.tech-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 6px 10px;
-  border-radius: 9999px;
-  font-size: 0.8rem;
-  background: rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-}
-
-.dark .tech-badge {
-  background: rgba(30, 144, 255, 0.06);
-  border-color: rgba(30, 144, 255, 0.12);
-}
-
-.project-card:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 18px 40px rgba(30, 144, 255, 0.12);
-}
-
-/* number bubble style fallback for non-tailwind usage */
-.number-bubble {
-  background: var(--primary);
-  color: white;
-}
-
-/* small animation */
-@keyframes slideFade {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* responsive tweaks */
-@media (max-width: 767px) {
-  .project-card {
-    width: 100%;
-  }
-  .card-accent {
-    display: none;
-  }
-}
 </style>
