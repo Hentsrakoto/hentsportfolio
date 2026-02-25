@@ -60,6 +60,12 @@ const todayDate = new Date().toLocaleDateString('fr-FR', { weekday: 'long', year
           <ScrollReveal>
             <Experience />
           </ScrollReveal>
+
+          <hr class="border-t border-dashed border-primary/30 dark:border-primary/20" />
+
+          <ScrollReveal>
+            <Contact />
+          </ScrollReveal>
         </div>
 
         <!-- Sidebar Area -->
@@ -90,9 +96,6 @@ const todayDate = new Date().toLocaleDateString('fr-FR', { weekday: 'long', year
 
       <!-- Footer Section -->
       <div class="border-t-[6px] border-double border-primary dark:border-primary/50 mt-20 pt-12 relative z-10">
-        <ScrollReveal>
-          <Contact />
-        </ScrollReveal>
         <Footer />
       </div>
     </div>

@@ -6,7 +6,7 @@
         Contact
       </span>
       <h2 class="font-journal text-4xl sm:text-5xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3 break-words hyphens-auto break-all sm:break-normal">
-        Écrivez-nous.
+        Écrivez-moi.
       </h2>
       <p class="font-sans text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto sm:mx-0 italic">
         Vous avez un projet en tête ou vous souhaitez simplement échanger ? Courrier des lecteurs.
