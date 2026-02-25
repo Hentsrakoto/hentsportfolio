@@ -5,7 +5,7 @@
       <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
         Contact
       </span>
-      <h2 class="font-journal text-5xl sm:text-6xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3">
+      <h2 class="font-journal text-4xl sm:text-5xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3 break-words hyphens-auto break-all sm:break-normal">
         Écrivez-nous.
       </h2>
       <p class="font-sans text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto sm:mx-0 italic">
@@ -17,7 +17,7 @@
       
       <!-- Coordinates (Classifieds Style) -->
       <div class="col-span-1 lg:col-span-4 border-[2px] border-primary dark:border-gray-500 p-6 bg-gray-50 dark:bg-[#1A1A1A] relative">
-        <h3 class="font-journal text-3xl font-bold uppercase border-b-2 border-primary dark:border-gray-500 pb-2 mb-6 text-primary dark:text-white">
+        <h3 class="font-journal text-3xl font-bold uppercase border-b-2 border-primary dark:border-gray-500 pb-2 mb-6 text-primary dark:text-white break-words">
           Coordonnées
         </h3>
 

@@ -5,7 +5,7 @@
       <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
         {{ $t('sectionTitle.aboutBadge') }}
       </span>
-      <h2 class="font-journal text-5xl sm:text-6xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3">
+      <h2 class="font-journal text-4xl sm:text-5xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3 break-words hyphens-auto break-all sm:break-normal">
         {{ $t('sectionTitle.aboutTitle') }}
       </h2>
       <p class="font-sans text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto sm:mx-0 italic">
@@ -13,10 +13,10 @@
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-12 gap-10 items-start">
+    <div class="flex flex-col gap-10 items-start">
       
       <!-- Biography & Traits Column -->
-      <div class="col-span-1 sm:col-span-7 flex flex-col gap-6">
+      <div class="flex flex-col gap-6 w-full">
         <p class="font-sans text-base lg:text-lg text-text dark:text-gray-300 leading-relaxed">
           {{ $t('me.intro') }}
         </p>
@@ -60,7 +60,7 @@
       </div>
 
       <!-- Education Timeline Column (Sidebar Style) -->
-      <div class="col-span-1 sm:col-span-5 bg-gray-50 dark:bg-[#1A1A1A] border-[2px] border-primary dark:border-gray-600 p-6 relative">
+      <div class="w-full bg-gray-50 dark:bg-[#1A1A1A] border-[2px] border-primary dark:border-gray-600 p-6 relative">
         <h3 class="font-journal text-2xl font-bold text-primary dark:text-white uppercase border-b border-primary dark:border-gray-600 pb-2 mb-6 text-center">
           {{ $t('me.journeyTitle') }}
         </h3>

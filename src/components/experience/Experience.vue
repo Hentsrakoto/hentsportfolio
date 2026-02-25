@@ -5,7 +5,7 @@
       <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
         {{ $t('sectionTitle.expBadge') }}
       </span>
-      <h2 class="font-journal text-5xl sm:text-6xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3">
+      <h2 class="font-journal text-4xl sm:text-5xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3 break-words hyphens-auto break-all sm:break-normal">
         {{ $t('sectionTitle.expTitle') }}
       </h2>
       <p class="font-sans text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto sm:mx-0 italic">
@@ -21,7 +21,7 @@
         class="border-b-[2px] border-primary dark:border-gray-600 pb-10"
       >
         <header class="flex flex-col md:flex-row md:items-baseline md:justify-between mb-4 gap-2">
-          <h3 class="font-journal text-4xl sm:text-5xl font-black text-primary dark:text-white leading-none">
+          <h3 class="font-journal text-3xl sm:text-4xl md:text-5xl font-black text-primary dark:text-white leading-none break-words">
             {{ exp.role }}
           </h3>
           <div class="font-sans text-sm font-bold tracking-widest uppercase text-gray-500 dark:text-gray-400 flex flex-wrap items-center gap-2 sm:gap-4 mt-2 md:mt-0">

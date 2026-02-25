@@ -5,7 +5,7 @@
       <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
         {{ $t('hero.exclusive') }}
       </span>
-      <h1 class="font-journal text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-4">
+      <h1 class="font-journal text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-4 break-words hyphens-auto break-all sm:break-normal">
         {{ $t('hero.title1') }}<br />{{ $t('hero.title2') }}
       </h1>
       <p class="font-sans text-xl md:text-2xl text-primary/80 dark:text-gray-300 italic font-medium">

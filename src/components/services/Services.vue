@@ -5,7 +5,7 @@
       <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
         {{ $t('sectionTitle.servicesBadge') }}
       </span>
-      <h2 class="font-journal text-5xl sm:text-6xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3">
+      <h2 class="font-journal text-4xl sm:text-5xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3 break-words hyphens-auto break-all sm:break-normal">
         {{ $t('sectionTitle.servicesTitle') }}
       </h2>
       <p class="font-sans text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto sm:mx-0 italic">
@@ -14,11 +14,11 @@
     </div>
 
     <!-- Editorial Layout for Services -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
+    <div class="flex flex-col gap-12">
       <article
         v-for="(service, index) in computedServices"
         :key="index"
-        class="flex flex-col gap-3 group relative sm:border-b-0 border-b border-primary/20 dark:border-gray-700 pb-8 sm:pb-0"
+        class="flex flex-col gap-3 group relative border-b border-primary/20 dark:border-gray-700 pb-8 last:border-b-0 last:pb-0"
       >
         <div class="flex items-center gap-4 border-b-2 border-primary dark:border-gray-500 pb-2">
           <div class="w-8 h-8 flex items-center justify-center shrink-0 text-primary dark:text-white group-hover:text-secondary dark:group-hover:text-gray-300 transition-colors">

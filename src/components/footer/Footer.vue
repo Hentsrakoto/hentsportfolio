@@ -34,7 +34,7 @@ const socialLinks = [
         <!-- Brand Section -->
         <div class="md:col-span-5 flex flex-col justify-between">
           <div>
-            <h2 class="font-journal text-6xl font-black text-primary dark:text-white mb-4">
+            <h2 class="font-journal text-5xl sm:text-6xl font-black text-primary dark:text-white mb-4 break-words">
               Hents.
             </h2>
             <p class="font-serif text-lg leading-relaxed max-w-sm italic">

@@ -23,7 +23,7 @@ onMounted(() => {
   observer = new IntersectionObserver(
     (entries) => {
       // Trigger when just a bit of the element is visible
-      if (entries[0].isIntersecting) {
+      if (entries[0]?.isIntersecting) {
         isVisible.value = true
         // Stop observing once triggered to keep it visible
         if (el.value) observer?.unobserve(el.value)

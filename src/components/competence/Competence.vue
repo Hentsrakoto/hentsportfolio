@@ -37,12 +37,12 @@ const systemesOutils = [
       <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
         Expertise Technique
       </span>
-      <h2 class="font-journal text-5xl sm:text-6xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none">
+      <h2 class="font-journal text-4xl sm:text-5xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none break-words hyphens-auto break-all sm:break-normal">
         Stack & Outils.
       </h2>
     </div>
 
-    <div class="flex flex-col lg:flex-row gap-10">
+    <div class="flex flex-col gap-10">
       <!-- Colonne Développement -->
       <div class="flex-1 border-[2px] border-primary dark:border-gray-600 p-6 relative">
         <!-- Coin déco -->
@@ -57,9 +57,9 @@ const systemesOutils = [
           </p>
         </header>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-10 gap-x-6">
-          <div v-for="skill in languagesFrameworks" :key="skill.name" class="flex flex-col items-center group cursor-crosshair">
-            <div class="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center p-3 border-[1.5px] border-black dark:border-white bg-white dark:bg-black grayscale group-hover:grayscale-0 transition-all duration-300 shadow-[4px_4px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_rgba(255,255,255,1)] group-hover:translate-y-1 group-hover:translate-x-1 group-hover:shadow-[0px_0px_0px_rgba(0,0,0,1)] dark:group-hover:shadow-[0px_0px_0px_rgba(255,255,255,1)]">
+        <div class="flex flex-wrap justify-center gap-x-4 gap-y-8">
+          <div v-for="skill in languagesFrameworks" :key="skill.name" class="flex flex-col items-center group cursor-crosshair w-[72px] sm:w-[80px]">
+            <div class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center p-3 border-[1.5px] border-black dark:border-white bg-white dark:bg-black grayscale group-hover:grayscale-0 transition-all duration-300 shadow-[4px_4px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_rgba(255,255,255,1)] group-hover:translate-y-1 group-hover:translate-x-1 group-hover:shadow-[0px_0px_0px_rgba(0,0,0,1)] dark:group-hover:shadow-[0px_0px_0px_rgba(255,255,255,1)]">
               <img
                 :src="skill.icon"
                 :alt="skill.name"
@@ -67,7 +67,7 @@ const systemesOutils = [
                 :class="{ 'dark:invert': ['Express'].includes(skill.name) }"
               />
             </div>
-            <span class="mt-4 font-sans text-xs font-bold uppercase tracking-widest text-[#111827] dark:text-gray-300 text-center">
+            <span class="mt-4 font-sans text-xs font-bold uppercase tracking-widest text-[#111827] dark:text-gray-300 text-center break-words hyphens-auto w-full">
               {{ skill.name }}
             </span>
           </div>
@@ -75,8 +75,8 @@ const systemesOutils = [
       </div>
 
       <!-- Colonne Outils & Design -->
-      <div class="w-full lg:w-[40%] flex flex-col gap-6">
-        <div class="border-[2px] border-dashed border-primary dark:border-gray-600 p-6 flex-1 relative bg-gray-50 dark:bg-[#1A1A1A]">
+      <div class="w-full flex flex-col gap-6">
+        <div class="border-[2px] border-dashed border-primary dark:border-gray-600 p-6 flex-1 relative bg-gray-50 dark:bg-[#1A1A1A] w-full">
           <header class="border-b-2 border-primary dark:border-gray-600 pb-4 mb-8 text-center">
             <h3 class="font-journal text-2xl md:text-3xl font-bold text-primary dark:text-white uppercase tracking-tight">
               Outils & Design
@@ -86,9 +86,9 @@ const systemesOutils = [
             </p>
           </header>
 
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-y-10 gap-x-6">
-            <div v-for="skill in systemesOutils" :key="skill.name" class="flex flex-col items-center group cursor-crosshair">
-              <div class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center p-3 rounded-full border border-gray-400 dark:border-gray-600 bg-white dark:bg-black grayscale drop-shadow-sm group-hover:grayscale-0 transition-all duration-300 transform group-hover:-rotate-6 hover:scale-110">
+          <div class="flex flex-wrap justify-center gap-x-4 gap-y-8">
+            <div v-for="skill in systemesOutils" :key="skill.name" class="flex flex-col items-center group cursor-crosshair w-[72px] sm:w-[80px]">
+              <div class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center p-3 rounded-full border border-gray-400 dark:border-gray-600 bg-white dark:bg-black grayscale drop-shadow-sm group-hover:grayscale-0 transition-all duration-300 transform group-hover:-rotate-6 hover:scale-110">
                 <img
                   :src="skill.icon"
                   :alt="skill.name"
@@ -96,7 +96,7 @@ const systemesOutils = [
                   :class="{ 'dark:invert': ['GitHub'].includes(skill.name) }"
                 />
               </div>
-              <span class="mt-4 font-sans text-[10px] md:text-xs font-bold uppercase tracking-[0.1em] text-[#111827] dark:text-gray-300 text-center">
+              <span class="mt-4 font-sans text-[10px] md:text-xs font-bold uppercase tracking-[0.1em] text-[#111827] dark:text-gray-300 text-center break-words hyphens-auto w-full">
                 {{ skill.name }}
               </span>
             </div>
