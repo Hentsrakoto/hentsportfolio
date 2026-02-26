@@ -17,7 +17,8 @@ export default {
     p1: "I design modern and dynamic interfaces combining design, performance and interactivity to bring your ideas to life. With a true passion for creating memorable web experiences, every line of code is a building block towards innovation.",
     p2: "Based in Madagascar, my work is inspired by classic architecture: solid foundations, a clear structure, and timeless aesthetics. Whether with Vue.js or React, the goal remains the same: excellence.",
     cta: "Read More",
-    fig1: "Fig 1. Henintsoa in his element."
+    fig1: "Fig 1. Henintsoa in his element.",
+    pullQuote: "Every line of code is a building block towards innovation."
   },
   sectionTitle: {
     aboutBadge: "About Me",
@@ -109,7 +110,7 @@ export default {
     coords: "Contact Details",
     socials: "Social Networks",
     namePlaceholder: "Your full name",
-    emailPlaceholder: "your.email@address.com",
+    emailPlaceholder: "your.email{'@'}address.com",
     subjectPlaceholder: "Subject of correspondence",
     messagePlaceholder: "Write your letter here...",
     send: "Send Letter",

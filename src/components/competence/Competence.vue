@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 const languagesFrameworks = [
   { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
   { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
@@ -32,14 +36,17 @@ const systemesOutils = [
 
 <template>
   <section id="competence" class="relative py-12 bg-transparent">
-    <!-- Header Journal Style -->
+    <!-- Header Journal Style (i18n) -->
     <div class="border-b-[3px] border-primary dark:border-gray-500 pb-4 mb-8">
       <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
-        Expertise Technique
+        {{ t('sectionTitle.skillsBadge') }}
       </span>
       <h2 class="font-journal text-4xl sm:text-5xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none break-words hyphens-auto break-all sm:break-normal">
-        Stack & Outils.
+        {{ t('sectionTitle.skillsTitle') }}.
       </h2>
+      <p class="font-sans text-base sm:text-lg text-gray-600 dark:text-gray-400 italic mt-2">
+        {{ t('sectionTitle.skillsSubtitle') }}
+      </p>
     </div>
 
     <div class="flex flex-col gap-10">
@@ -64,7 +71,7 @@ const systemesOutils = [
                 :src="skill.icon"
                 :alt="skill.name"
                 class="w-full h-full object-contain"
-                :class="{ 'dark:invert': ['Express'].includes(skill.name) }"
+                :class="{ 'dark:invert': ['Express', 'Flask'].includes(skill.name) }"
               />
             </div>
             <span class="mt-4 font-sans text-xs font-bold uppercase tracking-widest text-[#111827] dark:text-gray-300 text-center break-words hyphens-auto w-full">
@@ -93,7 +100,7 @@ const systemesOutils = [
                   :src="skill.icon"
                   :alt="skill.name"
                   class="w-full h-full object-contain"
-                  :class="{ 'dark:invert': ['GitHub'].includes(skill.name) }"
+                  :class="{ 'dark:invert': ['GitHub', 'Framer'].includes(skill.name) }"
                 />
               </div>
               <span class="mt-4 font-sans text-[10px] md:text-xs font-bold uppercase tracking-[0.1em] text-[#111827] dark:text-gray-300 text-center break-words hyphens-auto w-full">

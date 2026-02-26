@@ -15,8 +15,8 @@
 
     <!-- Editorial Layout for Projects -->
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start border-t-[2px] border-b-[2px] border-primary dark:border-gray-500 py-6">
-      
-      <!-- Feature Project (Taking up more space, e.g., first item) -->
+
+      <!-- Feature Project -->
       <article v-if="featuredProject" class="col-span-1 md:col-span-8 md:border-r-[2px] border-primary dark:border-gray-500 md:pr-8 flex flex-col gap-4">
         <h3 class="font-journal text-4xl sm:text-5xl font-black text-primary dark:text-white leading-none break-words">
           {{ featuredProject.title }}
@@ -24,12 +24,12 @@
         <p class="font-sans font-bold uppercase tracking-widest text-xs text-gray-500 dark:text-gray-400 border-b border-primary/20 dark:border-gray-700 pb-2">
           {{ featuredProject.short }}
         </p>
-        
+
         <figure v-if="featuredProject.imageUrl" class="relative border-[2px] border-primary dark:border-gray-500 p-1 bg-white dark:bg-[#1A1A1A]">
           <img
             :src="featuredProject.imageUrl"
             :alt="featuredProject.title"
-            class="w-full h-auto object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500 mix-blend-multiply dark:mix-blend-normal"
+            class="w-full h-56 object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500 mix-blend-multiply dark:mix-blend-normal"
           />
           <figcaption class="text-right text-[10px] uppercase tracking-wider text-gray-400 mt-1 pb-1">{{ $t('portfolio.fig1') }}</figcaption>
         </figure>
@@ -54,12 +54,14 @@
             {{ tech.name }}
           </span>
         </div>
+
+
       </article>
 
-      <!-- Side Articles (Rest of the projects) -->
+      <!-- Side Articles -->
       <aside class="col-span-1 md:col-span-4 flex flex-col gap-10">
         <article
-          v-for="(proj, i) in computedProjects.slice(1)"
+          v-for="(proj) in computedProjects.slice(1)"
           :key="proj.id"
           class="flex flex-col gap-3 pb-8 border-b border-primary/20 dark:border-gray-700 last:border-0 last:pb-0"
         >
@@ -82,7 +84,7 @@
             {{ proj.description }}
           </p>
 
-          <div class="flex flex-wrap gap-1 mt-2">
+          <div class="flex flex-wrap gap-1 mt-1">
             <span
               v-for="tech in proj.techs"
               :key="tech.name"
@@ -97,9 +99,15 @@
     </div>
   </section>
 </template>
+
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { Github, ExternalLink } from 'lucide-vue-next'
+import editorImg from '@/assets/code.jpg'
+import planetgameImg from '@/assets/logoplanetgame.png'
+import musicappImg from '@/assets/musicapp.jpg'
+import cvmakerImg from '@/assets/cv.jpg'
 
 const { t, locale } = useI18n()
 
@@ -107,10 +115,10 @@ const computedProjects = computed(() => [
   {
     id: 'editor',
     title: 'Code Editor',
-    imageUrl: 'https://placehold.co/600x400/F59E0B/FFFFFF?text=Code+Editor',
+    imageUrl: editorImg,
     short: 'Electron + Express + AI',
-    description: locale.value === 'en' 
-      ? "Cross-platform editor designed for pair programming, integrating AI assistants for completion, explanation and test generation." 
+    description: locale.value === 'en'
+      ? "Cross-platform editor designed for pair programming, integrating AI assistants for completion, explanation and test generation."
       : "Éditeur cross‑platform pensé pour le pair programming, intégrant des assistants IA pour la complétion, l'explication et la génération de tests.",
     details: locale.value === 'en' ? [
       'Frontend Electron for native and fast rendering',
@@ -118,68 +126,58 @@ const computedProjects = computed(() => [
       'Plugin architecture to extend features'
     ] : [
       'Frontend Electron pour un rendu natif et performant',
-      'Micro‑service Express pour l’indexation statique',
+      "Micro‑service Express pour l'indexation statique",
       'Architecture de plugins pour étendre les fonctionnalités',
     ],
-    techs: [
-      { name: 'Electron' },
-      { name: 'Express' },
-      { name: 'DeepSeek (IA)' },
-    ],
+    techs: [{ name: 'Electron' }, { name: 'Express' }, { name: 'DeepSeek (IA)' }],
+    demo: null,
   },
   {
     id: 'planetgame',
     title: 'PlanetGame',
-    imageUrl: 'https://placehold.co/600x400/1E90FF/FFFFFF?text=PlanetGame',
+    imageUrl: planetgameImg,
     short: 'E‑commerce / CodeIgniter + Vue',
-    description: locale.value === 'en' 
+    description: locale.value === 'en'
       ? 'Complete tech marketplace with advanced catalog management, real-time cart and admin back-office.'
       : 'Marketplace tech complète avec gestion avancée du catalogue, panier temps réel et back-office administrateur.',
     details: locale.value === 'en' ? [
       'Transactional stock management',
       'Secure payment integration',
-      "Optimization predictive AI",
+      'Optimization predictive AI',
     ] : [
       'Gestion des stocks transactionnelle',
       'Intégration de paiement sécurisé',
       "IA prédictive d'optimisation",
     ],
-    techs: [
-      { name: 'CodeIgniter 4' },
-      { name: 'Vue 3' },
-      { name: 'Tailwind' },
-      { name: 'MySQL' },
-    ],
+    techs: [{ name: 'CodeIgniter 4' }, { name: 'Vue 3' }, { name: 'Tailwind' }, { name: 'MySQL' }],
+    demo: null,
   },
   {
     id: 'musicapp',
     title: 'MusicApp',
-    imageUrl: 'https://placehold.co/600x400/10B981/FFFFFF?text=MusicApp',
+    imageUrl: musicappImg,
     short: locale.value === 'en' ? 'Audio recognition / Flask' : 'Reconnaissance audio / Flask',
-    description: locale.value === 'en' 
+    description: locale.value === 'en'
       ? "Mobile application capable of listening to the environment to identify a song and add it to a library."
       : "Application mobile capable d'écouter l'environnement pour identifier une chanson et l'ajouter à une bibliothèque.",
     details: locale.value === 'en' ? [
       'Python Flask backend',
-      "Spotify API integration",
+      'Spotify API integration',
       'Redis cache system',
     ] : [
       'Backend Python Flask',
       "Intégration de l'API Spotify",
       'Système de cache Redis',
     ],
-    techs: [
-      { name: 'Python' },
-      { name: 'Flask' },
-      { name: 'Spotify API' },
-    ],
+    techs: [{ name: 'Python' }, { name: 'Flask' }, { name: 'Spotify API' }],
+    demo: null,
   },
   {
     id: 'cvmaker',
     title: 'CV Maker',
-    imageUrl: 'https://placehold.co/600x400/8B5CF6/FFFFFF?text=CV+Maker',
+    imageUrl: cvmakerImg,
     short: locale.value === 'en' ? 'Online CV Builder' : 'Constructeur de CV en ligne',
-    description: locale.value === 'en' 
+    description: locale.value === 'en'
       ? 'Resume builder tool with real-time preview and high fidelity PDF export.'
       : 'Outil de création de CV avec prévisualisation en temps réel et export PDF haute fidélité.',
     details: locale.value === 'en' ? [
@@ -191,11 +189,8 @@ const computedProjects = computed(() => [
       'Génération PDF côté serveur',
       'Sauvegarde automatique des brouillons',
     ],
-    techs: [
-      { name: 'Vue 3' },
-      { name: 'Tailwind CSS' },
-      { name: 'jsPDF' },
-    ],
+    techs: [{ name: 'Vue 3' }, { name: 'Tailwind CSS' }, { name: 'jsPDF' }],
+    demo: null,
   },
 ])
 

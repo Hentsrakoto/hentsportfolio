@@ -17,7 +17,8 @@ export default {
     p1: "Je conçois des interfaces modernes et dynamiques alliant design, performance et interactivité pour donner vie à vos idées. Ayant une véritable passion pour la création d'expériences web mémorables, chaque ligne de code est une brique vers l'innovation.",
     p2: "Basé à Madagascar, mon travail s'inspire de l'architecture classique: des fondations solides, une structure claire, et une esthétique intemporelle. Que ce soit avec Vue.js ou React, l'objectif reste le même: l'excellence.",
     cta: "En savoir plus",
-    fig1: "Fig 1. Henintsoa dans son élément."
+    fig1: "Fig 1. Henintsoa dans son élément.",
+    pullQuote: "Chaque ligne de code est une brique vers l'innovation."
   },
   sectionTitle: {
     aboutBadge: "About Me",
@@ -109,7 +110,7 @@ export default {
     coords: "Coordonnées",
     socials: "Réseaux Sociaux",
     namePlaceholder: "Votre nom complet",
-    emailPlaceholder: "votre.email@adresse.com",
+    emailPlaceholder: "votre.email{'@'}adresse.com",
     subjectPlaceholder: "Sujet de la correspondance",
     messagePlaceholder: "Rédigez votre lettre ici...",
     send: "Envoyer la lettre",

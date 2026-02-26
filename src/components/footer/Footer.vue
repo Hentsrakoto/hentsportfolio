@@ -1,31 +1,26 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import { Github, Linkedin } from 'lucide-vue-next'
+
+const { t } = useI18n()
 
 const currentYear = new Date().getFullYear()
 
 const services = [
-  { name: 'Développement Web', href: '#' },
-  { name: 'Applications Mobiles', href: '#' },
-  { name: 'UI/UX Design', href: '#' },
-  { name: 'Consulting Tech', href: '#' },
+  { name: t('services.webTitle'), href: '#services' },
+  { name: t('services.responsiveTitle'), href: '#services' },
+  { name: t('services.uiTitle'), href: '#services' },
+  { name: t('services.integrationTitle'), href: '#services' },
 ]
 
 const socialLinks = [
-  {
-    name: 'GitHub',
-    href: 'https://github.com/Hentsrakoto',
-    icon: Github,
-  },
-  {
-    name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/henintsoa-rakotonavalona-366404390/',
-    icon: Linkedin,
-  },
+  { name: 'GitHub', href: 'https://github.com/Hentsrakoto', icon: Github },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/henintsoa-rakotonavalona-366404390/', icon: Linkedin },
 ]
 </script>
 
 <template>
-  <footer class="bg-[#FDFBF7] dark:bg-[#121212] border-t-[4px] border-primary dark:border-gray-500 pt-12 pb-6 relative overflow-hidden text-primary dark:text-gray-300">
+  <footer class="bg-[#FDFBF7] dark:bg-[#121212] pt-12 pb-6 relative overflow-hidden text-primary dark:text-gray-300">
     <div class="container mx-auto px-6">
       
       <!-- Top Grid -->
@@ -38,8 +33,7 @@ const socialLinks = [
               Hents.
             </h2>
             <p class="font-serif text-lg leading-relaxed max-w-sm italic">
-              Transformez vos idées en réalité numérique. Je conçois des expériences web immersives et
-              performantes, alliant design classique et technologies de pointe.
+              {{ t('footer.tagline') }}
             </p>
           </div>
           <div class="flex gap-4 mt-6">
@@ -48,6 +42,7 @@ const socialLinks = [
               :key="social.name"
               :href="social.href"
               target="_blank"
+              rel="noopener noreferrer"
               class="w-10 h-10 border border-primary dark:border-gray-500 flex items-center justify-center text-primary dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-[#121212] transition-colors"
               :aria-label="social.name"
             >
@@ -59,7 +54,7 @@ const socialLinks = [
         <!-- Links Section -->
         <div class="md:col-span-3 lg:col-start-7 lg:col-span-2">
           <h3 class="font-sans text-xs font-bold uppercase tracking-[0.2em] mb-4 text-gray-500 dark:text-gray-400">
-            Services
+            {{ t('footer.services') }}
           </h3>
           <ul class="space-y-2">
             <li v-for="service in services" :key="service.name">
@@ -73,20 +68,27 @@ const socialLinks = [
         <!-- Colophon / Fine Print -->
         <div class="md:col-span-4 lg:col-span-3">
           <h3 class="font-sans text-xs font-bold uppercase tracking-[0.2em] mb-4 text-gray-500 dark:text-gray-400">
-            Avis Légal
+            {{ t('footer.legal') }}
           </h3>
           <p class="font-serif text-sm leading-relaxed text-gray-700 dark:text-gray-400">
-            Ce journal numérique est édité indépendamment. Les informations contenues sur cette page sont fournies à titre indicatif et sont sujettes à modification sans préavis.
+            {{ t('footer.legalText1') }}
           </p>
           <p class="font-serif text-sm leading-relaxed text-gray-700 dark:text-gray-400 mt-4">
-            Imprimé numériquement sur le web, distribué via le réseau mondial.
+            {{ t('footer.legalText2') }}
           </p>
         </div>
       </div>
 
+      <!-- Ornamental divider -->
+      <div class="flex items-center justify-center gap-3 mb-6 text-primary/30 dark:text-white/20 select-none">
+        <span class="h-px flex-1 bg-primary/10 dark:bg-white/10 block"></span>
+        <span class="font-journal text-sm">✦ ❖ ✦</span>
+        <span class="h-px flex-1 bg-primary/10 dark:bg-white/10 block"></span>
+      </div>
+
       <!-- Bottom Bar -->
       <div class="flex flex-col md:flex-row justify-between items-center text-xs font-sans font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-        <p>&copy; {{ currentYear }} Hentsrakoto. Tous droits réservés.</p>
+        <p>&copy; {{ currentYear }} Hentsrakoto. {{ t('footer.rights') }}</p>
         <p class="mt-2 md:mt-0">The Mind Behind The Code.</p>
       </div>
       
