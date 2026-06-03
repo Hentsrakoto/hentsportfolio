@@ -1,61 +1,93 @@
 <!doctype html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8" />
 
   <!-- Favicon -->
   <link rel="icon" href="/Hents.png" />
+  <link rel="apple-touch-icon" href="/Hents.png" />
 
-  <!-- Viewport & Mobile Optimization -->
+  <!-- Viewport & Mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#000000" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-  <!-- SEO Meta Tags -->
+  <!-- SEO -->
+  <title>Hentsrakoto | Développeur Web Frontend · Vue.js & React · Madagascar</title>
   <meta name="description"
-    content="Portfolio de Hentsrakoto - Développeur Web Full Stack spécialisé en Vue.js, React et Node.js. Découvrez mes projets et compétences." />
+    content="Portfolio de Hentsrakoto, développeur web frontend basé à Madagascar, spécialisé en Vue.js, React et Tailwind CSS. Disponible pour stage et missions freelance." />
   <meta name="keywords"
-    content="Hentsrakoto, Portfolio, Web Developer, Développeur Web, Vue.js, React, Full Stack, Frontend, Backend, Madagascar" />
+    content="Hentsrakoto, développeur web, frontend, Vue.js, React, Tailwind CSS, portfolio, Madagascar, stage, freelance" />
   <meta name="author" content="Hentsrakoto" />
-  <meta name="robots" content="index, follow" />
-  <meta name="googlebot" content="index, follow" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
-  <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
+  <!-- Canonical -->
+  <link rel="canonical" href="https://hentsrakoto.netlify.app/" />
+
+  <!-- Open Graph (URLs absolues obligatoires) -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Hentsrakoto Portfolio | Développeur Web Full Stack" />
+  <meta property="og:title" content="Hentsrakoto | Développeur Web Frontend · Vue.js & React" />
   <meta property="og:description"
-    content="Portfolio de Hentsrakoto - Développeur Web Full Stack spécialisé en Vue.js, React et Node.js. Découvrez mes projets et compétences." />
-  <meta property="og:image" content="/Hents.png" />
-  <meta property="og:url" content="https://hentsrakoto.netlify.app" />
+    content="Portfolio de Hentsrakoto, développeur web frontend basé à Madagascar, spécialisé en Vue.js, React et Tailwind CSS." />
+  <meta property="og:image" content="https://hentsrakoto.netlify.app/Hents.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Hentsrakoto - Développeur Web Frontend" />
+  <meta property="og:url" content="https://hentsrakoto.netlify.app/" />
   <meta property="og:site_name" content="Hentsrakoto Portfolio" />
   <meta property="og:locale" content="fr_FR" />
 
-  <!-- Twitter Card Meta Tags -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Hentsrakoto Portfolio | Développeur Web Full Stack" />
+  <meta name="twitter:title" content="Hentsrakoto | Développeur Web Frontend · Vue.js & React" />
   <meta name="twitter:description"
-    content="Portfolio de Hentsrakoto - Développeur Web Full Stack spécialisé en Vue.js, React et Node.js." />
-  <meta name="twitter:image" content="/Hents.png" />
-  <meta name="twitter:creator" content="@hentsrakoto" />
+    content="Portfolio de Hentsrakoto, développeur web frontend basé à Madagascar." />
+  <meta name="twitter:image" content="https://hentsrakoto.netlify.app/Hents.png" />
+  <meta name="twitter:image:alt" content="Hentsrakoto - Développeur Web Frontend" />
 
-  <!-- Performance Optimization -->
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hentsrakoto",
+    "url": "https://hentsrakoto.netlify.app/",
+    "image": "https://hentsrakoto.netlify.app/Hents.png",
+    "jobTitle": "Développeur Web Frontend",
+    "description": "Développeur web frontend spécialisé en Vue.js, React et Tailwind CSS, basé à Madagascar.",
+    "knowsAbout": ["Vue.js", "React", "Tailwind CSS", "TypeScript", "Node.js", "PHP", "CodeIgniter"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "MG",
+      "addressLocality": "Antananarivo"
+    },
+    "sameAs": [
+      "https://github.com/hentsrakoto",
+      "https://www.linkedin.com/in/hentsrakoto",
+      "https://www.upwork.com/freelancers/hentsrakoto"
+    ]
+  }
+  </script>
+
+  <!-- Preconnect Fonts (seulement ceux utilisés) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <!-- Page Title -->
-  <title>Hentsrakoto Portfolio | Développeur Web Full Stack</title>
-
-  <!-- Google Fonts - Optimized Loading -->
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <!-- ⚠️ Réduire à 1-2 familles max pour les Core Web Vitals -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div id="app"></div>
+  <div id="app">
+    <!-- Prerender fallback pour les crawlers (à compléter avec ton nom/titre) -->
+    <noscript>
+      <h1>Hentsrakoto — Développeur Web Frontend</h1>
+      <p>Portfolio de Hentsrakoto, développeur web frontend basé à Madagascar,
+      spécialisé en Vue.js, React et Tailwind CSS.</p>
+      <p>Contactez-moi via <a href="https://github.com/hentsrakoto">GitHub</a>
+      ou <a href="https://www.linkedin.com/in/hentsrakoto">LinkedIn</a>.</p>
+    </noscript>
+  </div>
   <script type="module" src="/src/main.ts"></script>
 </body>
-
 </html>
