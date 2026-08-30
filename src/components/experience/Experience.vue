@@ -72,25 +72,25 @@ const { t, tm } = useI18n()
 const computedExperiences = computed(() => {
   return [
     {
-      period: '2023 - 2024',
+      period: 'Sept. 2024 — Jan. 2026',
       role: t('experience.exp1Role'),
       company: t('experience.exp1Company'),
       tasks: tm('experience.exp1Tasks') as string[],
-      techs: ['HTML', 'CSS', 'JavaScript'],
+      techs: ['Vue.js', 'CodeIgniter 4', 'MySQL', 'API REST', 'JavaScript'],
     },
     {
-      period: '2024',
+      period: 'Mai 2026',
       role: t('experience.exp2Role'),
       company: t('experience.exp2Company'),
       tasks: tm('experience.exp2Tasks') as string[],
-      techs: ['Git', 'IA', 'Vue.js', 'Python'],
+      techs: ['React Native', 'JavaScript'],
     },
     {
-      period: 'Sept 2024 - Present',
+      period: '2023 — En cours',
       role: t('experience.exp3Role'),
       company: t('experience.exp3Company'),
       tasks: tm('experience.exp3Tasks') as string[],
-      techs: ['Vue.js', 'Tailwind CSS', 'JavaScript', 'HTML', 'CSS'],
+      techs: ['Python', 'Machine Learning', 'Algorithmes', 'Git'],
     },
   ]
 })

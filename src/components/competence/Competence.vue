@@ -9,28 +9,27 @@ const languagesFrameworks = [
   { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
   { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
   { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
+  { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
   { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-  { name: 'Tailwindcss', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
-  { name: 'Vue.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg' },
   { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-  { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-  { name: 'Express', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg' },
-  { name: 'Electron', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/electron/electron-original.svg' },
+  { name: 'Vue.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg' },
+  { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
+  { name: 'Spring Boot', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
   { name: 'Laravel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg' },
-  { name: 'Codeigniter', icon: 'https://cdn.simpleicons.org/codeigniter/codeigniter' },
-  { name: 'Flask', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg' },
+  { name: 'CodeIgniter', icon: 'https://cdn.simpleicons.org/codeigniter/codeigniter' },
+  { name: 'React Native', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
 ]
 
 const systemesOutils = [
-  { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
+  { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+  { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
   { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
   { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
-  { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-  { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+  { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
+  { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+  { name: 'Maven', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg' },
   { name: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
-  { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
-  { name: 'Framer', icon: 'https://cdn.simpleicons.org/framer/framer' },
-  { name: 'Affinity Designer', icon: 'https://images.seeklogo.com/logo-png/64/1/affinity-logo-png_seeklogo-643292.png' },
+  { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
 ]
 </script>
 
@@ -60,7 +59,7 @@ const systemesOutils = [
             Développement
           </h3>
           <p class="font-sans text-sm md:text-base italic text-gray-600 dark:text-gray-400 mt-2">
-            L'architecture logicielle : Back-end, Front-end & Desktop.
+            Frontend, Backend, Data &amp; Mobile.
           </p>
         </header>
 
@@ -71,7 +70,6 @@ const systemesOutils = [
                 :src="skill.icon"
                 :alt="skill.name"
                 class="w-full h-full object-contain"
-                :class="{ 'dark:invert': ['Express', 'Flask'].includes(skill.name) }"
               />
             </div>
             <span class="mt-4 font-sans text-xs font-bold uppercase tracking-widest text-[#111827] dark:text-gray-300 text-center break-words hyphens-auto w-full">
@@ -81,15 +79,15 @@ const systemesOutils = [
         </div>
       </div>
 
-      <!-- Colonne Outils & Design -->
+      <!-- Colonne Méthodes & Environnement -->
       <div class="w-full flex flex-col gap-6">
         <div class="border-[2px] border-dashed border-primary dark:border-gray-600 p-6 flex-1 relative bg-gray-50 dark:bg-[#1A1A1A] w-full">
           <header class="border-b-2 border-primary dark:border-gray-600 pb-4 mb-8 text-center">
             <h3 class="font-journal text-2xl md:text-3xl font-bold text-primary dark:text-white uppercase tracking-tight">
-              Outils & Design
+              Méthodes &amp; Environnement
             </h3>
             <p class="font-sans text-sm italic text-gray-600 dark:text-gray-400 mt-2">
-              L'atelier créatif et DevOps.
+              Bases de données, DevOps &amp; outils du quotidien.
             </p>
           </header>
 
@@ -100,7 +98,7 @@ const systemesOutils = [
                   :src="skill.icon"
                   :alt="skill.name"
                   class="w-full h-full object-contain"
-                  :class="{ 'dark:invert': ['GitHub', 'Framer'].includes(skill.name) }"
+                  :class="{ 'dark:invert': skill.name === 'GitHub' }"
                 />
               </div>
               <span class="mt-4 font-sans text-[10px] md:text-xs font-bold uppercase tracking-[0.1em] text-[#111827] dark:text-gray-300 text-center break-words hyphens-auto w-full">

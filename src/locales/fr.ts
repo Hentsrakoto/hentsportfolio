@@ -13,21 +13,21 @@ export default {
     title1: "The Mind Behind",
     title2: "The Code.",
     meet: "Rencontre avec",
-    typing: ['Henintsoa', 'le Développeur', 'le Designer'],
-    p1: "Je conçois des interfaces modernes et dynamiques alliant design, performance et interactivité pour donner vie à vos idées. Ayant une véritable passion pour la création d'expériences web mémorables, chaque ligne de code est une brique vers l'innovation.",
-    p2: "Basé à Madagascar, mon travail s'inspire de l'architecture classique: des fondations solides, une structure claire, et une esthétique intemporelle. Que ce soit avec Vue.js ou React, l'objectif reste le même: l'excellence.",
-    cta: "En savoir plus",
+    typing: ['Henintsoa', 'le Développeur', 'le Builder'],
+    p1: "Étudiant en Master 1 MIAGE et développeur web, je conçois des applications modernes en combinant frontend, backend, bases de données et systèmes intelligents. Chaque projet est une opportunité de transformer un besoin concret en une solution performante et évolutive.",
+    p2: "Basé à Madagascar, je travaille principalement avec React, Java, Spring Boot, Laravel et PostgreSQL. Je m'intéresse également à la Data, aux systèmes de recommandation et au Machine Learning.",
+    cta: "Voir mes projets",
     fig1: "Fig 1. Henintsoa dans son élément.",
-    pullQuote: "Chaque ligne de code est une brique vers l'innovation."
+    pullQuote: "Transformer les idées en applications concrètes, performantes et évolutives."
   },
   sectionTitle: {
     aboutBadge: "About Me",
     aboutTitle: "Qui suis-je ?",
     aboutSubtitle: "Développeur passionné, je transforme vos idées en réalité numérique.",
-    
+
     servicesBadge: "My Services",
-    servicesTitle: "Que puis-je faire ?",
-    servicesSubtitle: "Des solutions sur mesure pour répondre aux besoins de votre entreprise.",
+    servicesTitle: "Ce que je développe",
+    servicesSubtitle: "Des solutions techniques complètes adaptées aux besoins métier et aux utilisateurs.",
 
     expBadge: "Experience",
     expTitle: "Parcours Pro.",
@@ -38,66 +38,66 @@ export default {
     skillsSubtitle: "L'arsenal technologique que j'utilise pour bâtir vos projets.",
 
     projBadge: "Portfolio",
-    projTitle: "Nos Projets",
-    projSubtitle: "Une sélection de réalisations alliant rigueur technique et créativité.",
+    projTitle: "Mes Projets",
+    projSubtitle: "Une sélection de projets alliant rigueur technique et problèmes concrets.",
 
     contactBadge: "Contact",
     contactTitle: "Écrivez-nous.",
     contactSubtitle: "Vous avez un projet en tête ou vous souhaitez simplement échanger ? Courrier des lecteurs."
   },
   me: {
-    intro: "Je suis Henintsoa Ny Aina, un développeur frontend passionné par la création d’expériences web modernes, fluides et élégantes. J’allie design, performance et interactivité pour concevoir des interfaces intuitives et engageantes.",
-    devTitle: "Développement Vue.js & Tailwind",
-    devDesc: "L'ossature de mes projets s'articule autour de technologies robustes.",
-    curiousTitle: "Curieux & Innovant",
-    curiousDesc: "Toujours à la recherche de nouvelles méthodes et d'architectures modernes.",
-    excellenceTitle: "Objectif Excellence",
-    excellenceDesc: "Le détail typographique, l'accessibilité, et la performance sont prioritaires.",
-    journeyTitle: "Parcours",
-    l3: "Licence 3 en Informatique",
-    l3Desc: "Initiation à l'IA, gestion d'entreprise, gestion de projet informatique.",
-    l2: "Licence 2 en Informatique",
-    l2Desc: "Développement web, algorithmique, base de données.",
-    l1: "Licence 1 en Informatique",
-    l1Desc: "Introduction au développement logiciel, Python, Web."
+    intro: "Je suis Henintsoa Ny Aina, étudiant en Master 1 MIAGE et passionné par le développement web. J'aime transformer une idée ou un besoin métier en une application concrète, performante et évolutive. Je travaille principalement avec React, Java, Spring Boot, Laravel et PostgreSQL, et je m'intéresse à la Data et au Machine Learning.",
+    devTitle: "Développement Full-Stack",
+    devDesc: "Frontend, backend, API REST et bases de données — je couvre l'ensemble de la chaîne applicative.",
+    curiousTitle: "Curieux & Orienté Solutions",
+    curiousDesc: "Toujours à la recherche de nouvelles approches techniques et d'architectures modernes.",
+    excellenceTitle: "Systèmes Intelligents",
+    excellenceDesc: "Exploration de la Data, des systèmes de recommandation et du Machine Learning.",
+    journeyTitle: "Formation",
+    l3: "Master 1 MIAGE",
+    l3Desc: "Informatique Appliquée à la Gestion d'Entreprise — En cours.",
+    l2: "Licence en Informatique",
+    l2Desc: "Informatique, Risque et Décision — Septembre 2023 · Janvier 2026.",
+    l1: "Baccalauréat",
+    l1Desc: "Sciences - D"
   },
   services: {
-    webTitle: "Développement Web",
-    webDesc: "Création de sites web modernes, rapides et responsive utilisant les dernières technologies.",
-    responsiveTitle: "Responsive Design",
-    responsiveDesc: "Interfaces adaptatives qui fonctionnent parfaitement sur tous les appareils.",
-    uiTitle: "UI/UX Design",
-    uiDesc: "Conception d'interfaces utilisateur intuitives et esthétiques pour une expérience optimale.",
-    integrationTitle: "Intégration Web",
-    integrationDesc: "Transformation de vos maquettes graphiques en code propre et performant.",
-    spaTitle: "Applications SPA",
-    spaDesc: "Développement d'applications web monopage fluides et interactives.",
-    seoTitle: "Optimisation SEO",
-    seoDesc: "Amélioration de la structure et du contenu pour un meilleur référencement."
+    webTitle: "Applications Web",
+    webDesc: "Conception et réalisation d'applications web modernes et performantes adaptées aux besoins des utilisateurs.",
+    frontTitle: "Frontend Moderne",
+    frontDesc: "Développement d'interfaces utilisateur modernes, réactives et ergonomiques avec Vue.js et React.",
+    backTitle: "Backend & API REST",
+    backDesc: "Création d'API REST sécurisées et développement de la logique métier avec Spring Boot, Laravel et CodeIgniter.",
+    dbTitle: "Bases de Données",
+    dbDesc: "Modélisation, conception et gestion efficace des données avec PostgreSQL et MySQL.",
+    aiTitle: "Systèmes Intelligents",
+    aiDesc: "Exploration de la Data, intégration de systèmes de recommandation et Machine Learning avec Python.",
+    archTitle: "Architecture Applicative",
+    archDesc: "Organisation et structuration de projets full-stack favorisant la maintenabilité et l'évolutivité."
   },
   experience: {
-    exp1Role: "Stagiaire Développeur Frontend",
-    exp1Company: "Les Hérons Vontovorona",
+    exp1Role: "Développeur Web",
+    exp1Company: "PlanetGame Madagascar",
     exp1Tasks: [
-      "Participation au développement d’interfaces web dynamiques et responsives",
-      "Contribution à la création d’un site vitrine",
-      "Intégration des maquettes",
-      "Application des bonnes pratiques front-end"
+      "Développement d'une plateforme e-commerce",
+      "Création et consommation d'API REST",
+      "Gestion des utilisateurs, produits et commandes",
+      "Participation au frontend (Vue.js) et au backend (CodeIgniter)"
     ],
-    exp2Role: "Projets Académiques & IA",
-    exp2Company: "Formation Universitaire",
+    exp2Role: "Développeur Mobile",
+    exp2Company: "AccessBible",
     exp2Tasks: [
-      "Initiation à la gestion de projet agile",
-      "Découverte de solutions IA pour le web",
-      "Réalisation de projets: CV Maker, MusicApp"
+      "Développement d'une application mobile de lecture de la Bible",
+      "Interface adaptative pour le confort de lecture",
+      "Navigation adaptée aux différents usages"
     ],
-    exp3Role: "Développeur Frontend",
-    exp3Company: "PlanetGame Madagascar",
+    exp3Role: "Projets Académiques & IA",
+    exp3Company: "Formation Universitaire — ESMIA",
     exp3Tasks: [
-      "Conception MVP avec Vue.js et Tailwind",
-      "Création d'interfaces modernes et responsive",
-      "Optimisation de la navigation",
-      "Intégration produits et panier d'achat"
+      "Algorithmes et structures de données",
+      "Python, Machine Learning et systèmes de recommandation",
+      "Traitement et préparation de données",
+      "Projets universitaires : CV Maker, MusicApp"
     ],
     keyTasks: "Réalisations Clés",
     techs: "Technologies"
@@ -117,7 +117,8 @@ export default {
     sending: "Envoi..."
   },
   footer: {
-    tagline: "Transformez vos idées en réalité numérique. Je conçois des expériences web immersives et performantes, alliant design classique et technologies de pointe.",
+    role: "Développeur Web",
+    tagline: "Construire des applications utiles et transformer les idées en solutions concrètes.",
     services: "Services",
     legal: "Avis Légal",
     legalText1: "Ce journal numérique est édité indépendamment. Les informations contenues sur cette page sont fournies à titre indicatif et sont sujettes à modification sans préavis.",

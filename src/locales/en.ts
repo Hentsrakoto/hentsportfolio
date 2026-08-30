@@ -13,21 +13,21 @@ export default {
     title1: "The Mind Behind",
     title2: "The Code.",
     meet: "Meet",
-    typing: ['Henintsoa', 'the Developer', 'the Designer'],
-    p1: "I design modern and dynamic interfaces combining design, performance and interactivity to bring your ideas to life. With a true passion for creating memorable web experiences, every line of code is a building block towards innovation.",
-    p2: "Based in Madagascar, my work is inspired by classic architecture: solid foundations, a clear structure, and timeless aesthetics. Whether with Vue.js or React, the goal remains the same: excellence.",
-    cta: "Read More",
+    typing: ['Henintsoa', 'the Developer', 'the Builder'],
+    p1: "Master 1 MIAGE student and web developer, I build modern applications combining frontend, backend, databases and intelligent systems. Each project is an opportunity to turn a concrete need into a performant and scalable solution.",
+    p2: "Based in Madagascar, I work primarily with React, Java, Spring Boot, Laravel and PostgreSQL. I am also interested in Data, recommendation systems and Machine Learning.",
+    cta: "See my projects",
     fig1: "Fig 1. Henintsoa in his element.",
-    pullQuote: "Every line of code is a building block towards innovation."
+    pullQuote: "Turning ideas into concrete, performant and scalable applications."
   },
   sectionTitle: {
     aboutBadge: "About Me",
     aboutTitle: "Who am I?",
     aboutSubtitle: "Passionate developer, I turn your ideas into digital reality.",
-    
+
     servicesBadge: "My Services",
-    servicesTitle: "What can I do?",
-    servicesSubtitle: "Tailor-made solutions to meet your business needs.",
+    servicesTitle: "What I Build",
+    servicesSubtitle: "Full-stack and intelligent software solutions tailored to business and user needs.",
 
     expBadge: "Experience",
     expTitle: "Career Path.",
@@ -38,66 +38,66 @@ export default {
     skillsSubtitle: "The technological arsenal I use to build your projects.",
 
     projBadge: "Portfolio",
-    projTitle: "Our Projects",
-    projSubtitle: "A selection of works combining technical rigor and creativity.",
+    projTitle: "My Projects",
+    projSubtitle: "A selection of projects combining technical rigor and real-world problems.",
 
     contactBadge: "Contact",
     contactTitle: "Write to us.",
     contactSubtitle: "Have a project in mind or simply want to chat? Letters to the editor."
   },
   me: {
-    intro: "I am Henintsoa Ny Aina, a frontend developer passionate about creating modern, smooth, and elegant web experiences. I combine design, performance, and interactivity to build intuitive user interfaces.",
-    devTitle: "Vue.js & Tailwind Development",
-    devDesc: "The backbone of my projects relies on robust technologies.",
-    curiousTitle: "Curious & Innovative",
-    curiousDesc: "Always looking for new methods and modern architectures.",
-    excellenceTitle: "Striving for Excellence",
-    excellenceDesc: "Typographic detail, accessibility, and performance are priorities.",
+    intro: "I am Henintsoa Ny Aina, a Master 1 MIAGE student and web developer. I enjoy turning a business idea or requirement into a concrete, performant and scalable application. I work primarily with React, Java, Spring Boot, Laravel and PostgreSQL, and I am interested in Data and Machine Learning.",
+    devTitle: "Full-Stack Development",
+    devDesc: "Frontend, backend, REST APIs and databases — I cover the full application stack.",
+    curiousTitle: "Curious & Solution-Oriented",
+    curiousDesc: "Always looking for new technical approaches and modern architectures.",
+    excellenceTitle: "Intelligent Systems",
+    excellenceDesc: "Exploring Data, recommendation systems and Machine Learning.",
     journeyTitle: "Education",
-    l3: "Bachelor 3 in Computer Science",
-    l3Desc: "Introduction to AI, business management, IT project management.",
-    l2: "Bachelor 2 in Computer Science",
-    l2Desc: "Web development, algorithmics, databases.",
-    l1: "Bachelor 1 in Computer Science",
-    l1Desc: "Introduction to software development, Python, Web."
+    l3: "Master 1 MIAGE",
+    l3Desc: "Applied Computer Science for Business Management — Ongoing.",
+    l2: "Bachelor's in Computer Science",
+    l2Desc: "Computer Science, Risk and Decision — September 2023 · January 2026.",
+    l1: "High School Diploma",
+    l1Desc: "Sciences — D"
   },
   services: {
-    webTitle: "Web Development",
-    webDesc: "Creating fast, modern, and responsive websites using the latest technologies.",
-    responsiveTitle: "Responsive Design",
-    responsiveDesc: "Adaptive interfaces that work seamlessly across all devices.",
-    uiTitle: "UI/UX Design",
-    uiDesc: "Designing intuitive and aesthetic user interfaces for optimal experiences.",
-    integrationTitle: "Web Integration",
-    integrationDesc: "Transforming your graphic mockups into clean, high-performance code.",
-    spaTitle: "SPA Applications",
-    spaDesc: "Developing smooth and interactive Single Page Applications.",
-    seoTitle: "SEO Optimization",
-    seoDesc: "Improving structure and content for better search engine ranking."
+    webTitle: "Web Applications",
+    webDesc: "Designing and building modern, high-performance web applications tailored to user needs.",
+    frontTitle: "Modern Frontend",
+    frontDesc: "Building responsive, modern, and intuitive user interfaces using Vue.js and React.",
+    backTitle: "Backend & REST APIs",
+    backDesc: "Developing secure REST APIs and business logic with Spring Boot, Laravel, and CodeIgniter.",
+    dbTitle: "Databases",
+    dbDesc: "Data modeling, querying, and management with PostgreSQL and MySQL.",
+    aiTitle: "Intelligent Systems",
+    aiDesc: "Data exploration, recommendation engines, and Machine Learning integration with Python.",
+    archTitle: "Application Architecture",
+    archDesc: "Structuring scalable full-stack applications with an emphasis on maintainability and growth."
   },
   experience: {
-    exp1Role: "Frontend Developer Intern",
-    exp1Company: "Les Hérons Vontovorona",
+    exp1Role: "Web Developer",
+    exp1Company: "PlanetGame Madagascar",
     exp1Tasks: [
-      "Participated in developing dynamic responsive web interfaces",
-      "Contributed to creating a showcase website",
-      "Integrated UI mockups",
-      "Applied front-end best practices"
+      "Developed an e-commerce platform",
+      "Built and consumed REST APIs",
+      "Managed users, products and orders",
+      "Contributed to frontend (Vue.js) and backend (CodeIgniter)"
     ],
-    exp2Role: "Academic Projects & AI",
-    exp2Company: "University Degree",
+    exp2Role: "Mobile Developer",
+    exp2Company: "AccessBible",
     exp2Tasks: [
-      "Introduction to agile project management",
-      "Discovered web-based AI solutions",
-      "Built projects: CV Maker, MusicApp"
+      "Developed a mobile Bible reading application",
+      "Adaptive interface for reading comfort",
+      "Navigation designed for different use cases"
     ],
-    exp3Role: "Frontend Developer",
-    exp3Company: "PlanetGame Madagascar",
+    exp3Role: "Academic Projects & AI",
+    exp3Company: "University Degree — ESMIA",
     exp3Tasks: [
-      "Built MVP interface using Vue.js and Tailwind",
-      "Created modern responsive layouts",
-      "Optimized user navigation",
-      "Integrated product displays and shopping cart"
+      "Algorithms and data structures",
+      "Python, Machine Learning and recommendation systems",
+      "Data processing and preparation",
+      "University projects: CV Maker, MusicApp"
     ],
     keyTasks: "Key Achievements",
     techs: "Technologies"
@@ -117,7 +117,8 @@ export default {
     sending: "Sending..."
   },
   footer: {
-    tagline: "Turn your ideas into digital reality. I design immersive and powerful web experiences using classic design and cutting-edge tech.",
+    role: "Web Developer",
+    tagline: "Building useful applications and turning ideas into concrete solutions.",
     services: "Services",
     legal: "Legal Notice",
     legalText1: "This digital newspaper is independently published. Information is provided for reference and is subject to change without notice.",

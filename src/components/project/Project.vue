@@ -104,92 +104,104 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { Github, ExternalLink } from 'lucide-vue-next'
-import editorImg from '@/assets/code.jpg'
+import tsidikaImg from '@/assets/chameleon-logo-clair.svg'
 import planetgameImg from '@/assets/logoplanetgame.png'
-import musicappImg from '@/assets/musicapp.jpg'
-import cvmakerImg from '@/assets/cv.jpg'
+import accessbibleImg from '@/assets/logo.png'
+import academicImg from '@/assets/code.jpg'
 
 const { t, locale } = useI18n()
 
 const computedProjects = computed(() => [
   {
-    id: 'editor',
-    title: 'Code Editor',
-    imageUrl: editorImg,
-    short: 'Electron + Express + AI',
+    id: 'tsidika',
+    title: 'TSIDIKA',
+    imageUrl: tsidikaImg,
+    short: locale.value === 'en' ? 'Tourism · React + Spring Boot + Python' : 'Tourisme · React + Spring Boot + Python',
     description: locale.value === 'en'
-      ? "Cross-platform editor designed for pair programming, integrating AI assistants for completion, explanation and test generation."
-      : "Éditeur cross‑platform pensé pour le pair programming, intégrant des assistants IA pour la complétion, l'explication et la génération de tests.",
+      ? 'Intelligent web platform for tourist recommendation and planning in Madagascar. Combines a modern frontend, a REST API backend, and a recommendation system based on user preferences.'
+      : 'Plateforme web intelligente de recommandation et de planification touristique à Madagascar. Combine un frontend moderne, un backend API REST et un système de recommandation basé sur les préférences des utilisateurs.',
     details: locale.value === 'en' ? [
-      'Frontend Electron for native and fast rendering',
-      'Express microservice for static indexing',
-      'Plugin architecture to extend features'
+      'Frontend development with React',
+      'REST API backend with Spring Boot',
+      'Tourist data management',
+      'Recommendation system based on user preferences',
+      'Integration of mapping services',
+      'Tourism planning features',
     ] : [
-      'Frontend Electron pour un rendu natif et performant',
-      "Micro‑service Express pour l'indexation statique",
-      'Architecture de plugins pour étendre les fonctionnalités',
+      'Développement du frontend avec React',
+      'API backend REST avec Spring Boot',
+      'Gestion des données touristiques',
+      'Système de recommandation basé sur les préférences',
+      'Intégration de services cartographiques',
+      'Planification touristique',
     ],
-    techs: [{ name: 'Electron' }, { name: 'Express' }, { name: 'DeepSeek (IA)' }],
+    techs: [{ name: 'React' }, { name: 'Spring Boot' }, { name: 'PostgreSQL' }, { name: 'Python' }],
     demo: null,
   },
   {
     id: 'planetgame',
     title: 'PlanetGame',
     imageUrl: planetgameImg,
-    short: 'E‑commerce / CodeIgniter + Vue',
+    short: locale.value === 'en' ? 'E-commerce / CodeIgniter + Vue.js' : 'E-commerce / CodeIgniter + Vue.js',
     description: locale.value === 'en'
-      ? 'Complete tech marketplace with advanced catalog management, real-time cart and admin back-office.'
-      : 'Marketplace tech complète avec gestion avancée du catalogue, panier temps réel et back-office administrateur.',
+      ? 'E-commerce platform for centralising and managing products, users and orders. Participated in frontend and backend development as well as REST API creation.'
+      : "Plateforme e-commerce permettant la centralisation et la gestion des produits, des utilisateurs et des commandes. Participation au développement frontend et backend ainsi qu'à la création et à l'utilisation d'API REST.",
     details: locale.value === 'en' ? [
-      'Transactional stock management',
-      'Secure payment integration',
-      'Optimization predictive AI',
+      'Product catalog management',
+      'User and order management',
+      'REST API creation and consumption',
+      'Frontend with Vue.js and backend with CodeIgniter',
     ] : [
-      'Gestion des stocks transactionnelle',
-      'Intégration de paiement sécurisé',
-      "IA prédictive d'optimisation",
+      'Gestion du catalogue produits',
+      'Gestion des utilisateurs et des commandes',
+      "Création et consommation d'API REST",
+      'Frontend Vue.js et backend CodeIgniter',
     ],
-    techs: [{ name: 'CodeIgniter 4' }, { name: 'Vue 3' }, { name: 'Tailwind' }, { name: 'MySQL' }],
+    techs: [{ name: 'CodeIgniter 4' }, { name: 'Vue.js' }, { name: 'MySQL' }, { name: 'API REST' }],
     demo: null,
   },
   {
-    id: 'musicapp',
-    title: 'MusicApp',
-    imageUrl: musicappImg,
-    short: locale.value === 'en' ? 'Audio recognition / Flask' : 'Reconnaissance audio / Flask',
+    id: 'accessbible',
+    title: 'AccessBible',
+    imageUrl: accessbibleImg,
+    short: locale.value === 'en' ? 'Mobile · React Native' : 'Mobile · React Native',
     description: locale.value === 'en'
-      ? "Mobile application capable of listening to the environment to identify a song and add it to a library."
-      : "Application mobile capable d'écouter l'environnement pour identifier une chanson et l'ajouter à une bibliothèque.",
+      ? 'Mobile application for reading the Bible with an adaptive interface designed to improve reading comfort and navigation across different uses.'
+      : 'Application mobile permettant la lecture de la Bible avec une interface adaptative pensée pour améliorer le confort de lecture et la navigation.',
     details: locale.value === 'en' ? [
-      'Python Flask backend',
-      'Spotify API integration',
-      'Redis cache system',
+      'Developed with React Native',
+      'Adaptive reading interface',
+      'Navigation designed for different use cases',
     ] : [
-      'Backend Python Flask',
-      "Intégration de l'API Spotify",
-      'Système de cache Redis',
+      'Développé avec React Native',
+      'Interface de lecture adaptative',
+      'Navigation adaptée aux différents usages',
     ],
-    techs: [{ name: 'Python' }, { name: 'Flask' }, { name: 'Spotify API' }],
+    techs: [{ name: 'React Native' }, { name: 'JavaScript' }],
     demo: null,
   },
   {
-    id: 'cvmaker',
-    title: 'CV Maker',
-    imageUrl: cvmakerImg,
-    short: locale.value === 'en' ? 'Online CV Builder' : 'Constructeur de CV en ligne',
+    id: 'academic',
+    title: locale.value === 'en' ? 'Academic & AI Projects' : 'Projets Académiques & IA',
+    imageUrl: academicImg,
+    short: locale.value === 'en' ? 'Python · ML · Algorithms' : 'Python · ML · Algorithmes',
     description: locale.value === 'en'
-      ? 'Resume builder tool with real-time preview and high fidelity PDF export.'
-      : 'Outil de création de CV avec prévisualisation en temps réel et export PDF haute fidélité.',
+      ? 'A set of academic projects and experiments covering algorithms, data processing, Machine Learning, recommendation systems, and university projects such as CV Maker and MusicApp.'
+      : "Ensemble de projets académiques et d'expérimentations couvrant les algorithmes, le traitement de données, le Machine Learning, les systèmes de recommandation et des projets universitaires comme CV Maker et MusicApp.",
     details: locale.value === 'en' ? [
-      '7 fully customizable templates',
-      'Server-side PDF generation',
-      'Automatic draft saving',
+      'Algorithms and data structures',
+      'Python and Machine Learning',
+      'Recommendation systems',
+      'Data processing and preparation',
+      'University projects: CV Maker, MusicApp',
     ] : [
-      '7 templates entièrement personnalisables',
-      'Génération PDF côté serveur',
-      'Sauvegarde automatique des brouillons',
+      'Algorithmes et structures de données',
+      'Python et Machine Learning',
+      'Systèmes de recommandation',
+      'Traitement et préparation de données',
+      'Projets universitaires : CV Maker, MusicApp',
     ],
-    techs: [{ name: 'Vue 3' }, { name: 'Tailwind CSS' }, { name: 'jsPDF' }],
+    techs: [{ name: 'Python' }, { name: 'Machine Learning' }, { name: 'ETL' }, { name: 'Vue 3' }, { name: 'jsPDF' }],
     demo: null,
   },
 ])

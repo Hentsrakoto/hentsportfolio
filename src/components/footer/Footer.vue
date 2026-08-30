@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { Github, Linkedin } from 'lucide-vue-next'
 
@@ -6,12 +7,14 @@ const { t } = useI18n()
 
 const currentYear = new Date().getFullYear()
 
-const services = [
+const services = computed(() => [
   { name: t('services.webTitle'), href: '#services' },
-  { name: t('services.responsiveTitle'), href: '#services' },
-  { name: t('services.uiTitle'), href: '#services' },
-  { name: t('services.integrationTitle'), href: '#services' },
-]
+  { name: t('services.frontTitle'), href: '#services' },
+  { name: t('services.backTitle'), href: '#services' },
+  { name: t('services.dbTitle'), href: '#services' },
+  { name: t('services.aiTitle'), href: '#services' },
+  { name: t('services.archTitle'), href: '#services' },
+])
 
 const socialLinks = [
   { name: 'GitHub', href: 'https://github.com/Hentsrakoto', icon: Github },
@@ -29,9 +32,12 @@ const socialLinks = [
         <!-- Brand Section -->
         <div class="md:col-span-5 flex flex-col justify-between">
           <div>
-            <h2 class="font-journal text-5xl sm:text-6xl font-black text-primary dark:text-white mb-4 break-words">
-              Hents.
+            <h2 class="font-journal text-5xl sm:text-6xl font-black text-primary dark:text-white mb-1 break-words">
+              Henintsoa.
             </h2>
+            <p class="font-sans text-xs font-bold uppercase tracking-[0.2em] text-secondary dark:text-gray-400 mb-4">
+              {{ t('footer.role') }}
+            </p>
             <p class="font-serif text-lg leading-relaxed max-w-sm italic">
               {{ t('footer.tagline') }}
             </p>
@@ -88,7 +94,7 @@ const socialLinks = [
 
       <!-- Bottom Bar -->
       <div class="flex flex-col md:flex-row justify-between items-center text-xs font-sans font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-        <p>&copy; {{ currentYear }} Hentsrakoto. {{ t('footer.rights') }}</p>
+        <p>&copy; {{ currentYear }} Henintsoa Rakotonavalona. {{ t('footer.rights') }}</p>
         <p class="mt-2 md:mt-0">The Mind Behind The Code.</p>
       </div>
       

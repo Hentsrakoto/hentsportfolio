@@ -77,7 +77,7 @@ import { useI18n } from 'vue-i18n'
 const { tm } = useI18n()
 
 function gotocontact() {
-  window.location.href = '#contact'
+  window.location.href = '#projet'
 }
 
 const displayedText = ref('')

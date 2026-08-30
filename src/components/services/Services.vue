@@ -43,40 +43,40 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { Monitor, Smartphone, Globe, Layout, Code, Search } from 'lucide-vue-next'
+import { Globe, Layout, Server, Database, Brain, Layers } from 'lucide-vue-next'
 
 const { t } = useI18n()
 
 const computedServices = computed(() => [
   {
-    icon: Monitor,
+    icon: Globe,
     title: t('services.webTitle'),
     description: t('services.webDesc'),
   },
   {
-    icon: Smartphone,
-    title: t('services.responsiveTitle'),
-    description: t('services.responsiveDesc'),
-  },
-  {
     icon: Layout,
-    title: t('services.uiTitle'),
-    description: t('services.uiDesc'),
+    title: t('services.frontTitle'),
+    description: t('services.frontDesc'),
   },
   {
-    icon: Code,
-    title: t('services.integrationTitle'),
-    description: t('services.integrationDesc'),
+    icon: Server,
+    title: t('services.backTitle'),
+    description: t('services.backDesc'),
   },
   {
-    icon: Globe,
-    title: t('services.spaTitle'),
-    description: t('services.spaDesc'),
+    icon: Database,
+    title: t('services.dbTitle'),
+    description: t('services.dbDesc'),
   },
   {
-    icon: Search,
-    title: t('services.seoTitle'),
-    description: t('services.seoDesc'),
+    icon: Brain,
+    title: t('services.aiTitle'),
+    description: t('services.aiDesc'),
+  },
+  {
+    icon: Layers,
+    title: t('services.archTitle'),
+    description: t('services.archDesc'),
   }
 ])
 </script>
