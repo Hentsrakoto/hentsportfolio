@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useDarkMode } from '@/composables/useDarkMode'
 import { useI18n } from 'vue-i18n'
-import { Moon, Sun } from 'lucide-vue-next'
+import { Moon, Sun, Download } from 'lucide-vue-next'
 
 const { isDark, toggleDark } = useDarkMode()
 const { locale, t } = useI18n()
@@ -33,7 +33,21 @@ const navLinks = [
     </nav>
 
     <!-- Right controls -->
-    <div class="flex items-center gap-3 ml-auto pointer-events-auto">
+    <div class="flex items-center gap-2 sm:gap-3 ml-auto pointer-events-auto">
+      <!-- Download CV Button -->
+      <a
+        href="/Rakotonavalona_henintsoa_cv.pdf"
+        download="Rakotonavalona_henintsoa_cv.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-sans font-bold uppercase tracking-widest text-xs px-3 py-2 border-[2px] border-primary dark:border-gray-500 bg-[#FDFBF7] dark:bg-[#121212] text-primary dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-[#121212] transition-colors flex items-center gap-1.5"
+        :title="t('nav.downloadCv')"
+        :aria-label="t('nav.downloadCv')"
+      >
+        <Download class="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+        <span>CV</span>
+      </a>
+
       <!-- Language Switcher -->
       <button
         @click="toggleLocale"

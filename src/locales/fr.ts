@@ -6,7 +6,9 @@ export default {
     experience: 'Expérience',
     skills: 'Compétences',
     portfolio: 'Portfolio',
-    contact: 'Contact'
+    contact: 'Contact',
+    cv: 'CV',
+    downloadCv: 'Télécharger mon CV'
   },
   hero: {
     exclusive: "À la Une",
