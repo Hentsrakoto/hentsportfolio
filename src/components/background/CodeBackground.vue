@@ -65,6 +65,8 @@ function random(min: number, max: number) {
 }
 
 onMounted(() => {
+  // Mouvement reduit : fond statique, aucune particule animee.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
   // Generate particles
   const particleCount = 25
   for (let i = 0; i < particleCount; i++) {
@@ -92,6 +94,12 @@ onMounted(() => {
   100% {
     transform: translateY(-100px) rotate(-5deg);
     opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  div {
+    animation: none !important;
   }
 }
 </style>

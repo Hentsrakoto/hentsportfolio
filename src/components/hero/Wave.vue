@@ -89,6 +89,8 @@ const translateY = ref(0)
 // small animation: gentle vertical float
 let raf = 0
 onMounted(() => {
+  // Mouvement reduit : vague figee (translateY = 0), pas de boucle rAF.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
   let t = 0
   const loop = () => {
     t += 0.01
@@ -132,6 +134,12 @@ const wrapperStyle = computed(() => ({
 @media (max-width: 768px) {
   .wave-wrapper {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-main {
+    transition: none;
   }
 }
 </style>

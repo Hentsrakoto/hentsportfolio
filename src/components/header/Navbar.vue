@@ -26,7 +26,19 @@ const navLinks = [
         v-for="link in navLinks"
         :key="link.href"
         :href="link.href"
-        class="font-sans font-bold uppercase tracking-widest text-[10px] px-3 py-2 text-primary dark:text-gray-300 bg-[#FDFBF7]/80 dark:bg-[#121212]/80 backdrop-blur-sm border border-transparent hover:border-primary dark:hover:border-gray-500 hover:bg-[#FDFBF7] dark:hover:bg-[#121212] transition-all duration-200"
+        class="font-sans font-bold uppercase tracking-widest text-xs px-3 py-2 min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-primary dark:text-gray-300 bg-[#FDFBF7]/80 dark:bg-[#121212]/80 backdrop-blur-sm border border-transparent hover:border-primary dark:hover:border-gray-500 hover:bg-[#FDFBF7] dark:hover:bg-[#121212] transition-all duration-200"
+      >
+        {{ t(link.key) }}
+      </a>
+    </nav>
+
+    <!-- Anchor Navigation Links compactes (mobile, scroll horizontal sans JS) -->
+    <nav class="flex md:hidden items-center gap-1 overflow-x-auto pointer-events-auto flex-1 min-w-0 mr-2" aria-label="Navigation principale">
+      <a
+        v-for="link in navLinks"
+        :key="link.href"
+        :href="link.href"
+        class="font-sans font-bold uppercase tracking-widest text-xs px-2 py-2 min-h-[44px] inline-flex items-center justify-center whitespace-nowrap shrink-0 text-primary dark:text-gray-300 bg-[#FDFBF7]/80 dark:bg-[#121212]/80 backdrop-blur-sm border border-transparent hover:border-primary dark:hover:border-gray-500 hover:bg-[#FDFBF7] dark:hover:bg-[#121212] transition-all duration-200"
       >
         {{ t(link.key) }}
       </a>
@@ -40,7 +52,7 @@ const navLinks = [
         download="Rakotonavalona_henintsoa_cv.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        class="font-sans font-bold uppercase tracking-widest text-xs px-3 py-2 border-[2px] border-primary dark:border-gray-500 bg-[#FDFBF7] dark:bg-[#121212] text-primary dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-[#121212] transition-colors flex items-center gap-1.5"
+        class="font-sans font-bold uppercase tracking-widest text-xs px-3 py-2 min-h-[44px] min-w-[44px] justify-center border-[2px] border-primary dark:border-gray-500 bg-[#FDFBF7] dark:bg-[#121212] text-primary dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-[#121212] transition-colors flex items-center gap-1.5"
         :title="t('nav.downloadCv')"
         :aria-label="t('nav.downloadCv')"
       >
@@ -51,7 +63,7 @@ const navLinks = [
       <!-- Language Switcher -->
       <button
         @click="toggleLocale"
-        class="font-sans font-bold uppercase tracking-widest text-xs px-3 py-2 border-[2px] border-primary dark:border-gray-500 bg-[#FDFBF7] dark:bg-[#121212] text-primary dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-[#121212] transition-colors"
+        class="font-sans font-bold uppercase tracking-widest text-xs px-3 py-2 min-h-[44px] min-w-[44px] inline-flex items-center justify-center border-[2px] border-primary dark:border-gray-500 bg-[#FDFBF7] dark:bg-[#121212] text-primary dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-[#121212] transition-colors"
         aria-label="Changer de langue"
       >
         {{ locale === 'fr' ? 'EN' : 'FR' }}
@@ -60,7 +72,7 @@ const navLinks = [
       <!-- Theme Switcher -->
       <button
         @click="toggleDark"
-        class="p-2 border-[2px] border-primary dark:border-gray-500 bg-[#FDFBF7] dark:bg-[#121212] text-primary dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-[#121212] transition-colors flex items-center justify-center"
+        class="p-2 min-h-[44px] min-w-[44px] border-[2px] border-primary dark:border-gray-500 bg-[#FDFBF7] dark:bg-[#121212] text-primary dark:text-gray-300 hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-[#121212] transition-colors flex items-center justify-center"
         aria-label="Changer le mode d'affichage"
       >
         <Moon v-if="!isDark" class="w-4 h-4 sm:w-5 sm:h-5" />

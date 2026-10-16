@@ -1,26 +1,12 @@
 <template>
-  <section id="moi" class="relative py-8 bg-transparent">
-    <!-- Section Header (Newspaper Editorial Style) -->
-    <div class="border-b-[3px] border-primary dark:border-gray-500 pb-4 mb-8 text-center sm:text-left">
-      <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
-        {{ $t('sectionTitle.aboutBadge') }}
-      </span>
-      <h2 class="font-journal text-4xl sm:text-5xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3 break-words hyphens-auto break-all sm:break-normal">
-        {{ $t('sectionTitle.aboutTitle') }}
-      </h2>
-      <p class="font-sans text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto sm:mx-0 italic">
-        {{ $t('sectionTitle.aboutSubtitle') }}
-      </p>
-    </div>
-
+  <div class="relative mt-10 border-t-[3px] border-primary/30 dark:border-gray-600 pt-8">
     <div class="flex flex-col gap-10 items-start">
       
       <!-- Biography & Traits Column -->
       <div class="flex flex-col gap-6 w-full">
-        <p class="font-sans text-base lg:text-lg text-text dark:text-gray-300 leading-relaxed">
-          {{ $t('me.intro') }}
-        </p>
-
+        <h3 class="font-journal text-3xl sm:text-4xl font-bold text-primary dark:text-white">
+          {{ $t('me.approachTitle') }}
+        </h3>
         <!-- Traits (Journal List Style) -->
         <ul class="border-t border-b border-primary/20 dark:border-gray-700 py-4 space-y-4">
           <li class="flex items-start gap-4">
@@ -71,13 +57,13 @@
           <div class="relative">
             <div class="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-primary border-[3px] border-white dark:border-[#1A1A1A]"></div>
             <span class="font-sans text-xs font-bold text-secondary dark:text-gray-400 tracking-widest uppercase mb-1 block">
-              En cours
+              {{ $t('me.statutEnCours') }}
             </span>
             <h4 class="font-serif text-lg font-bold text-primary dark:text-white leading-tight mb-1">
               {{ $t('me.l3') }}
             </h4>
-            <p class="font-sans text-xs uppercase text-gray-500 mb-2 font-bold tracking-wider">
-              ESMIA — Antanimena
+            <p class="font-sans text-xs uppercase text-gray-600 dark:text-gray-400 mb-2 font-bold tracking-wider">
+              {{ $t('me.ecole') }}
             </p>
             <p class="font-sans text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
               {{ $t('me.l3Desc') }}
@@ -87,38 +73,25 @@
           <!-- Licence - 2023-2026 -->
           <div class="relative">
             <div class="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 border-[3px] border-white dark:border-[#1A1A1A]"></div>
-            <span class="font-sans text-xs font-bold text-gray-400 tracking-widest uppercase mb-1 block">
-              2023 — 2026
+            <span class="font-sans text-xs font-bold text-gray-600 dark:text-gray-400 tracking-widest uppercase mb-1 block">
+              {{ $t('me.periodeLicence') }}
             </span>
             <h4 class="font-serif text-lg font-bold text-gray-800 dark:text-gray-300 leading-tight mb-1">
               {{ $t('me.l2') }}
             </h4>
-            <p class="font-sans text-xs uppercase text-gray-500 mb-2 font-bold tracking-wider">
-              ESMIA — Antanimena
+            <p class="font-sans text-xs uppercase text-gray-600 dark:text-gray-400 mb-2 font-bold tracking-wider">
+              {{ $t('me.ecole') }}
             </p>
             <p class="font-sans text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
               {{ $t('me.l2Desc') }}
             </p>
           </div>
 
-          <!-- Baccalauréat -->
-          <div class="relative">
-            <div class="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 border-[3px] border-white dark:border-[#1A1A1A]"></div>
-            <span class="font-sans text-xs font-bold text-gray-400 tracking-widest uppercase mb-1 block">
-              Antérieur
-            </span>
-            <h4 class="font-serif text-lg font-bold text-gray-800 dark:text-gray-300 leading-tight mb-1">
-              {{ $t('me.l1') }}
-            </h4>
-            <p class="font-sans text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-              {{ $t('me.l1Desc') }}
-            </p>
-          </div>
         </div>
       </div>
 
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup lang="ts">

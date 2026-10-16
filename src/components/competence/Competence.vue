@@ -1,36 +1,14 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { groupesCompetences } from '@/data/competences'
+import type { TexteFrEn } from '@/data/types'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
-const languagesFrameworks = [
-  { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-  { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-  { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
-  { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
-  { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
-  { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-  { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-  { name: 'Vue.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg' },
-  { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
-  { name: 'Spring Boot', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
-  { name: 'Laravel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg' },
-  { name: 'CodeIgniter', icon: 'https://cdn.simpleicons.org/codeigniter/codeigniter' },
-  { name: 'React Native', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-]
+const txt = (v: TexteFrEn) => (locale.value === 'en' ? v.en : v.fr)
 
-const systemesOutils = [
-  { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
-  { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-  { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-  { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
-  { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
-  { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
-  { name: 'Maven', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg' },
-  { name: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
-  { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
-]
+const groupeDev = groupesCompetences.find((g) => g.id === 'dev')
+const groupeOutils = groupesCompetences.find((g) => g.id === 'outils')
 </script>
 
 <template>
@@ -40,7 +18,7 @@ const systemesOutils = [
       <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
         {{ t('sectionTitle.skillsBadge') }}
       </span>
-      <h2 class="font-journal text-4xl sm:text-5xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none break-words hyphens-auto break-all sm:break-normal">
+      <h2 class="font-journal text-4xl sm:text-5xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none break-words hyphens-none text-balance">
         {{ t('sectionTitle.skillsTitle') }}.
       </h2>
       <p class="font-sans text-base sm:text-lg text-gray-600 dark:text-gray-400 italic mt-2">
@@ -51,29 +29,28 @@ const systemesOutils = [
     <div class="flex flex-col gap-10">
       <!-- Colonne Développement -->
       <div class="flex-1 border-[2px] border-primary dark:border-gray-600 p-6 relative">
-        <!-- Coin déco -->
-        <div class="absolute top-0 right-0 w-8 h-8 border-l-2 border-b-2 border-primary dark:border-gray-600 bg-white dark:bg-[#121212]"></div>
-        
         <header class="border-b-2 border-primary dark:border-gray-600 pb-4 mb-8">
           <h3 class="font-journal text-3xl md:text-4xl font-bold text-primary dark:text-white uppercase tracking-tight">
-            Développement
+            {{ groupeDev ? txt(groupeDev.titre) : '' }}
           </h3>
           <p class="font-sans text-sm md:text-base italic text-gray-600 dark:text-gray-400 mt-2">
-            Frontend, Backend, Data &amp; Mobile.
+            {{ groupeDev ? txt(groupeDev.soustitre) : '' }}
           </p>
         </header>
 
-        <div class="flex flex-wrap justify-center gap-x-4 gap-y-8">
-          <div v-for="skill in languagesFrameworks" :key="skill.name" class="flex flex-col items-center group cursor-crosshair w-[72px] sm:w-[80px]">
+        <div class="flex flex-wrap justify-center gap-x-2 sm:gap-x-4 gap-y-8">
+          <div v-for="skill in groupeDev?.items" :key="skill.nom" class="flex flex-col items-center group cursor-crosshair w-[80px] sm:w-[96px]">
             <div class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center p-3 border-[1.5px] border-black dark:border-white bg-white dark:bg-black grayscale group-hover:grayscale-0 transition-all duration-300 shadow-[4px_4px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_rgba(255,255,255,1)] group-hover:translate-y-1 group-hover:translate-x-1 group-hover:shadow-[0px_0px_0px_rgba(0,0,0,1)] dark:group-hover:shadow-[0px_0px_0px_rgba(255,255,255,1)]">
               <img
-                :src="skill.icon"
-                :alt="skill.name"
+                :src="skill.icone"
+                :alt="skill.nom"
+                loading="lazy"
+                decoding="async"
                 class="w-full h-full object-contain"
               />
             </div>
-            <span class="mt-4 font-sans text-xs font-bold uppercase tracking-widest text-[#111827] dark:text-gray-300 text-center break-words hyphens-auto w-full">
-              {{ skill.name }}
+            <span class="mt-4 font-sans text-xs font-bold uppercase tracking-wide text-[#111827] dark:text-gray-300 text-center break-words hyphens-none w-full">
+              {{ skill.nom }}
             </span>
           </div>
         </div>
@@ -84,25 +61,27 @@ const systemesOutils = [
         <div class="border-[2px] border-dashed border-primary dark:border-gray-600 p-6 flex-1 relative bg-gray-50 dark:bg-[#1A1A1A] w-full">
           <header class="border-b-2 border-primary dark:border-gray-600 pb-4 mb-8 text-center">
             <h3 class="font-journal text-2xl md:text-3xl font-bold text-primary dark:text-white uppercase tracking-tight">
-              Méthodes &amp; Environnement
+              {{ groupeOutils ? txt(groupeOutils.titre) : '' }}
             </h3>
             <p class="font-sans text-sm italic text-gray-600 dark:text-gray-400 mt-2">
-              Bases de données, DevOps &amp; outils du quotidien.
+              {{ groupeOutils ? txt(groupeOutils.soustitre) : '' }}
             </p>
           </header>
 
-          <div class="flex flex-wrap justify-center gap-x-4 gap-y-8">
-            <div v-for="skill in systemesOutils" :key="skill.name" class="flex flex-col items-center group cursor-crosshair w-[72px] sm:w-[80px]">
+          <div class="flex flex-wrap justify-center gap-x-2 sm:gap-x-4 gap-y-8">
+            <div v-for="skill in groupeOutils?.items" :key="skill.nom" class="flex flex-col items-center group cursor-crosshair w-[80px] sm:w-[96px]">
               <div class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center p-3 rounded-full border border-gray-400 dark:border-gray-600 bg-white dark:bg-black grayscale drop-shadow-sm group-hover:grayscale-0 transition-all duration-300 transform group-hover:-rotate-6 hover:scale-110">
                 <img
-                  :src="skill.icon"
-                  :alt="skill.name"
+                  :src="skill.icone"
+                  :alt="skill.nom"
+                  loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-contain"
-                  :class="{ 'dark:invert': skill.name === 'GitHub' }"
+                  :class="{ 'dark:invert': skill.nom === 'GitHub' }"
                 />
               </div>
-              <span class="mt-4 font-sans text-[10px] md:text-xs font-bold uppercase tracking-[0.1em] text-[#111827] dark:text-gray-300 text-center break-words hyphens-auto w-full">
-                {{ skill.name }}
+              <span class="mt-4 font-sans text-xs font-bold uppercase tracking-wide text-[#111827] dark:text-gray-300 text-center break-words hyphens-none w-full">
+                {{ skill.nom }}
               </span>
             </div>
           </div>
@@ -110,8 +89,8 @@ const systemesOutils = [
         
         <!-- Petite note de bas de page type journal -->
         <div class="border-t-[3px] border-b-[3px] border-double border-primary dark:border-gray-600 py-3 px-4 text-center bg-transparent">
-          <p class="font-sans text-[10px] sm:text-xs uppercase tracking-widest font-bold text-gray-800 dark:text-gray-400">
-            * Liste non exhaustive des technologies.
+          <p class="font-sans text-xs uppercase tracking-widest font-bold text-gray-800 dark:text-gray-400">
+            {{ $t('divers.noteCompetences') }}
           </p>
         </div>
       </div>

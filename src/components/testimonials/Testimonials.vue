@@ -3,13 +3,13 @@
     <!-- Header Journal Style -->
     <div class="border-b-[3px] border-primary dark:border-gray-500 pb-4 mb-8 text-center sm:text-left">
       <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
-        Témoignages
+        {{ $t('temoignages.badge') }}
       </span>
       <h2 class="font-journal text-5xl sm:text-6xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3">
-        Critiques
+        {{ $t('temoignages.titre') }}
       </h2>
       <p class="font-sans text-sm md:text-base text-gray-600 dark:text-gray-400 italic">
-        Retours de ceux avec qui j'ai collaboré.
+        {{ $t('temoignages.soustitre') }}
       </p>
     </div>
 
@@ -33,12 +33,14 @@
             <img
               :src="`https://ui-avatars.com/api/?name=${testimonial.name}&background=111827&color=fff&font-family=Georgia`"
               :alt="testimonial.name"
+              loading="lazy"
+              decoding="async"
               class="w-full h-full object-cover"
             />
           </div>
           <div class="min-w-0">
             <h4 class="font-journal text-xl font-bold text-primary dark:text-white leading-tight uppercase truncate">{{ testimonial.name }}</h4>
-            <p class="font-sans text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mt-1 truncate">{{ testimonial.role }}</p>
+            <p class="font-sans text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mt-1 truncate">{{ testimonial.role }}</p>
           </div>
         </div>
       </article>
@@ -47,12 +49,16 @@
 </template>
 
 <script setup lang="ts">
-const testimonials = [
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+const testimonials = computed(() => [
   {
     name: 'Lee Jenny R.',
-    role: 'CEO, PlanetGame Madagascar',
-    content:
-      "Un travail exceptionnel ! Henintsoa a su capter l'essence de notre marque et l'a traduite en une interface web magnifique et fonctionnelle.",
-  }
-]
+    role: t('temoignages.role1'),
+    content: t('temoignages.contenu1'),
+  },
+])
 </script>

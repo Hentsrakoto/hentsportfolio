@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { Github, Linkedin } from 'lucide-vue-next'
+import { identite } from '@/data/identite'
 
 const { t } = useI18n()
 
@@ -33,7 +34,7 @@ const socialLinks = [
         <div class="md:col-span-5 flex flex-col justify-between">
           <div>
             <h2 class="font-journal text-5xl sm:text-6xl font-black text-primary dark:text-white mb-1 break-words">
-              Henintsoa.
+              {{ identite.nomAffiche }}.
             </h2>
             <p class="font-sans text-xs font-bold uppercase tracking-[0.2em] text-secondary dark:text-gray-400 mb-4">
               {{ t('footer.role') }}
@@ -59,7 +60,7 @@ const socialLinks = [
 
         <!-- Links Section -->
         <div class="md:col-span-3 lg:col-start-7 lg:col-span-2">
-          <h3 class="font-sans text-xs font-bold uppercase tracking-[0.2em] mb-4 text-gray-500 dark:text-gray-400">
+          <h3 class="font-sans text-xs font-bold uppercase tracking-[0.2em] mb-4 text-gray-600 dark:text-gray-400">
             {{ t('footer.services') }}
           </h3>
           <ul class="space-y-2">
@@ -73,7 +74,7 @@ const socialLinks = [
 
         <!-- Colophon / Fine Print -->
         <div class="md:col-span-4 lg:col-span-3">
-          <h3 class="font-sans text-xs font-bold uppercase tracking-[0.2em] mb-4 text-gray-500 dark:text-gray-400">
+          <h3 class="font-sans text-xs font-bold uppercase tracking-[0.2em] mb-4 text-gray-600 dark:text-gray-400">
             {{ t('footer.legal') }}
           </h3>
           <p class="font-serif text-sm leading-relaxed text-gray-700 dark:text-gray-400">
@@ -93,9 +94,9 @@ const socialLinks = [
       </div>
 
       <!-- Bottom Bar -->
-      <div class="flex flex-col md:flex-row justify-between items-center text-xs font-sans font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-        <p>&copy; {{ currentYear }} Henintsoa Rakotonavalona. {{ t('footer.rights') }}</p>
-        <p class="mt-2 md:mt-0">The Mind Behind The Code.</p>
+      <div class="flex flex-col md:flex-row justify-between items-center text-xs font-sans font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400">
+        <p>&copy; {{ currentYear }} {{ identite.nomLegal }}. {{ t('footer.rights') }}</p>
+        <p class="mt-2 md:mt-0">{{ t('footer.slogan') }}</p>
       </div>
       
     </div>

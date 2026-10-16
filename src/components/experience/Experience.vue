@@ -5,7 +5,7 @@
       <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
         {{ $t('sectionTitle.expBadge') }}
       </span>
-      <h2 class="font-journal text-4xl sm:text-5xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3 break-words hyphens-auto break-all sm:break-normal">
+      <h2 class="font-journal text-4xl sm:text-5xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3 break-words hyphens-none text-balance">
         {{ $t('sectionTitle.expTitle') }}
       </h2>
       <p class="font-sans text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto sm:mx-0 italic">
@@ -24,7 +24,7 @@
           <h3 class="font-journal text-3xl sm:text-4xl md:text-5xl font-black text-primary dark:text-white leading-none break-words">
             {{ exp.role }}
           </h3>
-          <div class="font-sans text-sm font-bold tracking-widest uppercase text-gray-500 dark:text-gray-400 flex flex-wrap items-center gap-2 sm:gap-4 mt-2 md:mt-0">
+          <div class="font-sans text-sm font-bold tracking-widest uppercase text-gray-600 dark:text-gray-400 flex flex-wrap items-center gap-2 sm:gap-4 mt-2 md:mt-0">
             <span>{{ exp.company }}</span>
             <span class="w-1.5 h-1.5 bg-primary dark:bg-gray-400 rounded-full hidden sm:inline-block"></span>
             <span>{{ exp.period }}</span>
@@ -69,28 +69,41 @@ import { useI18n } from 'vue-i18n'
 
 const { t, tm } = useI18n()
 
+// TODO(Hents): confirmer dates 'Sept. 2024 — Jan. 2026' (PlanetGame).
+const EXPERIENCES_META = [
+  {
+    techs: ['Vue.js', 'CodeIgniter 4', 'MySQL', 'API REST', 'JavaScript', 'OpenStreetMap', 'API Gemini'],
+  },
+  {
+    techs: ['React Native', 'Expo', 'JavaScript', 'FastAPI', 'SQLite'],
+  },
+  {
+    techs: ['Python', 'Machine Learning', 'Algorithmes', 'Git'],
+  },
+]
+
 const computedExperiences = computed(() => {
   return [
     {
-      period: 'Sept. 2024 — Jan. 2026',
+      period: t('experience.periode1'),
       role: t('experience.exp1Role'),
       company: t('experience.exp1Company'),
       tasks: tm('experience.exp1Tasks') as string[],
-      techs: ['Vue.js', 'CodeIgniter 4', 'MySQL', 'API REST', 'JavaScript'],
+      techs: EXPERIENCES_META[0]!.techs,
     },
     {
-      period: 'Mai 2026',
+      period: t('experience.periode2'),
       role: t('experience.exp2Role'),
       company: t('experience.exp2Company'),
       tasks: tm('experience.exp2Tasks') as string[],
-      techs: ['React Native', 'JavaScript'],
+      techs: EXPERIENCES_META[1]!.techs,
     },
     {
-      period: '2023 — En cours',
+      period: t('experience.periode3'),
       role: t('experience.exp3Role'),
       company: t('experience.exp3Company'),
       tasks: tm('experience.exp3Tasks') as string[],
-      techs: ['Python', 'Machine Learning', 'Algorithmes', 'Git'],
+      techs: EXPERIENCES_META[2]!.techs,
     },
   ]
 })
