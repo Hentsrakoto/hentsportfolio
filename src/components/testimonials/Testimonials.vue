@@ -33,12 +33,14 @@
             <img
               :src="`https://ui-avatars.com/api/?name=${testimonial.name}&background=111827&color=fff&font-family=Georgia`"
               :alt="testimonial.name"
+              loading="lazy"
+              decoding="async"
               class="w-full h-full object-cover"
             />
           </div>
           <div class="min-w-0">
             <h4 class="font-journal text-xl font-bold text-primary dark:text-white leading-tight uppercase truncate">{{ testimonial.name }}</h4>
-            <p class="font-sans text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mt-1 truncate">{{ testimonial.role }}</p>
+            <p class="font-sans text-xs font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400 mt-1 truncate">{{ testimonial.role }}</p>
           </div>
         </div>
       </article>

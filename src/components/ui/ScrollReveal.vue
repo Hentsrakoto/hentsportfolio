@@ -1,7 +1,7 @@
 <template>
   <div
     ref="el"
-    class="transition-all duration-1000 ease-out transform will-change-transform"
+    class="scroll-reveal transition-all duration-1000 ease-out transform will-change-transform"
     :class="[
       isVisible
         ? 'opacity-100 translate-y-0 filter blur-0 scale-100'
@@ -20,6 +20,11 @@ const isVisible = ref(false)
 let observer: IntersectionObserver | null = null
 
 onMounted(() => {
+  // Mouvement reduit : contenu visible immediatement, sans transition.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    isVisible.value = true
+    return
+  }
   observer = new IntersectionObserver(
     (entries) => {
       // Trigger when just a bit of the element is visible
@@ -44,3 +49,11 @@ onUnmounted(() => {
   if (observer) observer.disconnect()
 })
 </script>
+
+<style scoped>
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    transition: none;
+  }
+}
+</style>

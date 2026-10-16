@@ -23,7 +23,7 @@
 
         <div class="space-y-8">
           <div v-for="(info, index) in contactInfo" :key="index">
-            <h4 class="font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-1">
+            <h4 class="font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-600 dark:text-gray-400 mb-1">
               {{ info.title }}
             </h4>
             <a v-if="info.href" :href="info.href" :class="{ 'whitespace-nowrap': info.href.startsWith('mailto:') }" class="font-serif text-base md:text-lg font-bold text-primary dark:text-gray-200 hover:text-secondary hover:underline transition-colors">
@@ -36,7 +36,7 @@
         </div>
 
         <div class="mt-10 border-t-2 border-primary dark:border-gray-500 pt-6">
-          <h4 class="font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-4">
+          <h4 class="font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-600 dark:text-gray-400 mb-4">
             {{ $t('contact.socials') }}
           </h4>
           <div class="flex gap-4">
@@ -53,67 +53,105 @@
 
       <!-- Letter Format Form -->
       <div class="col-span-1 lg:col-span-8">
-        <form @submit.prevent="handleSubmit" class="flex flex-col gap-6">
+        <!-- TODO(Hents): basculer vers Netlify Forms ou autre backend si envoi réel côté serveur souhaité -->
+        <form @submit.prevent="handleSubmit" novalidate class="flex flex-col gap-6">
           <div class="flex flex-col sm:flex-row gap-6">
             <div class="flex-1">
-              <label class="block font-sans text-xs font-bold uppercase tracking-[0.15em] text-gray-500 dark:text-gray-400 mb-1">
+              <label for="contact-name" class="block font-sans text-xs font-bold uppercase tracking-[0.15em] text-gray-600 dark:text-gray-400 mb-1">
                 {{ $t('contact.namePlaceholder') }}
               </label>
               <div class="border-b border-primary dark:border-gray-500">
                 <input
+                  id="contact-name"
+                  name="name"
+                  ref="nameInput"
                   v-model="form.name"
                   type="text"
                   required
-                  class="w-full bg-transparent px-0 py-3 font-sans text-base lg:text-lg outline-none placeholder-gray-300 dark:placeholder-gray-700 text-primary dark:text-white"
+                  autocomplete="name"
+                  :aria-invalid="!!errors.name"
+                  :aria-describedby="errors.name ? 'err-contact-name' : undefined"
+                  class="w-full bg-transparent px-0 py-3 font-sans text-base lg:text-lg outline-none placeholder-gray-500 dark:placeholder-gray-400 text-primary dark:text-white"
                   :placeholder="$t('contact.namePlaceholder')"
                 />
               </div>
+              <p v-if="errors.name" id="err-contact-name" class="font-sans text-xs italic text-red-800 dark:text-red-300 mt-1" aria-live="polite">{{ errors.name }}</p>
             </div>
             <div class="flex-1">
-              <label class="block font-sans text-xs font-bold uppercase tracking-[0.15em] text-gray-500 dark:text-gray-400 mb-1">
+              <label for="contact-email" class="block font-sans text-xs font-bold uppercase tracking-[0.15em] text-gray-600 dark:text-gray-400 mb-1">
                 Email
               </label>
               <div class="border-b border-primary dark:border-gray-500">
                 <input
+                  id="contact-email"
+                  name="email"
+                  ref="emailInput"
                   v-model="form.email"
                   type="email"
                   required
-                  class="w-full bg-transparent px-0 py-3 font-sans text-base lg:text-lg outline-none placeholder-gray-300 dark:placeholder-gray-700 text-primary dark:text-white"
+                  autocomplete="email"
+                  :aria-invalid="!!errors.email"
+                  :aria-describedby="errors.email ? 'err-contact-email' : undefined"
+                  class="w-full bg-transparent px-0 py-3 font-sans text-base lg:text-lg outline-none placeholder-gray-500 dark:placeholder-gray-400 text-primary dark:text-white"
                   :placeholder="$t('contact.emailPlaceholder')"
                 />
               </div>
+              <p v-if="errors.email" id="err-contact-email" class="font-sans text-xs italic text-red-800 dark:text-red-300 mt-1" aria-live="polite">{{ errors.email }}</p>
             </div>
           </div>
 
           <div>
-            <label class="block font-sans text-xs font-bold uppercase tracking-[0.15em] text-gray-500 dark:text-gray-400 mb-1">
+            <label for="contact-subject" class="block font-sans text-xs font-bold uppercase tracking-[0.15em] text-gray-600 dark:text-gray-400 mb-1">
               Sujet
             </label>
             <div class="border-b border-primary dark:border-gray-500">
               <input
+                id="contact-subject"
+                name="subject"
+                ref="subjectInput"
                 v-model="form.subject"
                 type="text"
                 required
-                class="w-full bg-transparent px-0 py-3 font-sans text-base lg:text-lg outline-none placeholder-gray-300 dark:placeholder-gray-700 text-primary dark:text-white font-bold"
+                autocomplete="off"
+                :aria-invalid="!!errors.subject"
+                :aria-describedby="errors.subject ? 'err-contact-subject' : undefined"
+                class="w-full bg-transparent px-0 py-3 font-sans text-base lg:text-lg outline-none placeholder-gray-500 dark:placeholder-gray-400 text-primary dark:text-white font-bold"
                 :placeholder="$t('contact.subjectPlaceholder')"
               />
             </div>
+            <p v-if="errors.subject" id="err-contact-subject" class="font-sans text-xs italic text-red-800 dark:text-red-300 mt-1" aria-live="polite">{{ errors.subject }}</p>
           </div>
 
           <div>
-            <label class="block font-sans text-xs font-bold uppercase tracking-[0.15em] text-gray-500 dark:text-gray-400 mb-1">
+            <label for="contact-message" class="block font-sans text-xs font-bold uppercase tracking-[0.15em] text-gray-600 dark:text-gray-400 mb-1">
               Message
             </label>
             <div class="border border-primary dark:border-gray-500 p-2 relative h-64 bg-[#FDFBF7] dark:bg-[#121212]">
               <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: repeating-linear-gradient(transparent, transparent 31px, currentColor 31px, currentColor 32px);"></div>
               <textarea
+                id="contact-message"
+                name="message"
+                ref="messageInput"
                 v-model="form.message"
                 required
+                :aria-invalid="!!errors.message"
+                :aria-describedby="errors.message ? 'err-contact-message' : undefined"
                 class="w-full h-full bg-transparent p-2 font-serif text-lg outline-none resize-none text-primary dark:text-white relative z-10 leading-8"
                 :placeholder="$t('contact.messagePlaceholder')"
               ></textarea>
             </div>
+            <p v-if="errors.message" id="err-contact-message" class="font-sans text-xs italic text-red-800 dark:text-red-300 mt-1" aria-live="polite">{{ errors.message }}</p>
           </div>
+
+          <input
+            type="text"
+            name="company"
+            v-model="form.company"
+            class="hidden"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
 
           <div class="flex justify-end mt-4">
             <button
@@ -154,14 +192,30 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { identite } from '@/data/identite'
+
+const { t } = useI18n()
 
 const form = ref({
   name: '',
   email: '',
   subject: '',
   message: '',
+  company: '',
 })
+
+const errors = ref({
+  name: '',
+  email: '',
+  subject: '',
+  message: '',
+})
+
+const nameInput = ref<HTMLInputElement | null>(null)
+const emailInput = ref<HTMLInputElement | null>(null)
+const subjectInput = ref<HTMLInputElement | null>(null)
+const messageInput = ref<HTMLTextAreaElement | null>(null)
 
 const isSubmitting = ref(false)
 const notification = ref({
@@ -178,6 +232,32 @@ const showToast = (message: string, type: 'success' | 'error' = 'success') => {
 }
 
 const handleSubmit = async () => {
+  errors.value = { name: '', email: '', subject: '', message: '' }
+
+  if (form.value.company) {
+    showToast(t('contact.errSpam'), 'error')
+    return
+  }
+
+  let valid = true
+  if (!nameInput.value?.checkValidity() || !form.value.name.trim()) {
+    errors.value.name = t('contact.errName')
+    valid = false
+  }
+  if (!emailInput.value?.checkValidity()) {
+    errors.value.email = t('contact.errEmail')
+    valid = false
+  }
+  if (!subjectInput.value?.checkValidity() || !form.value.subject.trim()) {
+    errors.value.subject = t('contact.errSubject')
+    valid = false
+  }
+  if (!messageInput.value?.checkValidity() || !form.value.message.trim()) {
+    errors.value.message = t('contact.errMessage')
+    valid = false
+  }
+  if (!valid) return
+
   isSubmitting.value = true
   try {
     await new Promise((resolve) => setTimeout(resolve, 800))
@@ -190,7 +270,7 @@ const handleSubmit = async () => {
     window.location.href = `mailto:${identite.email}?subject=${subject}&body=${body}`
 
     showToast('Le facteur a bien reçu votre lettre !', 'success')
-    form.value = { name: '', email: '', subject: '', message: '' }
+    form.value = { name: '', email: '', subject: '', message: '', company: '' }
   } catch {
     showToast("La lettre s'est perdue en chemin.", 'error')
   } finally {

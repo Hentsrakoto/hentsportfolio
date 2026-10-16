@@ -10,8 +10,8 @@
     <button
       v-if="isVisible"
       @click="scrollToTop"
-      class="fixed bottom-8 left-6 z-50 flex items-center gap-2 px-3 py-3 sm:px-4 border-[2px] border-primary dark:border-white bg-[#FDFBF7] dark:bg-[#121212] text-primary dark:text-white hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-[#121212] transition-colors font-sans font-bold uppercase tracking-widest text-[10px]"
-      aria-label="Retour en haut"
+      class="fixed bottom-8 left-6 z-50 flex items-center gap-2 px-3 py-3 sm:px-4 min-h-[44px] min-w-[44px] justify-center border-[2px] border-primary dark:border-white bg-[#FDFBF7] dark:bg-[#121212] text-primary dark:text-white hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-[#121212] transition-colors font-sans font-bold uppercase tracking-widest text-xs"
+      :aria-label="locale === 'fr' ? 'Retour en haut' : 'Back to top'"
     >
       <ArrowUp class="w-4 h-4 shrink-0" />
       <span class="hidden sm:inline">Top</span>
@@ -21,7 +21,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { ArrowUp } from 'lucide-vue-next'
+
+const { locale } = useI18n()
 
 const isVisible = ref(false)
 

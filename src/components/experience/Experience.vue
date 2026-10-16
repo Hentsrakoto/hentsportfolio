@@ -24,7 +24,7 @@
           <h3 class="font-journal text-3xl sm:text-4xl md:text-5xl font-black text-primary dark:text-white leading-none break-words">
             {{ exp.role }}
           </h3>
-          <div class="font-sans text-sm font-bold tracking-widest uppercase text-gray-500 dark:text-gray-400 flex flex-wrap items-center gap-2 sm:gap-4 mt-2 md:mt-0">
+          <div class="font-sans text-sm font-bold tracking-widest uppercase text-gray-600 dark:text-gray-400 flex flex-wrap items-center gap-2 sm:gap-4 mt-2 md:mt-0">
             <span>{{ exp.company }}</span>
             <span class="w-1.5 h-1.5 bg-primary dark:bg-gray-400 rounded-full hidden sm:inline-block"></span>
             <span>{{ exp.period }}</span>

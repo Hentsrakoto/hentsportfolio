@@ -28,6 +28,7 @@ const todayDate = new Date().toLocaleDateString('fr-FR', {
   <div
     class="journal-wrapper overflow-x-hidden w-full min-h-screen bg-[#FDFBF7] dark:bg-[#121212] text-[#111827] dark:text-[#F3F4F6] transition-colors duration-300 font-sans"
   >
+    <a href="#contenu" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:px-4 focus:py-2 focus:font-sans focus:text-sm focus:font-bold focus:underline focus:bg-[#FDFBF7] focus:text-primary dark:focus:bg-[#121212] dark:focus:text-white focus:border-[2px] focus:border-primary dark:focus:border-white">{{ $i18n.locale === 'fr' ? 'Aller au contenu' : 'Skip to content' }}</a>
     <ReadingProgress />
     <CustomCursor />
     <BackToTop />
@@ -75,7 +76,7 @@ const todayDate = new Date().toLocaleDateString('fr-FR', {
         </h2>
 
         <div
-          class="flex flex-wrap sm:flex-nowrap justify-between gap-y-2 items-center border-y-2 border-primary dark:border-primary/50 mt-6 py-2 px-2 text-[10px] md:text-xs uppercase font-bold tracking-widest text-[#555555] dark:text-[#A3A3A3] font-sans"
+          class="flex flex-wrap sm:flex-nowrap justify-between gap-y-2 items-center border-y-2 border-primary dark:border-primary/50 mt-6 py-2 px-2 text-xs uppercase font-bold tracking-widest text-[#555555] dark:text-[#A3A3A3] font-sans"
         >
           <span class="w-1/2 sm:w-auto text-left sm:text-center">Vol. I — No. 1</span>
           <span class="text-center hidden sm:block">Antananarivo, Madagascar</span>
@@ -88,7 +89,7 @@ const todayDate = new Date().toLocaleDateString('fr-FR', {
 
       <Header class="mb-10" />
 
-      <main class="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-10 relative z-10">
+      <main id="contenu" tabindex="-1" class="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-10 relative z-10">
         <!-- Main Content Area -->
         <div
           class="contents lg:block lg:col-span-8 lg:border-r-[3px] border-primary/20 dark:border-primary/20 lg:pr-10 lg:space-y-16"

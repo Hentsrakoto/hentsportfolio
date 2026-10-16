@@ -41,6 +41,8 @@ const groupeOutils = groupesCompetences.find((g) => g.id === 'outils')
               <img
                 :src="skill.icone"
                 :alt="skill.nom"
+                loading="lazy"
+                decoding="async"
                 class="w-full h-full object-contain"
               />
             </div>
@@ -69,11 +71,13 @@ const groupeOutils = groupesCompetences.find((g) => g.id === 'outils')
                 <img
                   :src="skill.icone"
                   :alt="skill.nom"
+                  loading="lazy"
+                  decoding="async"
                   class="w-full h-full object-contain"
                   :class="{ 'dark:invert': skill.nom === 'GitHub' }"
                 />
               </div>
-              <span class="mt-4 font-sans text-[10px] md:text-xs font-bold uppercase tracking-wide text-[#111827] dark:text-gray-300 text-center break-words hyphens-none w-full">
+              <span class="mt-4 font-sans text-xs font-bold uppercase tracking-wide text-[#111827] dark:text-gray-300 text-center break-words hyphens-none w-full">
                 {{ skill.nom }}
               </span>
             </div>
@@ -82,7 +86,7 @@ const groupeOutils = groupesCompetences.find((g) => g.id === 'outils')
         
         <!-- Petite note de bas de page type journal -->
         <div class="border-t-[3px] border-b-[3px] border-double border-primary dark:border-gray-600 py-3 px-4 text-center bg-transparent">
-          <p class="font-sans text-[10px] sm:text-xs uppercase tracking-widest font-bold text-gray-800 dark:text-gray-400">
+          <p class="font-sans text-xs uppercase tracking-widest font-bold text-gray-800 dark:text-gray-400">
             * Liste non exhaustive des technologies.
           </p>
         </div>

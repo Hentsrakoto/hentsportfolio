@@ -118,7 +118,12 @@ export default {
     subjectPlaceholder: "Subject of correspondence",
     messagePlaceholder: "Write your letter here...",
     send: "Send Letter",
-    sending: "Sending..."
+    sending: "Sending...",
+    errName: "Please enter your name.",
+    errEmail: "Please enter a valid email address.",
+    errSubject: "Please enter a subject.",
+    errMessage: "Please write your message.",
+    errSpam: "Your letter could not be sent."
   },
   footer: {
     role: "Web Developer",

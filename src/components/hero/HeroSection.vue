@@ -56,11 +56,12 @@
           <div class="overflow-hidden border border-primary/20 dark:border-gray-700 aspect-[3/4] grayscale-[30%] hover:grayscale-0 transition-all duration-700">
             <img
               src="@/assets/Hents.png"
-              alt="Portrait"
+              :alt="$t('hero.fig1')"
+              fetchpriority="high"
               class="w-full h-full object-cover object-center"
             />
           </div>
-          <figcaption class="mt-3 text-xs md:text-sm font-sans italic text-center text-gray-500 dark:text-gray-400 border-t border-primary/20 pt-2">
+          <figcaption class="mt-3 text-xs md:text-sm font-sans italic text-center text-gray-600 dark:text-gray-400 border-t border-primary/20 pt-2">
             {{ $t('hero.fig1') }}
           </figcaption>
         </figure>

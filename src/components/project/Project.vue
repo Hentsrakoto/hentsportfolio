@@ -21,7 +21,7 @@
         <h3 class="font-journal text-4xl sm:text-5xl font-black text-primary dark:text-white leading-none break-words">
           {{ txt(featuredProject.titre) }}
         </h3>
-        <p class="font-sans font-bold uppercase tracking-widest text-xs text-gray-500 dark:text-gray-400 border-b border-primary/20 dark:border-gray-700 pb-2">
+        <p class="font-sans font-bold uppercase tracking-widest text-xs text-gray-600 dark:text-gray-400 border-b border-primary/20 dark:border-gray-700 pb-2">
           {{ txt(featuredProject.categorie) }}
         </p>
 
@@ -29,9 +29,11 @@
           <img
             :src="featuredProject.capture.src"
             :alt="txt(featuredProject.capture.alt)"
+            loading="lazy"
+            decoding="async"
             class="w-full h-56 object-contain grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500 mix-blend-multiply dark:mix-blend-normal"
           />
-          <figcaption class="text-right text-[10px] uppercase tracking-wider text-gray-400 mt-1 pb-1">{{ $t('portfolio.fig1') }}</figcaption>
+          <figcaption class="text-right text-xs uppercase tracking-wider text-gray-600 dark:text-gray-400 mt-1 pb-1">{{ $t('portfolio.fig1') }}</figcaption>
         </figure>
 
         <p class="font-serif text-lg leading-relaxed text-text dark:text-gray-200 mt-2 first-letter:text-6xl first-letter:font-journal first-letter:font-black first-letter:float-left first-letter:mr-3 first-letter:mt-1">
@@ -49,7 +51,7 @@
         </ul>
 
         <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-dashed border-gray-300 dark:border-gray-700">
-          <span class="font-sans text-xs font-bold uppercase tracking-widest text-gray-500 pt-1 mr-2">{{ $t('portfolio.tools') }}</span>
+          <span class="font-sans text-xs font-bold uppercase tracking-widest text-gray-600 dark:text-gray-400 pt-1 mr-2">{{ $t('portfolio.tools') }}</span>
           <span
             v-for="tech in featuredProject.technologies"
             :key="tech"
@@ -80,7 +82,7 @@
           </a>
           <span
             v-if="!featuredProject.lienSite && !featuredProject.lienCode"
-            class="font-sans text-xs font-bold uppercase px-2 py-1 border border-dashed border-gray-400 dark:border-gray-600 text-gray-500 dark:text-gray-400"
+            class="font-sans text-xs font-bold uppercase px-2 py-1 border border-dashed border-gray-400 dark:border-gray-600 text-gray-600 dark:text-gray-400"
           >
             {{ locale === 'en' ? (featuredProject.statut === 'prive' ? 'Private project' : 'Academic project') : (featuredProject.statut === 'prive' ? 'Projet privé' : 'Projet académique') }}
           </span>
@@ -99,6 +101,8 @@
             <img
               :src="proj.capture.src"
               :alt="txt(proj.capture.alt)"
+              loading="lazy"
+              decoding="async"
               class="w-full h-32 object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500 mix-blend-multiply dark:mix-blend-normal"
             />
           </figure>
@@ -106,7 +110,7 @@
           <h3 class="font-journal text-3xl font-bold text-primary dark:text-white leading-tight">
             {{ txt(proj.titre) }}
           </h3>
-          <p class="font-sans font-bold uppercase tracking-wider text-[10px] text-gray-500 dark:text-gray-400">
+          <p class="font-sans font-bold uppercase tracking-wider text-xs text-gray-600 dark:text-gray-400">
             {{ txt(proj.categorie) }}
           </p>
 
@@ -122,7 +126,7 @@
             <span
               v-for="tech in proj.technologies"
               :key="tech"
-              class="font-sans text-[10px] font-bold uppercase px-1.5 py-0.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400"
+              class="font-sans text-xs font-bold uppercase px-1.5 py-0.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400"
             >
               {{ tech }}
             </span>
@@ -134,7 +138,7 @@
               :href="proj.lienSite"
               target="_blank"
               rel="noopener"
-              class="font-sans text-[10px] font-bold uppercase px-1.5 py-0.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 inline-flex items-center gap-1"
+              class="font-sans text-xs font-bold uppercase px-1.5 py-0.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 inline-flex items-center gap-1"
             >
               <ExternalLink class="w-3 h-3" /> Démo
             </a>
@@ -143,13 +147,13 @@
               :href="proj.lienCode"
               target="_blank"
               rel="noopener"
-              class="font-sans text-[10px] font-bold uppercase px-1.5 py-0.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 inline-flex items-center gap-1"
+              class="font-sans text-xs font-bold uppercase px-1.5 py-0.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 inline-flex items-center gap-1"
             >
               <Github class="w-3 h-3" /> Code
             </a>
             <span
               v-if="!proj.lienSite && !proj.lienCode"
-              class="font-sans text-[10px] font-bold uppercase px-1.5 py-0.5 border border-dashed border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-400"
+              class="font-sans text-xs font-bold uppercase px-1.5 py-0.5 border border-dashed border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400"
             >
               {{ locale === 'en' ? (proj.statut === 'prive' ? 'Private project' : 'Academic project') : (proj.statut === 'prive' ? 'Projet privé' : 'Projet académique') }}
             </span>

@@ -76,7 +76,7 @@
             <h4 class="font-serif text-lg font-bold text-primary dark:text-white leading-tight mb-1">
               {{ $t('me.l3') }}
             </h4>
-            <p class="font-sans text-xs uppercase text-gray-500 mb-2 font-bold tracking-wider">
+            <p class="font-sans text-xs uppercase text-gray-600 dark:text-gray-400 mb-2 font-bold tracking-wider">
               ESMIA — Antanimena
             </p>
             <p class="font-sans text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -87,13 +87,13 @@
           <!-- Licence - 2023-2026 -->
           <div class="relative">
             <div class="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 border-[3px] border-white dark:border-[#1A1A1A]"></div>
-            <span class="font-sans text-xs font-bold text-gray-400 tracking-widest uppercase mb-1 block">
+            <span class="font-sans text-xs font-bold text-gray-600 dark:text-gray-400 tracking-widest uppercase mb-1 block">
               2023 — 2026
             </span>
             <h4 class="font-serif text-lg font-bold text-gray-800 dark:text-gray-300 leading-tight mb-1">
               {{ $t('me.l2') }}
             </h4>
-            <p class="font-sans text-xs uppercase text-gray-500 mb-2 font-bold tracking-wider">
+            <p class="font-sans text-xs uppercase text-gray-600 dark:text-gray-400 mb-2 font-bold tracking-wider">
               ESMIA — Antanimena
             </p>
             <p class="font-sans text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -104,7 +104,7 @@
           <!-- Baccalauréat -->
           <div class="relative">
             <div class="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 border-[3px] border-white dark:border-[#1A1A1A]"></div>
-            <span class="font-sans text-xs font-bold text-gray-400 tracking-widest uppercase mb-1 block">
+            <span class="font-sans text-xs font-bold text-gray-600 dark:text-gray-400 tracking-widest uppercase mb-1 block">
               Antérieur
             </span>
             <h4 class="font-serif text-lg font-bold text-gray-800 dark:text-gray-300 leading-tight mb-1">

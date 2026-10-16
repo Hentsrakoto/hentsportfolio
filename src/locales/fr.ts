@@ -118,7 +118,12 @@ export default {
     subjectPlaceholder: "Sujet de la correspondance",
     messagePlaceholder: "Rédigez votre lettre ici...",
     send: "Envoyer la lettre",
-    sending: "Envoi..."
+    sending: "Envoi...",
+    errName: "Veuillez saisir votre nom.",
+    errEmail: "Veuillez saisir une adresse e-mail valide.",
+    errSubject: "Veuillez saisir un sujet.",
+    errMessage: "Veuillez rédiger votre message.",
+    errSpam: "La lettre n'a pas pu être envoyée."
   },
   footer: {
     role: "Développeur Web",
