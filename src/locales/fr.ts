@@ -18,17 +18,11 @@ export default {
     title2: "The Code.",
     meet: "Rencontre avec",
     typing: [identite.prenom, 'le Développeur', 'le Builder'],
-    p1: "Étudiant en Master 1 MIAGE et développeur web, je conçois des applications modernes en combinant frontend, backend, bases de données et systèmes intelligents. Chaque projet est une opportunité de transformer un besoin concret en une solution performante et évolutive.",
-    p2: "Basé à Madagascar, je travaille principalement avec React, Java, Spring Boot, Laravel et PostgreSQL. Je m’intéresse également à la Data, aux systèmes de recommandation et au Machine Learning.",
+    p1: "Étudiant en Master 1 MIAGE à Madagascar, je transforme des besoins concrets en applications web utiles.",
     cta: "Voir mes projets",
-    fig1: `Fig 1. ${identite.prenom} dans son élément.`,
-    pullQuote: "Transformer les idées en applications concrètes, performantes et évolutives."
+    fig1: `Fig 1. ${identite.prenom} dans son élément.`
   },
   sectionTitle: {
-    aboutBadge: "About Me",
-    aboutTitle: "Qui suis-je ?",
-    aboutSubtitle: "Développeur passionné, je transforme vos idées en réalité numérique.",
-
     servicesBadge: "My Services",
     servicesTitle: "Ce que je développe",
     servicesSubtitle: "Des solutions techniques complètes adaptées aux besoins métier et aux utilisateurs.",
@@ -50,7 +44,7 @@ export default {
     contactSubtitle: "Vous avez un projet en tête ou vous souhaitez simplement échanger ? Courrier des lecteurs."
   },
   me: {
-    intro: `Je suis ${identite.nomApropos}, étudiant en Master 1 MIAGE et passionné par le développement web. J’aime transformer une idée ou un besoin métier en une application concrète, performante et évolutive. Je travaille principalement avec React, Java, Spring Boot, Laravel et PostgreSQL, et je m’intéresse à la Data et au Machine Learning.`,
+    approachTitle: "Mon approche",
     devTitle: "Développement Full-Stack",
     devDesc: "Frontend, backend, API REST et bases de données — je couvre l’ensemble de la chaîne applicative.",
     curiousTitle: "Curieux & Orienté Solutions",
@@ -62,12 +56,9 @@ export default {
     l3Desc: "Informatique Appliquée à la Gestion d’Entreprise — En cours.",
     l2: "Licence en Informatique",
     l2Desc: "Informatique, Risque et Décision — Septembre 2023 · Janvier 2026.",
-    l1: "Baccalauréat",
-    l1Desc: "Sciences - D",
     ecole: 'ESMIA — Antanimena',
     statutEnCours: 'En cours',
-    periodeLicence: '2023 — 2026',
-    statutAnterieur: 'Antérieur'
+    periodeLicence: '2023 — 2026'
   },
   services: {
     webTitle: "Applications Web",

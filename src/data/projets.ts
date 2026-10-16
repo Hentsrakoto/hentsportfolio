@@ -55,7 +55,8 @@ export const projets: Projet[] = [
       en: 'Frontend (Vue.js) and backend (CodeIgniter) development, REST API creation and consumption.',
     },
     technologies: ['CodeIgniter 4', 'Vue.js', 'MySQL', 'API REST', 'OpenStreetMap', 'API Gemini'],
-    statut: 'prive',
+    statut: 'en-ligne',
+    lienSite: 'https://planetgamemg.com/',
     capture: {
       src: planetgameImg,
       alt: { fr: 'PlanetGame', en: 'PlanetGame' },

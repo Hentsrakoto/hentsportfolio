@@ -26,19 +26,6 @@
           {{ $t('hero.p1') }}
         </p>
 
-        <!-- Pull Quote (Editorial Style) -->
-        <blockquote class="my-6 border-l-0 border-t-[3px] border-b-[3px] border-primary dark:border-white/60 py-4 px-4 bg-gray-50 dark:bg-[#1A1A1A] relative">
-          <span class="absolute -top-4 left-4 font-journal text-5xl text-primary/20 dark:text-white/10 leading-none select-none">"</span>
-          <p class="font-journal text-xl md:text-2xl italic text-primary dark:text-white leading-snug font-bold">
-            {{ $t('hero.pullQuote') }}
-          </p>
-          <span class="absolute -bottom-5 right-4 font-journal text-5xl text-primary/20 dark:text-white/10 leading-none select-none">"</span>
-        </blockquote>
-
-        <p class="font-sans text-base lg:text-lg text-text dark:text-text-dark leading-relaxed mb-8">
-          {{ $t('hero.p2') }}
-        </p>
-
         <!-- CTA Button (Editorial Style) -->
         <button @click="gotocontact()"
           class="font-sans uppercase tracking-widest text-sm font-bold border-2 border-primary dark:border-white text-primary dark:text-white px-8 py-4 hover:bg-primary hover:text-white dark:hover:bg-white dark:hover:text-primary transition-colors duration-300 flex items-center gap-3"
@@ -66,8 +53,9 @@
           </figcaption>
         </figure>
       </div>
-
     </div>
+
+    <Me />
   </section>
 </template>
 
@@ -75,6 +63,7 @@
 import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { identite } from '@/data/identite'
+import Me from '@/components/me/Me.vue'
 
 const { tm } = useI18n()
 

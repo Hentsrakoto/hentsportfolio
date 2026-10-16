@@ -18,17 +18,11 @@ export default {
     title2: "The Code.",
     meet: "Meet",
     typing: [identite.prenom, 'the Developer', 'the Builder'],
-    p1: "Master 1 MIAGE student and web developer, I build modern applications combining frontend, backend, databases and intelligent systems. Each project is an opportunity to turn a concrete need into a performant and scalable solution.",
-    p2: "Based in Madagascar, I work primarily with React, Java, Spring Boot, Laravel and PostgreSQL. I am also interested in Data, recommendation systems and Machine Learning.",
+    p1: "A Master 1 MIAGE student based in Madagascar, I turn concrete needs into useful web applications.",
     cta: "See my projects",
-    fig1: `Fig 1. ${identite.prenom} in his element.`,
-    pullQuote: "Turning ideas into concrete, performant and scalable applications."
+    fig1: `Fig 1. ${identite.prenom} in his element.`
   },
   sectionTitle: {
-    aboutBadge: "About Me",
-    aboutTitle: "Who am I?",
-    aboutSubtitle: "Passionate developer, I turn your ideas into digital reality.",
-
     servicesBadge: "My Services",
     servicesTitle: "What I Build",
     servicesSubtitle: "Full-stack and intelligent software solutions tailored to business and user needs.",
@@ -50,7 +44,7 @@ export default {
     contactSubtitle: "Have a project in mind or simply want to chat? Letters to the editor."
   },
   me: {
-    intro: `I am ${identite.nomApropos}, a Master 1 MIAGE student and web developer. I enjoy turning a business idea or requirement into a concrete, performant and scalable application. I work primarily with React, Java, Spring Boot, Laravel and PostgreSQL, and I am interested in Data and Machine Learning.`,
+    approachTitle: "My approach",
     devTitle: "Full-Stack Development",
     devDesc: "Frontend, backend, REST APIs and databases — I cover the full application stack.",
     curiousTitle: "Curious & Solution-Oriented",
@@ -62,12 +56,9 @@ export default {
     l3Desc: "Applied Computer Science for Business Management — Ongoing.",
     l2: "Bachelor's in Computer Science",
     l2Desc: "Computer Science, Risk and Decision — September 2023 · January 2026.",
-    l1: "High School Diploma",
-    l1Desc: "Sciences — D",
     ecole: 'ESMIA — Antanimena',
     statutEnCours: 'Ongoing',
-    periodeLicence: '2023 — 2026',
-    statutAnterieur: 'Earlier'
+    periodeLicence: '2023 — 2026'
   },
   services: {
     webTitle: "Web Applications",

@@ -3,7 +3,6 @@ import { computed, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import Header from '@/components/header/Header.vue'
 import Hero from '@/components/hero/HeroSection.vue'
-import Moi from '@/components/me/Me.vue'
 import Project from '@/components/project/Project.vue'
 import Experience from '@/components/experience/Experience.vue'
 import Competence from '@/components/competence/Competence.vue'
@@ -110,75 +109,50 @@ watch(
 
       <Header class="mb-10" />
 
-      <main id="contenu" tabindex="-1" class="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-10 lg:items-start relative z-10">
-        <!-- Main Content Area -->
-        <div
-          class="contents lg:block lg:col-span-8 lg:border-r-[3px] border-primary/20 dark:border-primary/20 lg:pr-10 lg:space-y-12"
-        >
-          <ScrollReveal class="order-[1] lg:order-none w-full">
-            <Hero />
-          </ScrollReveal>
+      <main
+        id="contenu"
+        tabindex="-1"
+        class="relative z-10 mx-auto flex w-full max-w-5xl flex-col"
+      >
+        <ScrollReveal class="w-full">
+          <Hero />
+        </ScrollReveal>
 
-          <hr
-            class="order-[2] lg:order-none border-t border-dashed border-primary/30 dark:border-primary/20 w-full"
-          />
+        <hr class="w-full border-t border-dashed border-primary/30 dark:border-primary/20" />
 
-          <ScrollReveal class="order-[9] lg:order-none w-full">
-            <Project />
-          </ScrollReveal>
+        <ScrollReveal class="w-full">
+          <Competence />
+        </ScrollReveal>
 
-          <hr
-            class="order-[6] lg:order-none border-t border-dashed border-primary/30 dark:border-primary/20 w-full"
-          />
+        <hr class="w-full border-t border-dashed border-primary/30 dark:border-primary/20" />
 
-          <ScrollReveal class="order-[7] lg:order-none w-full">
-            <Experience />
-          </ScrollReveal>
+        <ScrollReveal class="w-full">
+          <Project />
+        </ScrollReveal>
 
-          <hr
-            class="order-[12] lg:order-none border-t border-dashed border-primary/30 dark:border-primary/20 w-full"
-          />
+        <hr class="w-full border-t border-dashed border-primary/30 dark:border-primary/20" />
 
-          <ScrollReveal class="order-[15] lg:order-none w-full">
-            <Contact />
-          </ScrollReveal>
-        </div>
+        <ScrollReveal class="w-full">
+          <Experience />
+        </ScrollReveal>
 
-        <!-- Sidebar Area -->
-        <aside class="contents lg:block lg:col-span-4 lg:space-y-12">
-          <ScrollReveal class="order-[3] lg:order-none w-full">
-            <Moi />
-          </ScrollReveal>
+        <hr class="w-full border-t border-dashed border-primary/30 dark:border-primary/20" />
 
-          <hr
-            class="order-[4] lg:order-none border-t-[6px] border-double border-primary/40 dark:border-primary/20 w-full"
-          />
+        <ScrollReveal class="w-full">
+          <Services />
+        </ScrollReveal>
 
-          <ScrollReveal class="order-[5] lg:order-none w-full">
-            <Competence />
-          </ScrollReveal>
+        <hr class="w-full border-t border-dashed border-primary/30 dark:border-primary/20" />
 
-          <hr
-            class="order-[8] lg:order-none border-t-[6px] border-double border-primary/40 dark:border-primary/20 w-full"
-          />
+        <ScrollReveal class="w-full">
+          <Testimonials />
+        </ScrollReveal>
 
-          <ScrollReveal class="order-[11] lg:order-none w-full">
-            <Services />
-          </ScrollReveal>
+        <hr class="w-full border-t border-dashed border-primary/30 dark:border-primary/20" />
 
-          <hr
-            class="order-[10] lg:order-none border-t-[6px] border-double border-primary/40 dark:border-primary/20 w-full"
-          />
-
-          <ScrollReveal class="order-[13] lg:order-none w-full">
-            <Testimonials />
-          </ScrollReveal>
-
-          <!-- Extra separator for mobile before contact -->
-          <hr
-            class="block lg:hidden order-[14] border-t-[6px] border-double border-primary/40 dark:border-primary/20 w-full"
-          />
-        </aside>
+        <ScrollReveal class="w-full">
+          <Contact />
+        </ScrollReveal>
       </main>
 
       <!-- Footer Section -->
