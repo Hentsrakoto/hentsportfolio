@@ -6,7 +6,7 @@
         Témoignages
       </span>
       <h2 class="font-journal text-5xl sm:text-6xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3">
-        Critiques
+        Témoignages
       </h2>
       <p class="font-sans text-sm md:text-base text-gray-600 dark:text-gray-400 italic">
         Retours de ceux avec qui j'ai collaboré.

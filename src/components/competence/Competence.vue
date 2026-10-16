@@ -1,36 +1,11 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { groupesCompetences } from '@/data/competences'
 
 const { t } = useI18n()
 
-const languagesFrameworks = [
-  { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-  { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-  { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
-  { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' },
-  { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
-  { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-  { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-  { name: 'Vue.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg' },
-  { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
-  { name: 'Spring Boot', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
-  { name: 'Laravel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg' },
-  { name: 'CodeIgniter', icon: 'https://cdn.simpleicons.org/codeigniter/codeigniter' },
-  { name: 'React Native', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-]
-
-const systemesOutils = [
-  { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
-  { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
-  { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-  { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
-  { name: 'Linux', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
-  { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
-  { name: 'Maven', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg' },
-  { name: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
-  { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
-]
+const groupeDev = groupesCompetences.find((g) => g.id === 'dev')
+const groupeOutils = groupesCompetences.find((g) => g.id === 'outils')
 </script>
 
 <template>
@@ -53,24 +28,24 @@ const systemesOutils = [
       <div class="flex-1 border-[2px] border-primary dark:border-gray-600 p-6 relative">
         <header class="border-b-2 border-primary dark:border-gray-600 pb-4 mb-8">
           <h3 class="font-journal text-3xl md:text-4xl font-bold text-primary dark:text-white uppercase tracking-tight">
-            Développement
+            {{ groupeDev?.titre }}
           </h3>
           <p class="font-sans text-sm md:text-base italic text-gray-600 dark:text-gray-400 mt-2">
-            Frontend, Backend, Data &amp; Mobile.
+            {{ groupeDev?.soustitre }}
           </p>
         </header>
 
         <div class="flex flex-wrap justify-center gap-x-4 gap-y-8">
-          <div v-for="skill in languagesFrameworks" :key="skill.name" class="flex flex-col items-center group cursor-crosshair w-[88px] sm:w-[96px]">
+          <div v-for="skill in groupeDev?.items" :key="skill.nom" class="flex flex-col items-center group cursor-crosshair w-[88px] sm:w-[96px]">
             <div class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center p-3 border-[1.5px] border-black dark:border-white bg-white dark:bg-black grayscale group-hover:grayscale-0 transition-all duration-300 shadow-[4px_4px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_rgba(255,255,255,1)] group-hover:translate-y-1 group-hover:translate-x-1 group-hover:shadow-[0px_0px_0px_rgba(0,0,0,1)] dark:group-hover:shadow-[0px_0px_0px_rgba(255,255,255,1)]">
               <img
-                :src="skill.icon"
-                :alt="skill.name"
+                :src="skill.icone"
+                :alt="skill.nom"
                 class="w-full h-full object-contain"
               />
             </div>
             <span class="mt-4 font-sans text-xs font-bold uppercase tracking-wide text-[#111827] dark:text-gray-300 text-center break-words hyphens-none w-full">
-              {{ skill.name }}
+              {{ skill.nom }}
             </span>
           </div>
         </div>
@@ -81,25 +56,25 @@ const systemesOutils = [
         <div class="border-[2px] border-dashed border-primary dark:border-gray-600 p-6 flex-1 relative bg-gray-50 dark:bg-[#1A1A1A] w-full">
           <header class="border-b-2 border-primary dark:border-gray-600 pb-4 mb-8 text-center">
             <h3 class="font-journal text-2xl md:text-3xl font-bold text-primary dark:text-white uppercase tracking-tight">
-              Méthodes &amp; Environnement
+              {{ groupeOutils?.titre }}
             </h3>
             <p class="font-sans text-sm italic text-gray-600 dark:text-gray-400 mt-2">
-              Bases de données, DevOps &amp; outils du quotidien.
+              {{ groupeOutils?.soustitre }}
             </p>
           </header>
 
           <div class="flex flex-wrap justify-center gap-x-4 gap-y-8">
-            <div v-for="skill in systemesOutils" :key="skill.name" class="flex flex-col items-center group cursor-crosshair w-[88px] sm:w-[96px]">
+            <div v-for="skill in groupeOutils?.items" :key="skill.nom" class="flex flex-col items-center group cursor-crosshair w-[88px] sm:w-[96px]">
               <div class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center p-3 rounded-full border border-gray-400 dark:border-gray-600 bg-white dark:bg-black grayscale drop-shadow-sm group-hover:grayscale-0 transition-all duration-300 transform group-hover:-rotate-6 hover:scale-110">
                 <img
-                  :src="skill.icon"
-                  :alt="skill.name"
+                  :src="skill.icone"
+                  :alt="skill.nom"
                   class="w-full h-full object-contain"
-                  :class="{ 'dark:invert': skill.name === 'GitHub' }"
+                  :class="{ 'dark:invert': skill.nom === 'GitHub' }"
                 />
               </div>
               <span class="mt-4 font-sans text-[10px] md:text-xs font-bold uppercase tracking-wide text-[#111827] dark:text-gray-300 text-center break-words hyphens-none w-full">
-                {{ skill.name }}
+                {{ skill.nom }}
               </span>
             </div>
           </div>

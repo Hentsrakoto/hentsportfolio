@@ -69,28 +69,44 @@ import { useI18n } from 'vue-i18n'
 
 const { t, tm } = useI18n()
 
+// TODO(Hents): confirmer dates 'Sept. 2024 — Jan. 2026' (PlanetGame).
+const EXPERIENCES_META = [
+  {
+    period: 'Sept. 2024 — Jan. 2026',
+    techs: ['Vue.js', 'CodeIgniter 4', 'MySQL', 'API REST', 'JavaScript', 'OpenStreetMap', 'API Gemini'],
+  },
+  {
+    period: 'Mai 2026',
+    techs: ['React Native', 'Expo', 'JavaScript', 'FastAPI', 'SQLite'],
+  },
+  {
+    period: '2023 — En cours',
+    techs: ['Python', 'Machine Learning', 'Algorithmes', 'Git'],
+  },
+]
+
 const computedExperiences = computed(() => {
   return [
     {
-      period: 'Sept. 2024 — Jan. 2026',
+      period: EXPERIENCES_META[0]!.period,
       role: t('experience.exp1Role'),
       company: t('experience.exp1Company'),
       tasks: tm('experience.exp1Tasks') as string[],
-      techs: ['Vue.js', 'CodeIgniter 4', 'MySQL', 'API REST', 'JavaScript'],
+      techs: EXPERIENCES_META[0]!.techs,
     },
     {
-      period: 'Mai 2026',
+      period: EXPERIENCES_META[1]!.period,
       role: t('experience.exp2Role'),
       company: t('experience.exp2Company'),
       tasks: tm('experience.exp2Tasks') as string[],
-      techs: ['React Native', 'JavaScript'],
+      techs: EXPERIENCES_META[1]!.techs,
     },
     {
-      period: '2023 — En cours',
+      period: EXPERIENCES_META[2]!.period,
       role: t('experience.exp3Role'),
       company: t('experience.exp3Company'),
       tasks: tm('experience.exp3Tasks') as string[],
-      techs: ['Python', 'Machine Learning', 'Algorithmes', 'Git'],
+      techs: EXPERIENCES_META[2]!.techs,
     },
   ]
 })

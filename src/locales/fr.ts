@@ -46,7 +46,7 @@ export default {
     projSubtitle: "Une sélection de projets alliant rigueur technique et problèmes concrets.",
 
     contactBadge: "Contact",
-    contactTitle: "Écrivez-nous.",
+    contactTitle: "Écrivez-moi.",
     contactSubtitle: "Vous avez un projet en tête ou vous souhaitez simplement échanger ? Courrier des lecteurs."
   },
   me: {

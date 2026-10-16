@@ -26,9 +26,12 @@
             <h4 class="font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-1">
               {{ info.title }}
             </h4>
-            <a :href="info.href" :class="{ 'whitespace-nowrap': info.href.startsWith('mailto:') }" class="font-serif text-base md:text-lg font-bold text-primary dark:text-gray-200 hover:text-secondary hover:underline transition-colors">
+            <a v-if="info.href" :href="info.href" :class="{ 'whitespace-nowrap': info.href.startsWith('mailto:') }" class="font-serif text-base md:text-lg font-bold text-primary dark:text-gray-200 hover:text-secondary hover:underline transition-colors">
               {{ info.value }}
             </a>
+            <span v-else class="font-serif text-base md:text-lg font-bold text-primary dark:text-gray-200">
+              {{ info.value }}
+            </span>
           </div>
         </div>
 
@@ -151,6 +154,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { identite } from '@/data/identite'
 
 const form = ref({
   name: '',
@@ -183,7 +187,7 @@ const handleSubmit = async () => {
       `Nom: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`,
     )
 
-    window.location.href = `mailto:rakotonavalonahents@gmail.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:${identite.email}?subject=${subject}&body=${body}`
 
     showToast('Le facteur a bien reçu votre lettre !', 'success')
     form.value = { name: '', email: '', subject: '', message: '' }
@@ -194,21 +198,20 @@ const handleSubmit = async () => {
   }
 }
 
-const contactInfo = [
+const contactInfo: { title: string; value: string; href?: string }[] = [
   {
-    title: 'Télégramme (Email)',
-    value: 'rakotonavalonahents@gmail.com',
-    href: 'mailto:rakotonavalonahents@gmail.com',
+    title: 'E-mail',
+    value: identite.email,
+    href: `mailto:${identite.email}`,
   },
   {
     title: 'Ligne Directe',
-    value: '+261 32 75 771 63',
-    href: 'tel:+261327577163',
+    value: identite.telephone,
+    href: identite.telephoneHref,
   },
   {
-    title: 'Bureau de Presse',
-    value: 'Antananarivo, Madagascar',
-    href: '#',
+    title: 'Localisation',
+    value: identite.localisation,
   },
 ]
 </script>
