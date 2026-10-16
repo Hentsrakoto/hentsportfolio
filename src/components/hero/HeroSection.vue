@@ -5,7 +5,7 @@
       <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
         {{ $t('hero.exclusive') }}
       </span>
-      <h1 class="font-journal text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-4 break-words hyphens-auto break-all sm:break-normal">
+      <h1 class="font-journal text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-4 break-words hyphens-none text-balance">
         {{ $t('hero.title1') }}<br />{{ $t('hero.title2') }}
       </h1>
       <p class="font-sans text-xl md:text-2xl text-primary/80 dark:text-gray-300 italic font-medium">
@@ -73,6 +73,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { identite } from '@/data/identite'
 
 const { tm } = useI18n()
 
@@ -80,14 +81,16 @@ function gotocontact() {
   window.location.href = '#projet'
 }
 
-const displayedText = ref('')
+const initialTyping = tm('hero.typing') as string[]
+// Texte complet des le premier rendu (SSG / pre-rendu / reduced-motion)
+const displayedText = ref(initialTyping?.[0] ?? identite.prenom)
 let currentIndex = 0
 let charIndex = 0
 let deleting = false
 
 function typeEffect() {
   const customTexts = tm('hero.typing') as string[]
-  const currentText = customTexts && customTexts.length ? customTexts[currentIndex] : 'Henintsoa'
+  const currentText = customTexts && customTexts.length ? customTexts[currentIndex] : identite.prenom
   
   if (!currentText) return
 
@@ -114,6 +117,9 @@ function typeEffect() {
 }
 
 onMounted(() => {
+  // Pas d'animation si l'utilisateur prefere reduire les animations :
+  // le texte complet reste affiche (rendu statique / pre-rendu).
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
   typeEffect()
 })
 </script>
@@ -137,6 +143,12 @@ onMounted(() => {
 @keyframes blink {
   50% {
     opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
   }
 }
 </style>

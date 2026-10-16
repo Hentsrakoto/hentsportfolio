@@ -54,7 +54,7 @@ const todayDate = new Date().toLocaleDateString('fr-FR', {
         </div>
 
         <h1
-          class="font-journal text-5xl sm:text-6xl md:text-8xl lg:text-[8rem] font-black tracking-tighter text-primary dark:text-[#F3F4F6] mx-auto leading-none mb-2 break-words hyphens-auto break-all sm:break-normal"
+          class="font-journal text-5xl sm:text-6xl md:text-8xl lg:text-[8rem] font-black tracking-tighter text-primary dark:text-[#F3F4F6] mx-auto leading-none mb-2 break-words hyphens-none text-balance"
         >
           The Hentsrakoto
         </h1>

@@ -1,3 +1,5 @@
+import { identite } from '@/data/identite'
+
 export default {
   nav: {
     home: 'Home',
@@ -15,11 +17,11 @@ export default {
     title1: "The Mind Behind",
     title2: "The Code.",
     meet: "Meet",
-    typing: ['Henintsoa', 'the Developer', 'the Builder'],
+    typing: [identite.prenom, 'the Developer', 'the Builder'],
     p1: "Master 1 MIAGE student and web developer, I build modern applications combining frontend, backend, databases and intelligent systems. Each project is an opportunity to turn a concrete need into a performant and scalable solution.",
     p2: "Based in Madagascar, I work primarily with React, Java, Spring Boot, Laravel and PostgreSQL. I am also interested in Data, recommendation systems and Machine Learning.",
     cta: "See my projects",
-    fig1: "Fig 1. Henintsoa in his element.",
+    fig1: `Fig 1. ${identite.prenom} in his element.`,
     pullQuote: "Turning ideas into concrete, performant and scalable applications."
   },
   sectionTitle: {
@@ -48,7 +50,7 @@ export default {
     contactSubtitle: "Have a project in mind or simply want to chat? Letters to the editor."
   },
   me: {
-    intro: "I am Henintsoa Ny Aina, a Master 1 MIAGE student and web developer. I enjoy turning a business idea or requirement into a concrete, performant and scalable application. I work primarily with React, Java, Spring Boot, Laravel and PostgreSQL, and I am interested in Data and Machine Learning.",
+    intro: `I am ${identite.nomApropos}, a Master 1 MIAGE student and web developer. I enjoy turning a business idea or requirement into a concrete, performant and scalable application. I work primarily with React, Java, Spring Boot, Laravel and PostgreSQL, and I am interested in Data and Machine Learning.`,
     devTitle: "Full-Stack Development",
     devDesc: "Frontend, backend, REST APIs and databases — I cover the full application stack.",
     curiousTitle: "Curious & Solution-Oriented",

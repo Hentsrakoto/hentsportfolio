@@ -5,7 +5,7 @@
       <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
         {{ $t('sectionTitle.contactBadge') }}
       </span>
-      <h2 class="font-journal text-4xl sm:text-5xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3 break-words hyphens-auto break-all sm:break-normal">
+      <h2 class="font-journal text-4xl sm:text-5xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3 break-words hyphens-none text-balance">
         {{ $t('sectionTitle.contactTitle') }}
       </h2>
       <p class="font-sans text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto sm:mx-0 italic">
@@ -26,7 +26,7 @@
             <h4 class="font-sans text-xs font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400 mb-1">
               {{ info.title }}
             </h4>
-            <a :href="info.href" class="font-serif text-base md:text-lg font-bold text-primary dark:text-gray-200 hover:text-secondary hover:underline break-words transition-colors">
+            <a :href="info.href" :class="{ 'whitespace-nowrap': info.href.startsWith('mailto:') }" class="font-serif text-base md:text-lg font-bold text-primary dark:text-gray-200 hover:text-secondary hover:underline transition-colors">
               {{ info.value }}
             </a>
           </div>

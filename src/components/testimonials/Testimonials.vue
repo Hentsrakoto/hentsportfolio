@@ -47,12 +47,14 @@
 </template>
 
 <script setup lang="ts">
+import { identite } from '@/data/identite'
+
 const testimonials = [
   {
     name: 'Lee Jenny R.',
     role: 'CEO, PlanetGame Madagascar',
     content:
-      "Un travail exceptionnel ! Henintsoa a su capter l'essence de notre marque et l'a traduite en une interface web magnifique et fonctionnelle.",
+      `Un travail exceptionnel ! ${identite.prenom} a su capter l'essence de notre marque et l'a traduite en une interface web magnifique et fonctionnelle.`,
   }
 ]
 </script>

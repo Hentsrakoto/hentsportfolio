@@ -5,7 +5,7 @@
       <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
         {{ $t('sectionTitle.projBadge') }}
       </span>
-      <h2 class="font-journal text-4xl sm:text-5xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3 break-words hyphens-auto break-all sm:break-normal">
+      <h2 class="font-journal text-4xl sm:text-5xl md:text-7xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3 break-words hyphens-none text-balance">
         {{ $t('sectionTitle.projTitle') }}
       </h2>
       <p class="font-sans text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto sm:mx-0 italic">
@@ -29,7 +29,7 @@
           <img
             :src="featuredProject.imageUrl"
             :alt="featuredProject.title"
-            class="w-full h-56 object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500 mix-blend-multiply dark:mix-blend-normal"
+            class="w-full h-56 object-contain grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500 mix-blend-multiply dark:mix-blend-normal"
           />
           <figcaption class="text-right text-[10px] uppercase tracking-wider text-gray-400 mt-1 pb-1">{{ $t('portfolio.fig1') }}</figcaption>
         </figure>
@@ -69,7 +69,7 @@
             <img
               :src="proj.imageUrl"
               :alt="proj.title"
-              class="w-full h-32 object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500 mix-blend-multiply dark:mix-blend-normal"
+              class="w-full h-32 object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500 mix-blend-multiply dark:mix-blend-normal"
             />
           </figure>
 
