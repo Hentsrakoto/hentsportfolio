@@ -3,13 +3,13 @@
     <!-- Header Journal Style -->
     <div class="border-b-[3px] border-primary dark:border-gray-500 pb-4 mb-8 text-center sm:text-left">
       <span class="uppercase tracking-[0.2em] text-xs font-bold text-secondary dark:text-gray-400 block mb-2 font-sans">
-        Témoignages
+        {{ $t('temoignages.badge') }}
       </span>
       <h2 class="font-journal text-5xl sm:text-6xl font-black text-primary dark:text-[#F3F4F6] leading-none mb-3">
-        Témoignages
+        {{ $t('temoignages.titre') }}
       </h2>
       <p class="font-sans text-sm md:text-base text-gray-600 dark:text-gray-400 italic">
-        Retours de ceux avec qui j'ai collaboré.
+        {{ $t('temoignages.soustitre') }}
       </p>
     </div>
 
@@ -49,14 +49,16 @@
 </template>
 
 <script setup lang="ts">
-import { identite } from '@/data/identite'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const testimonials = [
+const { t } = useI18n()
+
+const testimonials = computed(() => [
   {
     name: 'Lee Jenny R.',
-    role: 'CEO, PlanetGame Madagascar',
-    content:
-      `Un travail exceptionnel ! ${identite.prenom} a su capter l'essence de notre marque et l'a traduite en une interface web magnifique et fonctionnelle.`,
-  }
-]
+    role: t('temoignages.role1'),
+    content: t('temoignages.contenu1'),
+  },
+])
 </script>

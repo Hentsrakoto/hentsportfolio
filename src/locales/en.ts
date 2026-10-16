@@ -63,7 +63,11 @@ export default {
     l2: "Bachelor's in Computer Science",
     l2Desc: "Computer Science, Risk and Decision — September 2023 · January 2026.",
     l1: "High School Diploma",
-    l1Desc: "Sciences — D"
+    l1Desc: "Sciences — D",
+    ecole: 'ESMIA — Antanimena',
+    statutEnCours: 'Ongoing',
+    periodeLicence: '2023 — 2026',
+    statutAnterieur: 'Earlier'
   },
   services: {
     webTitle: "Web Applications",
@@ -80,6 +84,9 @@ export default {
     archDesc: "Structuring scalable full-stack applications with an emphasis on maintainability and growth."
   },
   experience: {
+    periode1: 'Sep. 2024 — Jan. 2026',
+    periode2: 'May 2026',
+    periode3: '2023 — Ongoing',
     exp1Role: "Web Developer",
     exp1Company: "PlanetGame Madagascar",
     exp1Tasks: [
@@ -113,6 +120,9 @@ export default {
   contact: {
     coords: "Contact Details",
     socials: "Social Networks",
+    titreEmail: 'Email',
+    titreTel: 'Direct line',
+    titreLieu: 'Location',
     namePlaceholder: "Your full name",
     emailPlaceholder: "your.email{'@'}address.com",
     subjectPlaceholder: "Subject of correspondence",
@@ -123,15 +133,36 @@ export default {
     errEmail: "Please enter a valid email address.",
     errSubject: "Please enter a subject.",
     errMessage: "Please write your message.",
-    errSpam: "Your letter could not be sent."
+    errSpam: "Your letter could not be sent.",
+    libelleEmail: 'Email',
+    libelleSujet: 'Subject',
+    libelleMessage: 'Message',
+    toastSucces: 'Your letter has been received!',
+    toastErreur: 'Your letter got lost on the way.'
+  },
+  temoignages: {
+    badge: 'Testimonials',
+    titre: 'Testimonials',
+    soustitre: 'Feedback from people I have worked with.',
+    // citation originale conservée en FR
+    contenu1: `Un travail exceptionnel ! ${identite.prenom} a su capter l’essence de notre marque et l’a traduite en une interface web magnifique et fonctionnelle.`,
+    role1: 'CEO, PlanetGame Madagascar'
   },
   footer: {
     role: "Web Developer",
     tagline: "Building useful applications and turning ideas into concrete solutions.",
+    slogan: 'The Mind Behind The Code.',
     services: "Services",
     legal: "Legal Notice",
     legalText1: "This digital newspaper is independently published. Information is provided for reference and is subject to change without notice.",
     legalText2: "Digitally printed on the web, distributed worldwide.",
     rights: "All rights reserved."
+  },
+  meta: {
+    titre: 'Hentsrakoto | Développeur Web Frontend · Vue.js & React',
+    description: 'Portfolio of Hentsrakoto, web developer based in Madagascar (React, Vue.js, Spring Boot, Laravel, PostgreSQL). Available for internships, positions and freelance work.'
+  },
+  divers: {
+    noteCompetences: '* Non-exhaustive list of technologies.'
   }
 }

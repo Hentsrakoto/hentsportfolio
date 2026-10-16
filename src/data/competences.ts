@@ -1,10 +1,15 @@
-import type { GroupeCompetences } from './types';
+import type { GroupeCompetences, TexteFrEn } from './types';
 
-export const groupesCompetences: GroupeCompetences[] = [
+type GroupeCompetencesFrEn = Omit<GroupeCompetences, 'titre' | 'soustitre'> & {
+  titre: TexteFrEn;
+  soustitre: TexteFrEn;
+};
+
+export const groupesCompetences: GroupeCompetencesFrEn[] = [
   {
     id: 'dev',
-    titre: 'Développement',
-    soustitre: 'Frontend, Backend, Data & Mobile.',
+    titre: { fr: 'Développement', en: 'Development' },
+    soustitre: { fr: 'Frontend, Backend, Data & Mobile.', en: 'Frontend, Backend, Data & Mobile.' },
     items: [
       { nom: 'HTML', icone: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
       { nom: 'CSS', icone: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
@@ -26,8 +31,8 @@ export const groupesCompetences: GroupeCompetences[] = [
   },
   {
     id: 'outils',
-    titre: 'Méthodes & Environnement',
-    soustitre: 'Bases de données, DevOps & outils du quotidien.',
+    titre: { fr: 'Méthodes & Environnement', en: 'Methods & Environment' },
+    soustitre: { fr: 'Bases de données, DevOps & outils du quotidien.', en: 'Databases, DevOps & everyday tools.' },
     items: [
       { nom: 'PostgreSQL', icone: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
       { nom: 'MySQL', icone: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },

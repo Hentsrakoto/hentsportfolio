@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { groupesCompetences } from '@/data/competences'
+import type { TexteFrEn } from '@/data/types'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+
+const txt = (v: TexteFrEn) => (locale.value === 'en' ? v.en : v.fr)
 
 const groupeDev = groupesCompetences.find((g) => g.id === 'dev')
 const groupeOutils = groupesCompetences.find((g) => g.id === 'outils')
@@ -28,10 +31,10 @@ const groupeOutils = groupesCompetences.find((g) => g.id === 'outils')
       <div class="flex-1 border-[2px] border-primary dark:border-gray-600 p-6 relative">
         <header class="border-b-2 border-primary dark:border-gray-600 pb-4 mb-8">
           <h3 class="font-journal text-3xl md:text-4xl font-bold text-primary dark:text-white uppercase tracking-tight">
-            {{ groupeDev?.titre }}
+            {{ groupeDev ? txt(groupeDev.titre) : '' }}
           </h3>
           <p class="font-sans text-sm md:text-base italic text-gray-600 dark:text-gray-400 mt-2">
-            {{ groupeDev?.soustitre }}
+            {{ groupeDev ? txt(groupeDev.soustitre) : '' }}
           </p>
         </header>
 
@@ -58,10 +61,10 @@ const groupeOutils = groupesCompetences.find((g) => g.id === 'outils')
         <div class="border-[2px] border-dashed border-primary dark:border-gray-600 p-6 flex-1 relative bg-gray-50 dark:bg-[#1A1A1A] w-full">
           <header class="border-b-2 border-primary dark:border-gray-600 pb-4 mb-8 text-center">
             <h3 class="font-journal text-2xl md:text-3xl font-bold text-primary dark:text-white uppercase tracking-tight">
-              {{ groupeOutils?.titre }}
+              {{ groupeOutils ? txt(groupeOutils.titre) : '' }}
             </h3>
             <p class="font-sans text-sm italic text-gray-600 dark:text-gray-400 mt-2">
-              {{ groupeOutils?.soustitre }}
+              {{ groupeOutils ? txt(groupeOutils.soustitre) : '' }}
             </p>
           </header>
 
@@ -87,7 +90,7 @@ const groupeOutils = groupesCompetences.find((g) => g.id === 'outils')
         <!-- Petite note de bas de page type journal -->
         <div class="border-t-[3px] border-b-[3px] border-double border-primary dark:border-gray-600 py-3 px-4 text-center bg-transparent">
           <p class="font-sans text-xs uppercase tracking-widest font-bold text-gray-800 dark:text-gray-400">
-            * Liste non exhaustive des technologies.
+            {{ $t('divers.noteCompetences') }}
           </p>
         </div>
       </div>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 import Header from '@/components/header/Header.vue'
 import Hero from '@/components/hero/HeroSection.vue'
 import Moi from '@/components/me/Me.vue'
@@ -15,13 +17,32 @@ import ScrollReveal from '@/components/ui/ScrollReveal.vue'
 import ReadingProgress from '@/components/ui/ReadingProgress.vue'
 import BackToTop from '@/components/ui/BackToTop.vue'
 
+const { locale, t } = useI18n()
+
 // Format current date exactly like a newspaper date (e.g. Lundi 24 Février 2026)
-const todayDate = new Date().toLocaleDateString('fr-FR', {
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-})
+const todayDate = computed(() =>
+  new Date().toLocaleDateString(locale.value === 'en' ? 'en-GB' : 'fr-FR', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }),
+)
+
+watch(
+  locale,
+  () => {
+    // Garde SSR : les stubs de pre-rendu n'exposent pas querySelector.
+    if (typeof document === 'undefined' || typeof document.querySelector !== 'function') return
+    document.documentElement.lang = locale.value as string
+    document.title = t('meta.titre') as string
+    const metaDescription = document.querySelector('meta[name="description"]')
+    if (metaDescription) {
+      metaDescription.setAttribute('content', t('meta.description') as string)
+    }
+  },
+  { immediate: true },
+)
 </script>
 
 <template>

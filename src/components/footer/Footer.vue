@@ -96,7 +96,7 @@ const socialLinks = [
       <!-- Bottom Bar -->
       <div class="flex flex-col md:flex-row justify-between items-center text-xs font-sans font-bold uppercase tracking-wider text-gray-600 dark:text-gray-400">
         <p>&copy; {{ currentYear }} {{ identite.nomLegal }}. {{ t('footer.rights') }}</p>
-        <p class="mt-2 md:mt-0">The Mind Behind The Code.</p>
+        <p class="mt-2 md:mt-0">{{ t('footer.slogan') }}</p>
       </div>
       
     </div>

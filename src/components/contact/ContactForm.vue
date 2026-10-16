@@ -79,7 +79,7 @@
             </div>
             <div class="flex-1">
               <label for="contact-email" class="block font-sans text-xs font-bold uppercase tracking-[0.15em] text-gray-600 dark:text-gray-400 mb-1">
-                Email
+                {{ $t('contact.libelleEmail') }}
               </label>
               <div class="border-b border-primary dark:border-gray-500">
                 <input
@@ -102,7 +102,7 @@
 
           <div>
             <label for="contact-subject" class="block font-sans text-xs font-bold uppercase tracking-[0.15em] text-gray-600 dark:text-gray-400 mb-1">
-              Sujet
+              {{ $t('contact.libelleSujet') }}
             </label>
             <div class="border-b border-primary dark:border-gray-500">
               <input
@@ -124,7 +124,7 @@
 
           <div>
             <label for="contact-message" class="block font-sans text-xs font-bold uppercase tracking-[0.15em] text-gray-600 dark:text-gray-400 mb-1">
-              Message
+              {{ $t('contact.libelleMessage') }}
             </label>
             <div class="border border-primary dark:border-gray-500 p-2 relative h-64 bg-[#FDFBF7] dark:bg-[#121212]">
               <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: repeating-linear-gradient(transparent, transparent 31px, currentColor 31px, currentColor 32px);"></div>
@@ -191,11 +191,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { identite } from '@/data/identite'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
 const form = ref({
   name: '',
@@ -263,37 +263,38 @@ const handleSubmit = async () => {
     await new Promise((resolve) => setTimeout(resolve, 800))
 
     const subject = encodeURIComponent(form.value.subject)
+    const en = locale.value === 'en'
     const body = encodeURIComponent(
-      `Nom: ${form.value.name}\nEmail: ${form.value.email}\n\nMessage:\n${form.value.message}`,
+      `${en ? 'Name' : 'Nom'}: ${form.value.name}\nEmail: ${form.value.email}\n\n${en ? 'Message' : 'Message'}:\n${form.value.message}`,
     )
 
     window.location.href = `mailto:${identite.email}?subject=${subject}&body=${body}`
 
-    showToast('Le facteur a bien reçu votre lettre !', 'success')
+    showToast(t('contact.toastSucces'), 'success')
     form.value = { name: '', email: '', subject: '', message: '', company: '' }
   } catch {
-    showToast("La lettre s'est perdue en chemin.", 'error')
+    showToast(t('contact.toastErreur'), 'error')
   } finally {
     isSubmitting.value = false
   }
 }
 
-const contactInfo: { title: string; value: string; href?: string }[] = [
+const contactInfo = computed<{ title: string; value: string; href?: string }[]>(() => [
   {
-    title: 'E-mail',
+    title: t('contact.titreEmail'),
     value: identite.email,
     href: `mailto:${identite.email}`,
   },
   {
-    title: 'Ligne Directe',
+    title: t('contact.titreTel'),
     value: identite.telephone,
     href: identite.telephoneHref,
   },
   {
-    title: 'Localisation',
+    title: t('contact.titreLieu'),
     value: identite.localisation,
   },
-]
+])
 </script>
 
 <style scoped>
