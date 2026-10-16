@@ -1,0 +1,77 @@
+/* Design tokens — The Hentsrakoto Journal (Phase 0)
+ * Source unique des couleurs / polices / espacements.
+ * Le theme sombre du projet passe par la classe `.dark` sur <html>
+ * (voir src/composables/useDarkMode.ts). On expose les memes
+ * surcharges sous `[data-theme="dark"]` pour compatibilite future.
+ * Visuel inchange : ces variables documentent l'existant, elles ne
+ * remplacent pas encore les classes Tailwind en dur.
+ */
+
+:root {
+  /* --- Papier / encre (wrapper App.vue + body) --- */
+  --color-paper: #fdfbf7;
+  --color-ink: #111827;
+  --color-paper-soft: #f9fafb;
+
+  /* --- Primaire / secondaire (tailwind.config.js) --- */
+  --color-primary: #000000;
+  --color-primary-light: #333333;
+  --color-secondary: #555555;
+  --color-secondary-light: #777777;
+  --color-text: #111827;
+  --color-text-light: #4b5563;
+
+  /* --- Typographie --- */
+  --font-sans: "Merriweather", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-mono: "Fira Code", "JetBrains Mono", monospace;
+  --font-journal: "Old Standard TT", "Playfair Display", serif;
+
+  /* --- Echelle de texte constatee --- */
+  --text-masthead: clamp(3rem, 10vw, 8rem);
+  --text-section: clamp(2.25rem, 6vw, 4.5rem);
+  --text-body: 1rem;
+  --text-meta: 0.625rem;
+
+  /* --- Espacements / structure --- */
+  --wrapper-width-mobile: 96%;
+  --wrapper-width-desktop: 94%;
+  --section-gap: 2rem;
+  --card-padding: 1.5rem;
+
+  /* --- Bordures journal --- */
+  --rule-double-fat: 6px double var(--color-primary);
+  --rule-section: 3px solid var(--color-primary);
+  --rule-card: 2px solid var(--color-primary);
+
+  /* --- Ombres --- */
+  --shadow-wrapper: 0 0 40px rgba(0, 0, 0, 0.05);
+  --shadow-hard: 4px 4px 0px rgba(0, 0, 0, 1);
+
+  /* --- Motion --- */
+  --transition-theme: 300ms;
+}
+
+.dark,
+[data-theme="dark"] {
+  --color-paper: #121212;
+  --color-ink: #f3f4f6;
+  --color-paper-soft: #1a1a1a;
+  --color-primary: #e5e5e5;
+  --color-primary-light: #e5e5e5;
+  --color-secondary: #a3a3a3;
+  --color-secondary-light: #a3a3a3;
+  --color-text: #f3f4f6;
+  --color-text-light: #a3a3a3;
+  --rule-double-fat: 6px double rgba(229, 229, 229, 0.5);
+  --rule-section: 3px solid #6b7280;
+  --rule-card: 2px solid #4b5563;
+  --shadow-wrapper: none;
+  --shadow-hard: 4px 4px 0px rgba(255, 255, 255, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-theme: 0ms;
+  }
+}
