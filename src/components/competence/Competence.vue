@@ -35,8 +35,8 @@ const groupeOutils = groupesCompetences.find((g) => g.id === 'outils')
           </p>
         </header>
 
-        <div class="flex flex-wrap justify-center gap-x-4 gap-y-8">
-          <div v-for="skill in groupeDev?.items" :key="skill.nom" class="flex flex-col items-center group cursor-crosshair w-[88px] sm:w-[96px]">
+        <div class="flex flex-wrap justify-center gap-x-2 sm:gap-x-4 gap-y-8">
+          <div v-for="skill in groupeDev?.items" :key="skill.nom" class="flex flex-col items-center group cursor-crosshair w-[80px] sm:w-[96px]">
             <div class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center p-3 border-[1.5px] border-black dark:border-white bg-white dark:bg-black grayscale group-hover:grayscale-0 transition-all duration-300 shadow-[4px_4px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_rgba(255,255,255,1)] group-hover:translate-y-1 group-hover:translate-x-1 group-hover:shadow-[0px_0px_0px_rgba(0,0,0,1)] dark:group-hover:shadow-[0px_0px_0px_rgba(255,255,255,1)]">
               <img
                 :src="skill.icone"
@@ -65,8 +65,8 @@ const groupeOutils = groupesCompetences.find((g) => g.id === 'outils')
             </p>
           </header>
 
-          <div class="flex flex-wrap justify-center gap-x-4 gap-y-8">
-            <div v-for="skill in groupeOutils?.items" :key="skill.nom" class="flex flex-col items-center group cursor-crosshair w-[88px] sm:w-[96px]">
+          <div class="flex flex-wrap justify-center gap-x-2 sm:gap-x-4 gap-y-8">
+            <div v-for="skill in groupeOutils?.items" :key="skill.nom" class="flex flex-col items-center group cursor-crosshair w-[80px] sm:w-[96px]">
               <div class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center p-3 rounded-full border border-gray-400 dark:border-gray-600 bg-white dark:bg-black grayscale drop-shadow-sm group-hover:grayscale-0 transition-all duration-300 transform group-hover:-rotate-6 hover:scale-110">
                 <img
                   :src="skill.icone"

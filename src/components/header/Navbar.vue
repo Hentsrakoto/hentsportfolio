@@ -32,6 +32,18 @@ const navLinks = [
       </a>
     </nav>
 
+    <!-- Anchor Navigation Links compactes (mobile, scroll horizontal sans JS) -->
+    <nav class="flex md:hidden items-center gap-1 overflow-x-auto pointer-events-auto flex-1 min-w-0 mr-2" aria-label="Navigation principale">
+      <a
+        v-for="link in navLinks"
+        :key="link.href"
+        :href="link.href"
+        class="font-sans font-bold uppercase tracking-widest text-xs px-2 py-2 min-h-[44px] inline-flex items-center justify-center whitespace-nowrap shrink-0 text-primary dark:text-gray-300 bg-[#FDFBF7]/80 dark:bg-[#121212]/80 backdrop-blur-sm border border-transparent hover:border-primary dark:hover:border-gray-500 hover:bg-[#FDFBF7] dark:hover:bg-[#121212] transition-all duration-200"
+      >
+        {{ t(link.key) }}
+      </a>
+    </nav>
+
     <!-- Right controls -->
     <div class="flex items-center gap-2 sm:gap-3 ml-auto pointer-events-auto">
       <!-- Download CV Button -->

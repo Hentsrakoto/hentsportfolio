@@ -89,10 +89,10 @@ const todayDate = new Date().toLocaleDateString('fr-FR', {
 
       <Header class="mb-10" />
 
-      <main id="contenu" tabindex="-1" class="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-10 relative z-10">
+      <main id="contenu" tabindex="-1" class="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-10 lg:items-start relative z-10">
         <!-- Main Content Area -->
         <div
-          class="contents lg:block lg:col-span-8 lg:border-r-[3px] border-primary/20 dark:border-primary/20 lg:pr-10 lg:space-y-16"
+          class="contents lg:block lg:col-span-8 lg:border-r-[3px] border-primary/20 dark:border-primary/20 lg:pr-10 lg:space-y-12"
         >
           <ScrollReveal class="order-[1] lg:order-none w-full">
             <Hero />
@@ -118,7 +118,7 @@ const todayDate = new Date().toLocaleDateString('fr-FR', {
             class="order-[12] lg:order-none border-t border-dashed border-primary/30 dark:border-primary/20 w-full"
           />
 
-          <ScrollReveal class="order-[15] lg:order-none w-full mt-4 lg:mt-0">
+          <ScrollReveal class="order-[15] lg:order-none w-full">
             <Contact />
           </ScrollReveal>
         </div>

@@ -13,61 +13,55 @@
       </p>
     </div>
 
-    <!-- Editorial Layout for Projects -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start border-t-[2px] border-b-[2px] border-primary dark:border-gray-500 py-6">
+    <!-- Editorial Layout for Projects : à la une pleine largeur + grille uniforme -->
+    <div class="border-t-[2px] border-b-[2px] border-primary dark:border-gray-500 py-6 flex flex-col gap-8">
 
-      <!-- Feature Project -->
-      <article v-if="featuredProject" class="col-span-1 md:col-span-8 md:border-r-[2px] border-primary dark:border-gray-500 md:pr-8 flex flex-col gap-4">
-        <h3 class="font-journal text-4xl sm:text-5xl font-black text-primary dark:text-white leading-none break-words">
-          {{ txt(featuredProject.titre) }}
-        </h3>
-        <p class="font-sans font-bold uppercase tracking-widest text-xs text-gray-600 dark:text-gray-400 border-b border-primary/20 dark:border-gray-700 pb-2">
-          {{ txt(featuredProject.categorie) }}
-        </p>
-
+      <!-- À la une (Tsidika) : même contenu minimal que les autres, pleine largeur -->
+      <article v-if="featuredProject" class="flex flex-col gap-3 pb-8 border-b border-primary/20 dark:border-gray-700 min-w-0">
         <figure v-if="featuredProject.capture" class="relative border-[2px] border-primary dark:border-gray-500 p-1 bg-white dark:bg-[#1A1A1A]">
           <img
             :src="featuredProject.capture.src"
             :alt="txt(featuredProject.capture.alt)"
             loading="lazy"
             decoding="async"
-            class="w-full h-56 object-contain grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500 mix-blend-multiply dark:mix-blend-normal"
+            class="w-full h-40 object-contain grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500 mix-blend-multiply dark:mix-blend-normal"
           />
           <figcaption class="text-right text-xs uppercase tracking-wider text-gray-600 dark:text-gray-400 mt-1 pb-1">{{ $t('portfolio.fig1') }}</figcaption>
         </figure>
 
-        <p class="font-serif text-lg leading-relaxed text-text dark:text-gray-200 mt-2 first-letter:text-6xl first-letter:font-journal first-letter:font-black first-letter:float-left first-letter:mr-3 first-letter:mt-1">
+        <h3 class="font-journal text-3xl font-bold text-primary dark:text-white leading-tight break-words">
+          {{ txt(featuredProject.titre) }}
+        </h3>
+        <p class="font-sans font-bold uppercase tracking-wider text-xs text-gray-600 dark:text-gray-400 break-words">
+          {{ txt(featuredProject.categorie) }}
+        </p>
+
+        <p class="font-serif text-sm leading-relaxed text-gray-800 dark:text-gray-300 break-words">
           {{ txt(featuredProject.description) }}
         </p>
 
-        <p class="font-sans text-sm text-gray-600 dark:text-gray-400 italic">
+        <p class="font-sans text-xs text-gray-600 dark:text-gray-400 italic break-words">
           {{ txt(featuredProject.role) }}
         </p>
 
-        <ul class="font-sans text-sm text-gray-700 dark:text-gray-300 space-y-2 mt-4 columns-1 sm:columns-2 gap-6">
-          <li v-for="(line, idx) in featuredProject.details" :key="idx" class="break-inside-avoid shadow-sm mb-2 p-2 border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
-            <span class="font-bold mr-1">❖</span> {{ txt(line) }}
-          </li>
-        </ul>
-
-        <div class="flex flex-wrap gap-2 mt-4 pt-4 border-t border-dashed border-gray-300 dark:border-gray-700">
+        <div class="flex flex-wrap gap-1 mt-1 pt-3 border-t border-dashed border-gray-300 dark:border-gray-700">
           <span class="font-sans text-xs font-bold uppercase tracking-widest text-gray-600 dark:text-gray-400 pt-1 mr-2">{{ $t('portfolio.tools') }}</span>
           <span
             v-for="tech in featuredProject.technologies"
             :key="tech"
-            class="font-sans text-xs font-bold uppercase px-2 py-1 border border-primary dark:border-gray-500 text-primary dark:text-gray-300"
+            class="font-sans text-xs font-bold uppercase px-1.5 py-0.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 break-words"
           >
             {{ tech }}
           </span>
         </div>
 
-        <div class="flex flex-wrap gap-2 mt-2">
+        <div class="flex flex-wrap gap-1 mt-2">
           <a
             v-if="featuredProject.lienSite"
             :href="featuredProject.lienSite"
             target="_blank"
             rel="noopener"
-            class="font-sans text-xs font-bold uppercase px-2 py-1 border border-primary dark:border-gray-500 text-primary dark:text-gray-300 inline-flex items-center gap-1"
+            class="font-sans text-xs font-bold uppercase px-1.5 py-0.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 inline-flex items-center gap-1"
           >
             <ExternalLink class="w-3 h-3" /> Démo
           </a>
@@ -76,57 +70,58 @@
             :href="featuredProject.lienCode"
             target="_blank"
             rel="noopener"
-            class="font-sans text-xs font-bold uppercase px-2 py-1 border border-primary dark:border-gray-500 text-primary dark:text-gray-300 inline-flex items-center gap-1"
+            class="font-sans text-xs font-bold uppercase px-1.5 py-0.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 inline-flex items-center gap-1"
           >
             <Github class="w-3 h-3" /> Code
           </a>
           <span
             v-if="!featuredProject.lienSite && !featuredProject.lienCode"
-            class="font-sans text-xs font-bold uppercase px-2 py-1 border border-dashed border-gray-400 dark:border-gray-600 text-gray-600 dark:text-gray-400"
+            class="font-sans text-xs font-bold uppercase px-1.5 py-0.5 border border-dashed border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400"
           >
             {{ locale === 'en' ? (featuredProject.statut === 'prive' ? 'Private project' : 'Academic project') : (featuredProject.statut === 'prive' ? 'Projet privé' : 'Projet académique') }}
           </span>
         </div>
-
       </article>
 
-      <!-- Side Articles -->
-      <aside class="col-span-1 md:col-span-4 flex flex-col gap-10">
+      <!-- Grille uniforme des 3 autres projets : mêmes blocs que la une -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
         <article
           v-for="proj in vignettes"
           :key="proj.id"
-          class="flex flex-col gap-3 pb-8 border-b border-primary/20 dark:border-gray-700 last:border-0 last:pb-0"
+          class="flex flex-col gap-3 pb-8 border-b border-primary/20 dark:border-gray-700 min-w-0"
         >
-          <figure v-if="proj.capture" class="relative border border-primary dark:border-gray-600 p-0.5 mb-2">
+          <figure v-if="proj.capture" class="relative border-[2px] border-primary dark:border-gray-500 p-1 bg-white dark:bg-[#1A1A1A]">
             <img
               :src="proj.capture.src"
               :alt="txt(proj.capture.alt)"
               loading="lazy"
               decoding="async"
-              class="w-full h-32 object-contain grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500 mix-blend-multiply dark:mix-blend-normal"
+              class="w-full h-40 object-contain grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500 mix-blend-multiply dark:mix-blend-normal"
             />
+            <figcaption class="text-right text-xs uppercase tracking-wider text-gray-600 dark:text-gray-400 mt-1 pb-1">{{ $t('portfolio.fig1') }}</figcaption>
           </figure>
 
-          <h3 class="font-journal text-3xl font-bold text-primary dark:text-white leading-tight">
+          <h3 class="font-journal text-3xl font-bold text-primary dark:text-white leading-tight break-words">
             {{ txt(proj.titre) }}
           </h3>
-          <p class="font-sans font-bold uppercase tracking-wider text-xs text-gray-600 dark:text-gray-400">
+          <p class="font-sans font-bold uppercase tracking-wider text-xs text-gray-600 dark:text-gray-400 break-words">
             {{ txt(proj.categorie) }}
           </p>
 
-          <p class="font-serif text-sm leading-relaxed text-gray-800 dark:text-gray-300">
+          <p class="font-serif text-sm leading-relaxed text-gray-800 dark:text-gray-300 break-words">
             {{ txt(proj.description) }}
           </p>
 
-          <p class="font-sans text-xs text-gray-600 dark:text-gray-400 italic">
+          <p class="font-sans text-xs text-gray-600 dark:text-gray-400 italic break-words">
             {{ txt(proj.role) }}
           </p>
 
-          <div class="flex flex-wrap gap-1 mt-1">
+          <div class="flex flex-wrap gap-1 mt-1 pt-3 border-t border-dashed border-gray-300 dark:border-gray-700">
+            <span class="font-sans text-xs font-bold uppercase tracking-widest text-gray-600 dark:text-gray-400 pt-1 mr-2">{{ $t('portfolio.tools') }}</span>
             <span
               v-for="tech in proj.technologies"
               :key="tech"
-              class="font-sans text-xs font-bold uppercase px-1.5 py-0.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400"
+              class="font-sans text-xs font-bold uppercase px-1.5 py-0.5 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400 break-words"
             >
               {{ tech }}
             </span>
@@ -159,7 +154,7 @@
             </span>
           </div>
         </article>
-      </aside>
+      </div>
 
     </div>
   </section>
